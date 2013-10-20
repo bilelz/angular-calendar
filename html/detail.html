@@ -25,9 +25,36 @@
 	<div class="col-md-4">
 		
 		<p>
-						
-			<a href="https://twitter.com/share" class="twitter-share-button" data-via="bilelz" data-lang="fr">Tweeter</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			
+			<a class="btn btn-default" href="https://twitter.com/intent/tweet?text={{entry.title.$t}}&url=d/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" target="_blank">
+											<i class=" icon-twitter  icon-2x"></i>
+									</a>
+			
+			
+			
+						<a class="btn btn-default" href="d/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" 
+						onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]={{entry.title.$t}}&amp;p[summary]={{entry.title.$t}}%0D%0A%0D%0A'+this.href+'&amp;p[url]='+this.href+'&amp;p[images][0]={{entry.content.$t | getImage}}','sharer','toolbar=0,status=0,width=560,height=350'); return false;" target="_parent" href="" style="vertical-align: top" target="_blank">
+						                <i class="icon-facebook-sign icon-2x"></i>
+						            </a>
+
+			
+			<a href="d/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" onclick="javascript:window.open('https://plus.google.com/share?url='+this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-default" target="_blank">
+	<i class=" icon-google-plus icon-2x"></i>
+</a>
+
+<a class="btn btn-default" href="http://www.linkedin.com/shareArticle?mini=true&url=d/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}&title={{entry.title.$t}}&summary={{entry.title.$t}}&source={articleSource}" target="_blank">
+											<i class="icon-linkedin-sign  icon-2x"></i>
+									</a>
+									
+<a class="btn btn-default" href="mailto:?subject={{entry.title.$t}}&amp;body={{entry.title.$t}}%0D%0A%0D%0Ad/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}">
+											<i class="icon-envelope icon-2x"></i>
+									</a>
+
+
+
+
+
 		</p>
 		
 		<h1 class="title">

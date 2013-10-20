@@ -13,6 +13,8 @@ require.config({
         bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
         angular : 'libs/angular/angular',
         moment : 'libs/momentjs/moment',
+        twitter : 'http://platform.twitter.com/widgets',
+        gplus : 'https://apis.google.com/js/plusone.js',
         project : 'project'
     },
   shim: {
@@ -23,7 +25,7 @@ require.config({
 });
 
 
-require(['jQuery', 'angular', 'moment', 'bootstrap', 'project'] , function ($,  angular, moment) {
+require(['jQuery', 'angular', 'moment', 'bootstrap' , 'twitter', 'gplus', 'project'] , function ($,  angular, moment) {
   $(function () { // using jQuery because it will run this even if DOM load already happened
   	//console.log("require");
     angular.bootstrap(document , ['angular-calendar']);
@@ -83,7 +85,14 @@ define(['angular' ] , function (angular) {
   			return "event";
   		}
   	}
-  })
+  }).filter('social', function(){
+  	return function(content){
+  		twttr.widgets.load();
+  		return (content == undefined)?undefined: 	'<a href="https://twitter.com/share" class="twitter-share-button" data-url="d/blabla/'+content.split("/")[content.split("/").length - 1]+'" data-text="ttt" data-via="bilelz" data-lang="fr">Tweeter</a>';
+  	}
+  });
+  
+  
   
   
 });

@@ -83,6 +83,8 @@ function DetailController($scope,$location, $routeParams, $http) {
 		$http.jsonp(url).success(function(data) {
 			$scope.entry = data.entry;
 			//console.log("searching done!");
+			//twttr.widgets.load();
+			gapi.plusone.go();
 			$scope.log = "";
 		}).
   error(function(data, status, headers, config) {
