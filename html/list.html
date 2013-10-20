@@ -1,0 +1,27 @@
+<h1 class="title">{{calendar.title.$t}} {{log}}</h1>
+
+<ul class="list-group">
+	<li ng-repeat="entry in calendar.entry" title="{{entry.id.$t}}"  class="list-group-item"
+		style="background-image: url({{entry.content.$t | getImage}})">
+		
+		<a href="{{baseHref}}d/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}">
+			
+			<h4 class="list-group-item-heading">{{entry.title.$t}}</h4>
+			
+			<p class="list-group-item-text">
+				<span title="{{entry.gd$when[0].startTime}}">
+					{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+					{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+				</span>
+			</p>
+			
+			<p class="text-right">{{entry.gd$where[0].valueString}}</p>
+			
+		</a>
+	
+  </li>
+</ul>
+
+<p class="text-center">
+	<a href="add" class="btn btn-success">Add an event</a>
+</p>

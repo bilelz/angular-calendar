@@ -1,0 +1,15 @@
+{
+  "name": "angular-calendar",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "momentjs": "latest",
+    "requirejs": "latest"
+    
+  },
+  "license": "MIT",
+  "private": true
+}

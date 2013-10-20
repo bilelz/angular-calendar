@@ -1,0 +1,87 @@
+body{
+	background-color: #F3F3F3;
+	position: relative;
+	padding-top: 70px;
+}
+
+img{
+	max-width: 100%;
+}
+
+blockquote{
+	background: #fff;
+}
+
+.list-group{	
+	border-bottom: 1px solid #dddddd;
+	box-shadow: 0px 0px 0px #AAA;
+	color: black;
+}
+.list-group .list-group-item a{
+	background-color: rgba(255,255,255,.8);
+	color: #444;
+	text-shadow: 0px 1px 0px #fff;
+	padding: 5px 10px;
+	display: block;
+	text-decoration: none;
+	transition: .3s;
+}
+
+
+.list-group .list-group-item a:hover, .list-group .list-group-item a:active, .list-group .list-group-item a:focus{
+	background-color: rgba(255,255,255,0);
+	transition: .1s;
+}
+
+.list-group .list-group-item{
+	padding: 0;
+	margin-bottom: 10px;
+	background: white top center no-repeat;
+	transition: .3s ease-out;
+}
+
+.list-group .list-group-item:hover{
+	background: white center center no-repeat;
+	transition: .6s ease-out;
+}
+
+.list-group-item-heading{
+	font-weight: bold;	
+}
+
+.list-group-item p{
+	margin-bottom: 0;
+}
+
+.title{
+	background-color: #7fc04c;
+	color: white;
+	position: relative;
+	padding: 5px 15px;
+	font-size: 24px;
+	display: inline-block;
+}
+
+.title a {
+	color : white;
+	display: block;
+}
+
+.title::after {
+position: absolute;
+
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 0 15px 10px 0;
+border-color: transparent #999 transparent transparent;
+content: ' ';
+
+left: auto;
+right: 0;
+bottom: -10px;
+border-width: 10px 15px 0 0;
+border-color: #5a8e32 transparent transparent transparent;
+content: ' ';
+	
+}

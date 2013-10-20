@@ -1,0 +1,51 @@
+
+<div class="row">
+	
+	<div class="col-md-8">		
+		
+		<title>{{entry.title.$t}}</title>
+		<h1 class="title">{{entry.title.$t}} {{log}}</h1><br/>
+		<span title="{{entry.gd$when[0].startTime}}">
+			<i class="icon-calendar"></i>
+			{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+			{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+			
+			<i class="icon-chevron-right"></i>
+			
+			{{entry.gd$when[0].endTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+		</span>
+		<br/>		
+	
+		<blockquote>
+			<span ng-bind-html-unsafe="entry.content.$t | breakline"></span>
+		</blockquote>
+		
+		
+	</div>
+	<div class="col-md-4">
+		
+		<p>
+						
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="bilelz" data-lang="fr">Tweeter</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</p>
+		
+		<h1 class="title">
+			<a href="http://maps.google.com/maps?q={{entry.gd$where[0].valueString}}" target="_blank">
+				<i class="icon-map-marker"></i> {{entry.gd$where[0].valueString}}
+			</a>
+		</h1>
+		<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+		src="https://maps.google.fr/maps?q={{entry.gd$where[0].valueString}}&amp;ie=UTF8&amp;hq=&amp;hnear={{entry.gd$where[0].valueString}}&amp;gl=fr&amp;source=embed&amp;t=m&amp;z=12&amp;iwloc=A&amp;output=embed&iwloc=near"></iframe>
+		
+		
+		<p>
+			<a href="{{entry.link[0].href}}" target="_blank">Google calendar</a>
+		</p>
+		
+		<p>
+			<a href="add" class="btn btn-success">Add an event</a>
+		</p>
+	</div>
+	
+</div>

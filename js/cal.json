@@ -1,0 +1,550 @@
+{
+	"version": "1.0",
+	"encoding": "UTF-8",
+	"feed": {
+		"xmlns": "http://www.w3.org/2005/Atom",
+		"xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
+		"xmlns$gCal": "http://schemas.google.com/gCal/2005",
+		"xmlns$gd": "http://schemas.google.com/g/2005",
+		"id": {
+			"$t": "http://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full"
+		},
+		"updated": {
+			"$t": "2013-10-11T12:48:06.000Z"
+		},
+		"category": [
+			{
+				"scheme": "http://schemas.google.com/g/2005#kind",
+				"term": "http://schemas.google.com/g/2005#event"
+			}
+		],
+		"title": {
+			"$t": "Islam-Agenda.fr",
+			"type": "text"
+		},
+		"subtitle": {
+			"$t": "",
+			"type": "text"
+		},
+		"link": [
+			{
+				"rel": "alternate",
+				"type": "text/html",
+				"href": "https://www.google.com/calendar/embed?src=1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com"
+			}, {
+				"rel": "http://schemas.google.com/g/2005#feed",
+				"type": "application/atom+xml",
+				"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full"
+			}, {
+				"rel": "http://schemas.google.com/g/2005#batch",
+				"type": "application/atom+xml",
+				"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/batch"
+			}, {
+				"rel": "self",
+				"type": "application/atom+xml",
+				"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full?alt=json&max-results=25&start-min=2013-10-11&sortorder=ascending&orderby=starttime"
+			}
+		],
+		"author": [
+			{
+				"name": {
+					"$t": "Bilel ZEGHAD"
+				},
+				"email": {
+					"$t": "bilelz@gmail.com"
+				}
+			}
+		],
+		"generator": {
+			"$t": "Google Calendar",
+			"version": "1.0",
+			"uri": "http://www.google.com/calendar"
+		},
+		"openSearch$totalResults": {
+			"$t": 5
+		},
+		"openSearch$startIndex": {
+			"$t": 1
+		},
+		"openSearch$itemsPerPage": {
+			"$t": 25
+		},
+		"gCal$timezone": {
+			"value": "Europe/Paris"
+		},
+		"gCal$timesCleaned": {
+			"value": 0
+		},
+		"gd$where": {
+			"valueString": ""
+		},
+		"entry": [
+			{
+				"id": {
+					"$t": "http://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/83crgbsiafjcmmb0ig71mjks0g"
+				},
+				"published": {
+					"$t": "2013-04-26T15:45:11.000Z"
+				},
+				"updated": {
+					"$t": "2013-04-26T16:24:58.000Z"
+				},
+				"category": [
+					{
+						"scheme": "http://schemas.google.com/g/2005#kind",
+						"term": "http://schemas.google.com/g/2005#event"
+					}
+				],
+				"title": {
+					"$t": "Appel aux dons : Masjid Alfath [belgique]",
+					"type": "text"
+				},
+				"content": {
+					"$t": "\u003cdiv\u003eLa mosquée Alfath a récemment obtenu le permis d’urbanisme pour la rénovation et l’agrandissement de la mosquée Al-hamdouliLlah ! Le cout est d’environ €500 000.\u003c/div\u003e\u003cdiv\u003eSoutenez la mosquée ne serait-ce qu’avec le plus petit don !\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eLe prophète ملسو هيلع الله ىلص a dit dans un hadith authentifié par Sheikh Albani rahimahuLlah :\u003c/div\u003e\u003cdiv\u003e« Quiconque construit une mosquée pour Allah, même de la taille d’un nid d’oiseau pour ses œufs,\u003c/div\u003e\u003cdiv\u003eAllah lui bâtira une maison au Paradis. »\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eCoran, verset 11, sourate 57 :\u003c/div\u003e\u003cdiv\u003e« Quiconque fait à Allah un prêt sincère , Allah le Lui multiplie, et il aura une généreuse »\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eVia un virement:\u003c/div\u003e\u003cdiv\u003eIBAN: BE51755521220762\u003c/div\u003e\u003cdiv\u003eBIC: AXABBE22\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eEn se déplaçant directement à la mosquée:\u003c/div\u003e\u003cdiv\u003eVZW MCC Masjid Alfath\u003c/div\u003e\u003cdiv\u003ePenitentienenstraat 33\u003c/div\u003e\u003cdiv\u003e3000 Leuven\u003c/div\u003e\u003cdiv\u003eTél: 0486 21 62 91\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv style=\"text-align: center;\"\u003e\u003cimg src=\"http://i.imgur.com/t9BaT84.jpg\" width=\"490\"\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003evia&nbsp;\u003ca href=\"http://www.islamic-events.be/2013/04/appel-dons-masjid-alfath/\" title=\"\" target=\"_blank\"\u003eislamic-events.be\u003c/a\u003e\u003c/div\u003e",
+					"type": "text"
+				},
+				"link": [
+					{
+						"rel": "alternate",
+						"type": "text/html",
+						"href": "https://www.google.com/calendar/event?eid=ODNjcmdic2lhZmpjbW1iMGlnNzFtamtzMGcgMWZpb241ZzF0NjFsdHZqMXBkMGR2NnZxZWtAZw",
+						"title": "alternate"
+					}, {
+						"rel": "self",
+						"type": "application/atom+xml",
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/83crgbsiafjcmmb0ig71mjks0g"
+					}
+				],
+				"author": [
+					{
+						"name": {
+							"$t": "Bilel ZEGHAD"
+						},
+						"email": {
+							"$t": "bilelz@gmail.com"
+						}
+					}
+				],
+				"gd$comments": {
+					"gd$feedLink": {
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/83crgbsiafjcmmb0ig71mjks0g/comments"
+					}
+				},
+				"gd$eventStatus": {
+					"value": "http://schemas.google.com/g/2005#event.confirmed"
+				},
+				"gd$where": [
+					{
+						"valueString": "Penitentienenstraat 33 3000 Leuven, België"
+					}
+				],
+				"gd$who": [
+					{
+						"email": "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
+						"rel": "http://schemas.google.com/g/2005#event.organizer",
+						"valueString": "Islam-Agenda.fr"
+					}
+				],
+				"gd$when": [
+					{
+						"endTime": "2013-12-31T19:30:00.000+01:00",
+						"startTime": "2013-04-26T17:00:00.000+02:00"
+					}
+				],
+				"gd$transparency": {
+					"value": "http://schemas.google.com/g/2005#event.opaque"
+				},
+				"gCal$anyoneCanAddSelf": {
+					"value": "false"
+				},
+				"gCal$guestsCanInviteOthers": {
+					"value": "true"
+				},
+				"gCal$guestsCanModify": {
+					"value": "false"
+				},
+				"gCal$guestsCanSeeGuests": {
+					"value": "true"
+				},
+				"gCal$sequence": {
+					"value": 0
+				},
+				"gCal$uid": {
+					"value": "83crgbsiafjcmmb0ig71mjks0g@google.com"
+				}
+			}, {
+				"id": {
+					"$t": "http://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/q33597ao9am58spvo5feqqsnl8"
+				},
+				"published": {
+					"$t": "2013-06-12T19:06:20.000Z"
+				},
+				"updated": {
+					"$t": "2013-06-12T19:20:59.000Z"
+				},
+				"category": [
+					{
+						"scheme": "http://schemas.google.com/g/2005#kind",
+						"term": "http://schemas.google.com/g/2005#event"
+					}
+				],
+				"title": {
+					"$t": "Mosquée de Saint-Ouen : opération 1€/jour",
+					"type": "text"
+				},
+				"content": {
+					"$t": "\u003cdiv\u003e\u003cb\u003e\u003cfont size=\"5\"\u003eMosquée Essalame de Saint-Ouen\u003c/font\u003e\u003c/b\u003e\u003c/div\u003e\u003cdiv\u003e\u003cb\u003e\u003cfont size=\"5\"\u003e\u003cbr\u003e\u003c/font\u003e\u003c/b\u003e\u003c/div\u003e\u003cdiv\u003e\u003cimg src=\"http://lh4.googleusercontent.com/GqOZ9Skru_6nwgdxYtPffWVXFkNnEs8Zppwgz3d5eXoh=w700\" alt=\"\" align=\"none\"\u003e\u003cb\u003e\u003cfont size=\"5\"\u003e\u003cbr\u003e\u003c/font\u003e\u003c/b\u003e\u003c/div\u003e\u003cdiv\u003e\u003cb\u003e\u003cfont size=\"5\"\u003e\u003cbr\u003e\u003c/font\u003e\u003c/b\u003e\u003c/div\u003e\u003cdiv\u003eL’Association Cultuelle Essalame des Musulmans de Saint-Ouen invitent la communauté musulmane dans sa pluralité à édifier la Mosquée de Saint-Ouen afin d’y pratiquer dignement sa religion.\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eLa Mosquée n’est pas uniquement un lieu de prière et d’adoration, elle est également un lieu de rencontres entre les fidèles, d’échanges, de rappel, d’apprentissage et de cohésion sociale.\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e&nbsp;« Ne peupleront les Mosquées d'Allah que ceux qui croient en Allah et au Jour dernier, accomplissent la Salat, acquittent la Zakat et ne craignent qu'Allah. &lt; ;br&gt;Il se peut que ceux-là soient du nombre des bien-guidés. »\u003c/div\u003e\u003cdiv\u003eCoran, sourate Le repentir, verset 18.\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cdiv\u003e\u003cb\u003e\u003cfont size=\"5\"\u003eOpération 1€ par jour\u003c/font\u003e\u003c/b\u003e\u003c/div\u003e\u003cdiv\u003eNous lançons un appel à tous les fidèles pour les encourager à mettre en place un virement bancaire permanent, même s’il s’agit d’un petit montant. Opération 1€ par jour jusqu’à l'ouverture de la Grande Mosquée de Saint-Ouen soit un virement de 30 € par mois.\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e&nbsp;« La meilleure des aumônes est celle qui perdure, même si elle est minime »\u003c/div\u003e\u003cdiv\u003eHadith\u003c/div\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003ca href=\"http://www.mosquee-saint-ouen.fr/p/faire-un-don.html\" title=\"\" target=\"_blank\" class=\"btn btn-success\" style=\"color:white\"\u003eParticiper\u003c/a\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e",
+					"type": "text"
+				},
+				"link": [
+					{
+						"rel": "alternate",
+						"type": "text/html",
+						"href": "https://www.google.com/calendar/event?eid=cTMzNTk3YW85YW01OHNwdm81ZmVxcXNubDggMWZpb241ZzF0NjFsdHZqMXBkMGR2NnZxZWtAZw",
+						"title": "alternate"
+					}, {
+						"rel": "self",
+						"type": "application/atom+xml",
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/q33597ao9am58spvo5feqqsnl8"
+					}
+				],
+				"author": [
+					{
+						"name": {
+							"$t": "Bilel ZEGHAD"
+						},
+						"email": {
+							"$t": "bilelz@gmail.com"
+						}
+					}
+				],
+				"gd$comments": {
+					"gd$feedLink": {
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/q33597ao9am58spvo5feqqsnl8/comments"
+					}
+				},
+				"gd$eventStatus": {
+					"value": "http://schemas.google.com/g/2005#event.confirmed"
+				},
+				"gd$where": [
+					{
+						"valueString": "Mosquée ESSALAME de Saint-Ouen, 3 Rue des Docks, Saint-Ouen"
+					}
+				],
+				"gd$who": [
+					{
+						"email": "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
+						"rel": "http://schemas.google.com/g/2005#event.organizer",
+						"valueString": "Islam-Agenda.fr"
+					}
+				],
+				"gd$when": [
+					{
+						"endTime": "2013-12-31T19:30:00.000+01:00",
+						"startTime": "2013-06-12T18:00:00.000+02:00"
+					}
+				],
+				"gd$transparency": {
+					"value": "http://schemas.google.com/g/2005#event.opaque"
+				},
+				"gCal$anyoneCanAddSelf": {
+					"value": "false"
+				},
+				"gCal$guestsCanInviteOthers": {
+					"value": "true"
+				},
+				"gCal$guestsCanModify": {
+					"value": "false"
+				},
+				"gCal$guestsCanSeeGuests": {
+					"value": "true"
+				},
+				"gCal$sequence": {
+					"value": 0
+				},
+				"gCal$uid": {
+					"value": "q33597ao9am58spvo5feqqsnl8@google.com"
+				}
+			}, {
+				"id": {
+					"$t": "http://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/9ug1ccim57sk5cjg5tqtn6ku0s"
+				},
+				"published": {
+					"$t": "2013-10-11T12:36:53.000Z"
+				},
+				"updated": {
+					"$t": "2013-10-11T12:36:53.000Z"
+				},
+				"category": [
+					{
+						"scheme": "http://schemas.google.com/g/2005#kind",
+						"term": "http://schemas.google.com/g/2005#event"
+					}
+				],
+				"title": {
+					"$t": "L'Aïd al-Adha",
+					"type": "text"
+				},
+				"content": {
+					"$t": "Salam alaykoum\n\nAÏD MABROUK",
+					"type": "text"
+				},
+				"link": [
+					{
+						"rel": "alternate",
+						"type": "text/html",
+						"href": "https://www.google.com/calendar/event?eid=OXVnMWNjaW01N3NrNWNqZzV0cXRuNmt1MHMgMWZpb241ZzF0NjFsdHZqMXBkMGR2NnZxZWtAZw",
+						"title": "alternate"
+					}, {
+						"rel": "self",
+						"type": "application/atom+xml",
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/9ug1ccim57sk5cjg5tqtn6ku0s"
+					}
+				],
+				"author": [
+					{
+						"name": {
+							"$t": "Bilel ZEGHAD"
+						},
+						"email": {
+							"$t": "bilelz@gmail.com"
+						}
+					}
+				],
+				"gd$comments": {
+					"gd$feedLink": {
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/9ug1ccim57sk5cjg5tqtn6ku0s/comments"
+					}
+				},
+				"gd$eventStatus": {
+					"value": "http://schemas.google.com/g/2005#event.confirmed"
+				},
+				"gd$where": [
+					{
+						"valueString": "France"
+					}
+				],
+				"gd$who": [
+					{
+						"email": "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
+						"rel": "http://schemas.google.com/g/2005#event.organizer",
+						"valueString": "Islam-Agenda.fr"
+					}
+				],
+				"gd$when": [
+					{
+						"endTime": "2013-10-15T20:00:00.000+02:00",
+						"startTime": "2013-10-15T06:00:00.000+02:00"
+					}
+				],
+				"gd$transparency": {
+					"value": "http://schemas.google.com/g/2005#event.opaque"
+				},
+				"gCal$anyoneCanAddSelf": {
+					"value": "false"
+				},
+				"gCal$guestsCanInviteOthers": {
+					"value": "true"
+				},
+				"gCal$guestsCanModify": {
+					"value": "false"
+				},
+				"gCal$guestsCanSeeGuests": {
+					"value": "true"
+				},
+				"gCal$sequence": {
+					"value": 0
+				},
+				"gCal$uid": {
+					"value": "9ug1ccim57sk5cjg5tqtn6ku0s@google.com"
+				}
+			}, {
+				"id": {
+					"$t": "http://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/19kjs8m6dvoquse1jamuddp0g0"
+				},
+				"published": {
+					"$t": "2013-10-11T12:33:55.000Z"
+				},
+				"updated": {
+					"$t": "2013-10-11T12:33:55.000Z"
+				},
+				"category": [
+					{
+						"scheme": "http://schemas.google.com/g/2005#kind",
+						"term": "http://schemas.google.com/g/2005#event"
+					}
+				],
+				"title": {
+					"$t": "Aïd el Kebir 2013 à la mosquée de Raismes",
+					"type": "text"
+				},
+				"content": {
+					"$t": "\u003ccenter\u003eAïd el Kebir 2013\n Cette année la fête de l'Aïd elkebir aura lieu\n\nle mardi 15 octobre 2013\n\nEt ce dans la quasi totalité des pays\net conformément aux données astronomiques.\n\nHeure de la prière à la mosquée de Raismes :\n\u003cb\u003e8h30 précises\u003c/b\u003e\n\n\u003ca href=\"http://www.mosquee-acmr.fr/index.php?page=aidelkebir\" target=\"_blank\"\u003emosquee-acmr.fr/index.php?page=aidelkebir\u003c/a\u003e\n\u003c/center\u003e\n\n\u003cp class=\"spip\" style=\"margin: 3px; padding: 0px; color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003cbig\u003e\u003cbig\u003e\u003cstrong class=\"spip\"\u003eLes règles du jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;:\u003c/strong\u003e\u003c/big\u003e\u003c/big\u003e\u003c/p\u003e\u003cspan style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003c/span\u003e\u003cp class=\"spip\" style=\"margin: 3px; padding: 0px; color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003cbig\u003e\u003cbig\u003e\u003cstrong class=\"spip\"\u003e\u003c/strong\u003e\u003csmall\u003e\u003cspan style=\"font-weight: bold;\"\u003eLe jeûne&nbsp;:\u003c/span\u003e&nbsp;Il est illicite de jeûner le jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;selon le hadith d’Abou Sa`îd Al-Khudrî — qu’Allâh l’agrée — dans lequel il rapporte que le Prophète — paix et bénédictions sur lui — a interdit de jeûner le jour du&nbsp;\u003ci class=\"spip\"\u003eFi\u003cu\u003et\u003c/u\u003er\u003c/i\u003e&nbsp;et le jour de l’\u003ci class=\"spip\"\u003eal-A\u003cu\u003edh\u003c/u\u003eâ\u003c/i\u003e. (Rapporté par Muslim, 827)&nbsp;\u003cbr\u003e\u003c/small\u003e\u003c/big\u003e\u003c/big\u003e\u003c/p\u003e\u003cspan style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003c/span\u003e\u003csmall style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; line-height: normal; text-align: center;\"\u003e\u003cspan style=\"font-weight: bold;\"\u003e\u003cbig\u003e\u003cbig\u003eAssister à la prière de l’\u003c/big\u003e\u003c/big\u003e\u003c/span\u003e\u003c/small\u003e\u003cbig style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; line-height: normal; text-align: center;\"\u003e\u003ci class=\"spip\" style=\"font-weight: bold;\"\u003eAïd\u003c/i\u003e\u003cspan style=\"font-weight: bold;\"\u003e&nbsp;:\u003c/span\u003e&nbsp;Certains savants sont d’avis que la prière de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;est&nbsp;\u003ci class=\"spip\"\u003eWajib\u003c/i\u003e&nbsp;(obligatoire) — ceci est l’opinion des savants hanafites et de Cheikh al-Islam Ibn Taymiyah. D’autres savants disent qu’elle est&nbsp;\u003ci class=\"spip\"\u003efard Kifâyah\u003c/i\u003e&nbsp;Ceci est l’opinion des savants hanbalites. Un troisième groupe de savants est d’avis que la prière de l’\u003ci class=\"spip\"\u003eAid\u003c/i\u003e&nbsp;est une\u003ci class=\"spip\"\u003esunnah mu’akkadah\u003c/i\u003e&nbsp;. Ceci est l’opinion des Malékites et des Chafé’ites.\u003cbr\u003e\u003cbr\u003e\u003cspan style=\"font-weight: bold;\"\u003eAccomplir des prières surérogatoires&nbsp;:&nbsp;\u003c/span\u003eIl n’y a pas de prières surérogatoires à accomplire avant&nbsp;ni après la prière de l’\u003ci class=\"spip\"\u003eAid\u003c/i\u003e. Ibn `Abbâs — qu’Allâh l’agrée — a rapporté que le Prophète — paix et bénédictions sur lui — avait l’habitude de sortir le jour de l’Aïd et de faire deux&nbsp;\u003ci class=\"spip\"\u003erak`ah\u003c/i\u003es sans les faire précéder ni suivre d’aucune autre prière. Ceci s’applique lorsque la prière est effectuée à l’extérieur. Cependant, si la prière de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;est effectuée dans une mosquée, il faut accomplir les deux&nbsp;\u003ci class=\"spip\"\u003erak`âh\u003c/i\u003es de salutation de la mosquée.&nbsp;\u003cbr\u003e\u003cbr\u003e\u003cspan style=\"font-weight: bold;\"\u003eLes femmes qui assistent à la prière de l’Aïd&nbsp;:&nbsp;\u003c/span\u003eSelon la&nbsp;\u003ci class=\"spip\"\u003eSunnah\u003c/i\u003e&nbsp;du Prophète — paix et bénédictions sur lui — tout le monde doit assister à la prière de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;et se comporter avec droiture et piété. La femme indisposée ne doit pas négliger le rappel d’Allâh ni éviter les lieux où l’on se rassemble pour rechercher la science et évoquer Allâh — à l’exception des mosquées. Les femmes, bien entendu, ne doivent pas sortir sans leur&nbsp;\u003ci class=\"spip\"\u003ehijab\u003c/i\u003e.\u003c/big\u003e\u003cspan style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003c/span\u003e\u003cp class=\"spip\" style=\"margin: 3px; padding: 0px; color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003cbig\u003e\u003cstrong class=\"spip\"\u003eLes bienséances de l’Aïd&nbsp;:\u003c/strong\u003e\u003c/big\u003e\u003c/p\u003e\u003cspan style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003c/span\u003e\u003cp class=\"spip\" style=\"margin: 3px; padding: 0px; color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003csmall\u003e\u003cspan style=\"font-weight: bold;\"\u003e\u003cbig\u003e\u003cbig\u003eLe&nbsp;\u003c/big\u003e\u003c/big\u003e\u003c/span\u003e\u003c/small\u003e\u003cbig\u003e\u003ci class=\"spip\" style=\"font-weight: bold;\"\u003eGhusl\u003c/i\u003e\u003cspan style=\"font-weight: bold;\"\u003e&nbsp;(le bain rituel)&nbsp;:\u003c/span\u003e&nbsp;Une des bonnes manières lors du jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;est de prendre le bain rituel avant de se rendre à la prière. On rapporte que Sa`îd Ibn Jubayr a dit&nbsp;: «&nbsp;Trois choses sont&nbsp;\u003ci class=\"spip\"\u003esunnah\u003c/i\u003e&nbsp;le jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;: marcher (vers le lieu de prière), prendre le bain rituel et manger quelque chose avant de sortir (s’il s’agit de l’\u003ci class=\"spip\"\u003eAid al-Fi\u003cu\u003et\u003c/u\u003er\u003c/i\u003e).&nbsp;»&nbsp;\u003cbr\u003e\u003c/big\u003e\u003c/p\u003e\u003cspan style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; font-size: 12px; line-height: normal; text-align: center;\"\u003e\u003c/span\u003e\u003csmall style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; line-height: normal; text-align: center;\"\u003e\u003cspan style=\"font-weight: bold;\"\u003e\u003cbig\u003e\u003cbig\u003eManger avant de sortir&nbsp;:\u003c/big\u003e\u003c/big\u003e\u003c/span\u003e\u003c/small\u003e\u003cbig style=\"color: rgb(0, 0, 0); font-family: Verdana, 'Bitstream Vera Sans', 'Lucida Grande', sans-serif; line-height: normal; text-align: center;\"\u003e\u003cbig\u003e\u003csmall\u003e&nbsp;Il est recommandé de ne pas manger avant la fin de la prière lorsqu’il s’agit de manger la viande du sacrifice.&nbsp;\u003cbr\u003e\u003cbr style=\"font-weight: bold;\"\u003e\u003cspan style=\"font-weight: bold;\"\u003eLe&nbsp;\u003c/span\u003e\u003ci class=\"spip\" style=\"font-weight: bold;\"\u003etakbîr\u003c/i\u003e\u003cspan style=\"font-weight: bold;\"\u003e&nbsp;le jour de l’\u003c/span\u003e\u003ci class=\"spip\" style=\"font-weight: bold;\"\u003eAid\u003c/i\u003e\u003cspan style=\"font-weight: bold;\"\u003e&nbsp;:&nbsp;\u003c/span\u003eC’est une des plus grandes&nbsp;\u003ci class=\"spip\"\u003esunnah\u003c/i\u003e&nbsp;de ce jour. Ad-Dâraqu\u003cu\u003et\u003c/u\u003enî et d’autres ont rapporté que lorsque ’Umar — qu’Allâh l’agrée — sortait le jour de l’\u003ci class=\"spip\"\u003eAïd al-Fi\u003cu\u003et\u003c/u\u003er\u003c/i\u003e&nbsp;ou de l’\u003ci class=\"spip\"\u003eAïd al-A\u003cu\u003edh\u003c/u\u003eâ\u003c/i\u003e, il s’efforçait de faire le&nbsp;\u003ci class=\"spip\"\u003etakbir\u003c/i\u003e&nbsp;tout le long du chemin vers le lieu de prière et il continuait jusqu’à l’arrivée de l’Imam.&nbsp;\u003cbr\u003e\u003cbr\u003e\u003cspan style=\"font-weight: bold;\"\u003eSe féliciter mutuellement&nbsp;:\u003c/span\u003e&nbsp;Les musulmans pourront échanger des vœux, peu importe la forme. Ils peuvent, par exemple, dire «&nbsp;\u003ci class=\"spip\"\u003eTaqabbal Allâhu minnâ wa minkum&nbsp;\u003c/i\u003e&nbsp;» (qu’Allâh agrée nos bonnes actions et les vôtres)\". Jubayr Ibn Nufayr a dit&nbsp;: «&nbsp;Au temps du Prophète — paix et bénédictions sur lui — lorsque les musulmans se rencontraient le jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e, ils disaient ’\u003ci class=\"spip\"\u003eTaqabbal Allâhu minnâ wa minka\u003c/i\u003e’&nbsp;» (Rapporté par Ibn&nbsp;\u003cu\u003eH\u003c/u\u003eajar)&nbsp;\u003cbr\u003e\u003cbr\u003e\u003cspan style=\"font-weight: bold;\"\u003ePorter ses plus beaux vêtements&nbsp;:&nbsp;\u003c/span\u003eJâbir — qu’Allâh l’agrée — a dit&nbsp;: \"Le Prophète — paix et bénédictions sur lui — avait une cape qu’il portait le jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e&nbsp;et le vendredi.\" Al-Bayhaqî a rapporté qu’Ibn `Umar portait ses plus beaux vêtements le jour de l’\u003ci class=\"spip\"\u003eAïd\u003c/i\u003e, les hommes pouvaient alors montrer les plus beaux vêtements qu’ils possédaient lorsqu’ils sortaient pour la prière.&nbsp;\u003cbr\u003e\u003cbr style=\"font-weight: bold;\"\u003e\u003cspan style=\"font-weight: bold;\"\u003eChanger de chemin en revenant du lie",
+					"type": "text"
+				},
+				"link": [
+					{
+						"rel": "alternate",
+						"type": "text/html",
+						"href": "https://www.google.com/calendar/event?eid=MTlranM4bTZkdm9xdXNlMWphbXVkZHAwZzAgMWZpb241ZzF0NjFsdHZqMXBkMGR2NnZxZWtAZw",
+						"title": "alternate"
+					}, {
+						"rel": "self",
+						"type": "application/atom+xml",
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/19kjs8m6dvoquse1jamuddp0g0"
+					}
+				],
+				"author": [
+					{
+						"name": {
+							"$t": "Bilel ZEGHAD"
+						},
+						"email": {
+							"$t": "bilelz@gmail.com"
+						}
+					}
+				],
+				"gd$comments": {
+					"gd$feedLink": {
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/19kjs8m6dvoquse1jamuddp0g0/comments"
+					}
+				},
+				"gd$eventStatus": {
+					"value": "http://schemas.google.com/g/2005#event.confirmed"
+				},
+				"gd$where": [
+					{
+						"valueString": "130 rue Thiers 59590 RAISMES"
+					}
+				],
+				"gd$who": [
+					{
+						"email": "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
+						"rel": "http://schemas.google.com/g/2005#event.organizer",
+						"valueString": "Islam-Agenda.fr"
+					}
+				],
+				"gd$when": [
+					{
+						"endTime": "2013-10-15T09:30:00.000+02:00",
+						"startTime": "2013-10-15T08:00:00.000+02:00"
+					}
+				],
+				"gd$transparency": {
+					"value": "http://schemas.google.com/g/2005#event.opaque"
+				},
+				"gCal$anyoneCanAddSelf": {
+					"value": "false"
+				},
+				"gCal$guestsCanInviteOthers": {
+					"value": "true"
+				},
+				"gCal$guestsCanModify": {
+					"value": "false"
+				},
+				"gCal$guestsCanSeeGuests": {
+					"value": "true"
+				},
+				"gCal$sequence": {
+					"value": 0
+				},
+				"gCal$uid": {
+					"value": "19kjs8m6dvoquse1jamuddp0g0@google.com"
+				}
+			}, {
+				"id": {
+					"$t": "http://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/jvttbe760q5irknalab9bq00vg"
+				},
+				"published": {
+					"$t": "2013-10-11T12:47:25.000Z"
+				},
+				"updated": {
+					"$t": "2013-10-11T12:48:06.000Z"
+				},
+				"category": [
+					{
+						"scheme": "http://schemas.google.com/g/2005#kind",
+						"term": "http://schemas.google.com/g/2005#event"
+					}
+				],
+				"title": {
+					"$t": "Madjliss pour soutenir la rénovation du Centre musulman de Bagneux",
+					"type": "text"
+				},
+				"content": {
+					"$t": "Salam alaykoum,\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cimg src=\"http://i.imgur.com/D1fQR9G.jpg\" width=\"667\" alt=\"madjliss bagneux\"\u003e\u003cbr\u003e&nbsp;\u003cbr/\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003c/div\u003e",
+					"type": "text"
+				},
+				"link": [
+					{
+						"rel": "alternate",
+						"type": "text/html",
+						"href": "https://www.google.com/calendar/event?eid=anZ0dGJlNzYwcTVpcmtuYWxhYjlicTAwdmcgMWZpb241ZzF0NjFsdHZqMXBkMGR2NnZxZWtAZw",
+						"title": "alternate"
+					}, {
+						"rel": "self",
+						"type": "application/atom+xml",
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/jvttbe760q5irknalab9bq00vg"
+					}
+				],
+				"author": [
+					{
+						"name": {
+							"$t": "Bilel ZEGHAD"
+						},
+						"email": {
+							"$t": "bilelz@gmail.com"
+						}
+					}
+				],
+				"gd$comments": {
+					"gd$feedLink": {
+						"href": "https://www.google.com/calendar/feeds/1fion5g1t61ltvj1pd0dv6vqek%40group.calendar.google.com/public/full/jvttbe760q5irknalab9bq00vg/comments"
+					}
+				},
+				"gd$eventStatus": {
+					"value": "http://schemas.google.com/g/2005#event.confirmed"
+				},
+				"gd$where": [
+					{
+						"valueString": "Salle municipale Léo FERRE, 6 rue Cahrles Michel 92220 Bagneux"
+					}
+				],
+				"gd$who": [
+					{
+						"email": "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
+						"rel": "http://schemas.google.com/g/2005#event.organizer",
+						"valueString": "Islam-Agenda.fr"
+					}
+				],
+				"gd$when": [
+					{
+						"endTime": "2013-11-09T17:00:00.000+01:00",
+						"startTime": "2013-11-09T13:00:00.000+01:00"
+					}
+				],
+				"gd$transparency": {
+					"value": "http://schemas.google.com/g/2005#event.opaque"
+				},
+				"gCal$anyoneCanAddSelf": {
+					"value": "false"
+				},
+				"gCal$guestsCanInviteOthers": {
+					"value": "true"
+				},
+				"gCal$guestsCanModify": {
+					"value": "false"
+				},
+				"gCal$guestsCanSeeGuests": {
+					"value": "true"
+				},
+				"gCal$sequence": {
+					"value": 0
+				},
+				"gCal$uid": {
+					"value": "jvttbe760q5irknalab9bq00vg@google.com"
+				}
+			}
+		]
+	}
+}
