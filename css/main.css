@@ -85,3 +85,45 @@ border-color: #5a8e32 transparent transparent transparent;
 content: ' ';
 	
 }
+.animate-enter {
+  -webkit-animation: enter_sequence 1s linear; /* Safari/Chrome */
+  -moz-animation: enter_sequence 1s linear; /* Firefox */
+  -o-animation: enter_sequence 1s linear; /* Opera */
+  animation: enter_sequence 1s linear; /* IE10+ and Future Browsers */
+}
+@-webkit-keyframes enter_sequence {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+@-moz-keyframes enter_sequence {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+@-o-keyframes enter_sequence {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+@keyframes enter_sequence {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+.animate-enter {
+ -webkit-transition: 1s linear all; /* Safari/Chrome */
+ -moz-transition: 1s linear all; /* Firefox */
+ -o-transition: 1s linear all; /* Opera */
+ transition: 1s linear all; /* IE10+ and Future Browsers */
+
+ /* The animation preparation code */
+ opacity: 0;
+}
+
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.animate-enter.animate-enter-active {
+ /* The animation code itself */
+ opacity: 1;
+}

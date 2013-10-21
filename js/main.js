@@ -13,8 +13,7 @@ require.config({
         bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
         angular : 'libs/angular/angular',
         moment : 'libs/momentjs/moment',
-        twitter : 'http://platform.twitter.com/widgets',
-        gplus : 'https://apis.google.com/js/plusone.js',
+        ngAnimate : 'libs/angular-animate/angular-animate',
         project : 'project'
     },
   shim: {
@@ -25,7 +24,7 @@ require.config({
 });
 
 
-require(['jQuery', 'angular', 'moment', 'bootstrap' , 'twitter', 'gplus', 'project'] , function ($,  angular, moment) {
+require(['jQuery', 'angular', 'ngAnimate', 'moment', 'bootstrap' , 'project'] , function ($,  angular, moment) {
   $(function () { // using jQuery because it will run this even if DOM load already happened
   	//console.log("require");
     angular.bootstrap(document , ['angular-calendar']);
@@ -40,8 +39,8 @@ define(['angular' ] , function (angular) {
 	    $locationProvider.html5Mode(true);
 	    $routeProvider.
 	      when('/', {controller:ListController, templateUrl:'html/list.html'}).
-	      when('/d/:eventLabel/:eventId', {controller:DetailController, templateUrl:'html/detail.html'}).
-	      when('/add', {controller:AddController, templateUrl:'html/add.html'}).
+	      when('/+/:eventLabel/:eventId', {controller:DetailController, templateUrl:'html/detail.html'}).
+	      when('/+', {controller:AddController, templateUrl:'html/add.html'}).
 	      when('/calendar', {controller:CalendarController, templateUrl:'html/calendar.html'}).
 	      otherwise({redirectTo:'angular-calendar/'});
 	  }).filter('momentfromnow', function() {
@@ -66,7 +65,7 @@ define(['angular' ] , function (angular) {
     };
   }).filter('getId', function() {
     return function(url) {
-        return url.split("/")[url.split("/").length - 1]
+        return (url == undefined)?undefined:url.split("/")[url.split("/").length - 1]
     };
   }).filter('breakline', function() {
     return function(html) {    	
@@ -85,14 +84,6 @@ define(['angular' ] , function (angular) {
   			return "event";
   		}
   	}
-  }).filter('social', function(){
-  	return function(content){
-  		twttr.widgets.load();
-  		return (content == undefined)?undefined: 	'<a href="https://twitter.com/share" class="twitter-share-button" data-url="d/blabla/'+content.split("/")[content.split("/").length - 1]+'" data-text="ttt" data-via="bilelz" data-lang="fr">Tweeter</a>';
-  	}
   });
-  
-  
-  
   
 });
