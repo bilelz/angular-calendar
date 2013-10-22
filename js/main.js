@@ -24,7 +24,7 @@ require.config({
 });
 
 
-require(['jQuery', 'angular', 'ngAnimate', 'moment', 'bootstrap' , 'project'] , function ($,  angular, moment) {
+require(['jQuery', 'angular',  'moment', 'bootstrap' , 'project'] , function ($,  angular, moment) {
   $(function () { // using jQuery because it will run this even if DOM load already happened
   	//console.log("require");
     angular.bootstrap(document , ['angular-calendar']);
@@ -39,7 +39,7 @@ define(['angular' ] , function (angular) {
 	    $locationProvider.html5Mode(true);
 	    $routeProvider.
 	      when('/', {controller:ListController, templateUrl:'html/list.html'}).
-	      when('/+/:eventLabel/:eventId', {controller:DetailController, templateUrl:'html/detail.html'}).
+	      when('/:eventLabel/:eventId', {controller:DetailController, templateUrl:'html/detail.html'}).
 	      when('/+', {controller:AddController, templateUrl:'html/add.html'}).
 	      when('/calendar', {controller:CalendarController, templateUrl:'html/calendar.html'}).
 	      otherwise({redirectTo:'angular-calendar/'});

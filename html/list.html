@@ -4,7 +4,7 @@
 	<li ng-repeat="entry in calendar.entry" title="{{entry.id.$t}}"  class="list-group-item"
 		style="background-image: url({{entry.content.$t | getImage}})">
 		
-		<a href="{{baseHref}}+/{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}">
+		<a href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}">
 			
 			<h4 class="list-group-item-heading">{{entry.title.$t}}</h4>
 			
