@@ -1,3 +1,4 @@
+
 require.config({
     baseUrl: 'js',
     paths: {
@@ -17,8 +18,8 @@ require.config({
         project : 'project'
     },
   shim: {
-    'angular' : {'exports' : 'angular'},
     'jQuery': {'exports' : 'jQuery'},
+    'angular' : {'exports' : 'angular'},    
     'bootstrap': { deps:['jQuery']}
   }
 });
@@ -83,6 +84,18 @@ define(['angular' ] , function (angular) {
   		}else{
   			return "event";
   		}
+  	}
+  }).filter('getUrl', function(){
+  	return function(entry){
+  		return (entry == undefined)?undefined:location.href;
+  	}
+  }).filter('getUrlEncode', function(){
+  	return function(entry){
+  		return (entry == undefined)?undefined:encodeURIComponent(location.href);
+  	}
+  }).filter('encode', function(){
+  	return function(entry){
+  		return (entry == undefined)?undefined:encodeURIComponent(entry);
   	}
   });
   
