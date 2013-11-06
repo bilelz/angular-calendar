@@ -1,5 +1,5 @@
 body{
-	background-color: #F3F3F3;
+	background-color: #ffffff;
 	position: relative;
 	padding-top: 70px;
 }
@@ -8,8 +8,46 @@ img{
 	max-width: 100%;
 }
 
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 0px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 blockquote{
 	background: #fff;
+}
+
+*{
+	white-space: normal !important;
+	word-break: break-word;
 }
 
 .list-group{	

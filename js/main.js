@@ -29,6 +29,9 @@ require(['jQuery', 'angular',  'moment', 'bootstrap' , 'project'] , function ($,
   $(function () { // using jQuery because it will run this even if DOM load already happened
   	//console.log("require");
     angular.bootstrap(document , ['angular-calendar']);
+    $('.navbar a').click(function() {
+		$(".bs-navbar-collapse").collapse('hide')
+	});
   });
 });
 
