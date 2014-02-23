@@ -10,96 +10,64 @@ require.config({
         // is using jQuery 1.9.0 located at
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
-        jQuery: 'libs/jquery/jquery',
-        bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
+        //jQuery: 'libs/jquery/jquery',
+        //bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
         angular : 'libs/angular/angular',
         moment : 'libs/momentjs/moment',
-        ngAnimate : 'libs/angular-animate/angular-animate',
-        project : 'project'
+        ngAnimate : 'libs/angular-animate/angular-animate'//,
+        //project : 'project'
     },
   shim: {
-    'jQuery': {'exports' : 'jQuery'},
+    //'jQuery': {'exports' : 'jQuery'},
     'angular' : {'exports' : 'angular'},    
-    'bootstrap': { deps:['jQuery']}
+    //'bootstrap': { deps:['jQuery']}
   }
 });
 
-
-require(['jQuery', 'angular',  'moment', 'bootstrap' , 'project'] , function ($,  angular, moment) {
-  $(function () { // using jQuery because it will run this even if DOM load already happened
-  	//console.log("require");
-    angular.bootstrap(document , ['angular-calendar']);
-    $('.navbar a').click(function() {
-		$(".bs-navbar-collapse").collapse('hide')
-	});
-  });
+require(['project'], function (app) {
+  app.init();
 });
 
 
-define(['angular' ] , function (angular) {
-	//console.log("define");
-  	return angular.module('angular-calendar', []).config(function($locationProvider, $routeProvider) {
-	    //$locationProvider.hashPrefix('!');
-	    $locationProvider.html5Mode(true);
-	    $routeProvider.
-	      when('/', {controller:ListController, templateUrl:'html/list.html'}).
-	      when('/:eventLabel/:eventId', {controller:DetailController, templateUrl:'html/detail.html'}).
-	      when('/+', {controller:AddController, templateUrl:'html/add.html'}).
-	      when('/calendar', {controller:CalendarController, templateUrl:'html/calendar.html'}).
-	      otherwise({redirectTo:'angular-calendar/'});
-	  }).filter('momentfromnow', function() {
-	    return function(dateString, formatIn) {
-	        return (dateString == undefined)?undefined:moment(dateString, formatIn).fromNow();
-	        //2013-04-26T17:00:00.000+02:00
-	    };
-	  }).filter('momentcalendar', function() {
-	    return function(dateString, formatIn) {
-	    	
-    	moment.lang('en', {
-		    calendar : {
-		        lastDay : '[Yesterday at] LT',
-		        sameDay : '[Today at] LT',
-		        nextDay : '[Tomorrow at] LT',
-		        lastWeek : '[last] dddd [at] LT',
-		        nextWeek : 'dddd [at] LT',
-		        sameElse : 'L [at] LT'
-		    }
-		});
-        return (dateString == undefined)?undefined:moment(dateString, formatIn).calendar();
-    };
-  }).filter('getId', function() {
-    return function(url) {
-        return (url == undefined)?undefined:url.split("/")[url.split("/").length - 1]
-    };
-  }).filter('breakline', function() {
-    return function(html) {    	
-        return (html != undefined)?html.replace(/\n/gi,'<br/>'):undefined;
-    };
-  }).filter('getImage', function(){
-  	return function(content){
-  		return (content == undefined)?undefined: $('<div/>').html(content).find("img:first").attr("src");
-  	}
-  }).filter('text2AlphaNum', function(){
-  	return function(title){
-  		if(title == undefined){ return undefined;}
-  		else if(title.replace(/ /ig,"_").replace(/[^a-zA-Z_\-0-9]+/g,'')!= ""){
-  			return title.replace(/ /ig,"_").replace(/[^a-zA-Z_\-0-9]+/g,'')
-  		}else{
-  			return "event";
-  		}
-  	}
-  }).filter('getUrl', function(){
-  	return function(entry){
-  		return (entry == undefined)?undefined:location.href;
-  	}
-  }).filter('getUrlEncode', function(){
-  	return function(entry){
-  		return (entry == undefined)?undefined:encodeURIComponent(location.href);
-  	}
-  }).filter('encode', function(){
-  	return function(entry){
-  		return (entry == undefined)?undefined:encodeURIComponent(entry);
-  	}
-  });
+function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
   
-});
+    while(element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return { left: xPosition, top: yPosition };
+}
+
+
+function lazyLoadImage() {
+	var doc = document.documentElement;
+	var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+	var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+	var windowHeight = document.documentElement.clientHeight || window.innerHeight;
+
+	var windowBottom = windowTop + windowHeight;
+
+	var divImg = document.querySelectorAll("[data-img]");
+	var nodes = Array.prototype.slice.call(divImg, 0);
+
+	// nodes is an array now.
+	nodes.forEach(function(el) {
+		if (windowBottom > getPosition(el).top && !el.classList.contains('imgLoading') && !el.classList.contains('imgLoaded')) {
+			var elTmp = el;
+
+			var imgTmp = document.createElement("img");
+			imgTmp.src = elTmp.getAttribute("data-img");
+			elTmp.classList.add("imgLoading");
+
+			imgTmp.addEventListener('load', function() {
+				elTmp.style.backgroundImage = "url('" + elTmp.getAttribute("data-img") + "')";
+				elTmp.classList.add("imgLoaded");
+			}, false);
+		}
+
+	});
+}
+

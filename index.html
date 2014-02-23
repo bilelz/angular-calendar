@@ -1,21 +1,25 @@
 <!doctype html>
-<html ng-app="angular-calendar">
+<html no-ng-app="angular-calendar"><!-- no ng-app because of requireJS-->
   <head>
   	<!-- <meta name="fragment" content="!" /> -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<base href="/angular-calendar/">
+  	<base href="/"><base href="/angular-calendar/">
+  	
+  	<!-- build:css css/production.min.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.css?v3">
+	<!-- /build -->
   </head>
   <body>  	
+
 
 	<div id="wrap">
 		
 		
 	
 		
-		<header class="navbar  navbar-default navbar-fixed-top  " role="banner">
+		<header class="navbar  navbar-default  " role="banner">
 	  <div class="container">
 	    <div class="navbar-header">
 	      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -24,7 +28,13 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a href="" class="navbar-brand"><i class="icon-calendar-empty"></i> CalDev.io</a>
+	      <a href="" class="navbar-brand" style="padding:0;">
+	      	CalDev
+	      		<i class="icon-calendar-empty" style="font-size: 2em;">
+	      		<span class="io">.io</span>
+	      	</i>
+	      		
+	      </a>
 	    </div>
 	    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 	     
@@ -36,8 +46,9 @@
 	  </div>
 	</header>
 	
-	  	<div class="container">  		
-	  		<div ng-view ng-animate="{enter: 'animate-enter'}"></div>
+		<div ng-view ng-animate="{enter: 'animate-enter'}">
+	  		<div class="container">  		
+	  		</div>
 	  		
 	  		
 		</div>	
@@ -46,13 +57,14 @@
 	<div id="footer">
       <div class="container">
         <p class="text-muted credit">Angular demo by <a href="http://bilelz.fr" target="_blank">Bilelz</a>.
-        	
+        	<a href="#" id="top" title="Go to the top of the page">^top</a>
         	
         	</p>
       </div>
     </div>
-	
-	<script src="js/libs/jquery/jquery.min.js"></script>
+	<!-- build:js js/production.min.js -->
+	<!-- <script src="js/libs/jquery/jquery.min.js"></script> -->
     <script src="js/libs/requirejs/require.js" data-main="js/main"></script>
+    <!-- /build -->
   </body>
 </html>

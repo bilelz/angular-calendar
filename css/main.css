@@ -1,11 +1,24 @@
-body{
-	background-color: #ffffff;
+html, body{
 	position: relative;
-	padding-top: 70px;
+	height: 100%;
 }
+
+
+body{
+	background-color: #D9CFC6;
+	position: relative;
+}
+
 
 img{
 	max-width: 100%;
+}
+
+.io{
+	text-indent: -1.75em;
+	display: inline-block;
+	font-size: .6em;
+	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 /* Wrapper for page content to push down footer */
@@ -20,8 +33,9 @@ img{
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 60px;
+  //height: 60px;
   background-color: #f5f5f5;
+  position: relative;
 }
 
 
@@ -33,7 +47,7 @@ img{
   padding: 0px 15px 0;
 }
 .container .credit {
-  margin: 20px 0;
+  margin: 5px 0;
 }
 
 #footer > .container {
@@ -48,6 +62,82 @@ blockquote{
 *{
 	white-space: normal !important;
 	word-break: break-word;
+}
+
+
+a.listBlock{
+	background-size: cover; 
+	width: 275px;
+	height:250px; 
+	display: inline-block; 
+	vertical-align : top;
+	position: relative;
+	margin: 5px;
+	text-decoration: none;
+	background: white;
+	overflow: hidden;
+}
+
+a.listBlock div{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	//background-size: 100%;
+	background-repeat: no-repeat;
+	//-webkit-filter: sepia(100%);
+	transition: .5s;
+	box-shadow: 0 1px 1px #aaa;
+	-webkit-transform:scale(0.8);
+	opacity:0;
+}
+
+[data-img]{
+	transition: .5s;
+	-webkit-transform:scale(0.8);
+	opacity:0;
+}
+
+a.listBlock:hover div, .listBlock:focus div{
+	-webkit-filter: sepia(0);
+	transition: .3s;
+}
+
+a.listBlock div.imgLoaded, [data-img].imgLoaded{
+	-webkit-transform:scale(1);
+	opacity:1;
+}
+
+.listBlock h4{
+	background: white; 
+	color : black; 
+	margin:0 ;
+	padding: 5px 10px;
+	position: relative;
+	font-weight: normal;
+	text-align: left;
+	z-index: 1;
+	box-shadow: 0 1px 1px #aaa;
+}
+
+.listBlock .listDate{
+background: white; 
+	color : black; margin:0; text-align: right;
+	position: relative;z-index: 1;
+}
+
+.listBlock .listWhere{
+	position:absolute; 
+	bottom: 0;
+	right:0;
+	background: white; 
+	color : black;
+	margin: 0;
+	padding: 0 5px;
+	text-align: right;
+	//width: 100%;
 }
 
 .list-group{	
@@ -116,9 +206,14 @@ padding: 5px 10px;
 color: white;
 }
 
-.title a {
-	color : white;
-	display: block;
+.title a.btn {
+	text-shadow: none;
+	//color : white;
+	//display: block;
+}
+
+.title iframe{
+	vertical-align: bottom;
 }
 
 .title::after {
@@ -180,4 +275,23 @@ content: ' ';
 .animate-enter.animate-enter-active {
  /* The animation code itself */
  opacity: 1;
+}
+
+.blurBg{
+	position: absolute;
+content: '';
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+-webkit-filter: blur(3px);
+background-size: cover;
+background-repeat: repeat-x;
+background-color: white;
+}
+
+
+.twitter-btn{
+	background: #5BC8ED;
+	color:white;
 }

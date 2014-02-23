@@ -1,0 +1,56 @@
+<div class="container"> 
+<div class="row">
+	
+	<div class="col-md-8">		
+
+		<h1 class="title brand">{{calendar.title.$t}} {{log}}</h1>
+		
+		<ul class="list-group">
+			<li ng-repeat="entry in calendar.entry" title="{{entry.id.$t}}"  class="list-group-item"
+				style="background-image: url({{entry.content.$t | getImage}})">
+				
+				<a href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}">
+					
+					<h4 class="list-group-item-heading">{{entry.title.$t}}</h4>
+					
+					<p class="list-group-item-text">
+						<span title="{{entry.gd$when[0].startTime}}">
+							{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+							{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+						</span>
+					</p>
+					
+					<p class="text-right">{{entry.gd$where[0].valueString}}</p>
+					
+				</a>
+			
+		  </li>
+		</ul>
+	</div>
+	<div class="col-md-4">
+		<a class="twitter-timeline flipInX animated" 
+			                href="https://twitter.com/search?q=%23caldev" 
+			                data-screen-name="bilelz"
+			                data-theme="light" 
+			                data-border-color="#ffffff"
+			                data-chrome=" nofooter white noborders noscrollbar"
+			                data-tweet-limit="5" 
+			                data-show-replies="false"
+			                width="290" 
+			                height="300"
+			                aria-polite="polite"
+			                data-widget-id="397466398416314368">
+			            </a>		
+				
+
+
+
+
+						
+			<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+<p class="text-center">
+	<a href="+" class="btn btn-success">Add an event</a>
+</p>
+</div>
