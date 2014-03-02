@@ -22,15 +22,13 @@
 					
 					<div data-img="{{entry.content.$t | getImage}}"></div>
 					
-					
-					
-					
-					
-					<p class="listWhere">
-						<span title="{{entry.gd$when[0].startTime}}">
+					<span class="listDate" title="{{entry.gd$when[0].startTime}}">
 							{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
 						</span>
-						<i class="icon-map-marker"></i> {{entry.gd$where[0].valueString}}</p>
+					
+					<p class="listWhere">
+						<i class="icon-map-marker"></i> {{entry.gd$where[0].valueString}}
+					</p>
 					
 				</a>
 			</center>

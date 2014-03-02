@@ -12,6 +12,8 @@ require.config({
         // the HTML page.
         //jQuery: 'libs/jquery/jquery',
         //bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
+        async: 'libs/requirejs-plugins/src/async',
+        goog: 'libs/requirejs-plugins/src/goog',
         angular : 'libs/angular/angular',
         moment : 'libs/momentjs/moment',
         ngAnimate : 'libs/angular-animate/angular-animate'//,

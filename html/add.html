@@ -11,7 +11,7 @@
   <div class="form-group">
     <label for="title" class="col-lg-2 control-label">Title *</label>
     <div class="col-lg-10">
-      <input type="text" class="form-control" id="title" placeholder="title" required="">
+      <input type="text" class="form-control" id="title" placeholder="" required="">
     </div>
   </div>
   <div class="form-group">
@@ -136,8 +136,8 @@
   <div class="form-group">
     <label for="adress" class="col-lg-2 control-label">Adress *</label>
     <div class="col-lg-10">
-      <input type="text" class="form-control" id="adress" placeholder="adress" required="">
-      <div id="map"></div>
+      <input type="search" class="form-control" id="adress" placeholder="adress" required="">
+      <div id="map-canvas"> </div>
     </div>
   </div>
   <div class="form-group">
@@ -149,7 +149,7 @@
   <div class="form-group">
     <label for="mail" class="col-lg-2 control-label">Mail *</label>
     <div class="col-lg-10">
-      <input type="email" class="form-control" id="mail" placeholder="your@mail.com" required="">
+      <input type="email" class="form-control" name="mail" id="mail" placeholder="your@mail.com" required="">
     </div>
   </div>
   
@@ -157,7 +157,7 @@
     <div class="col-lg-offset-2 col-lg-10">
       <div class="checkbox">
         <label>
-          <input type="checkbox"> Remember me
+          <input type="checkbox" name="mailcc"> Remember me
         </label>
       </div>
     </div>
