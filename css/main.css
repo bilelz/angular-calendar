@@ -1,6 +1,7 @@
 html, body{
 	position: relative;
 	height: 100%;
+	-webkit-font-smoothing: antialiased; //grrrr
 }
 
 
@@ -120,15 +121,15 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 }
 
 .listBlock h4{
-	background: white; 
-	color : black; 
+	background: rgba(0, 0, 0, 0.5); 
+	color : white; 
 	margin:0;
 	padding: 5px 10px;
 	position: relative;
 	font-weight: normal;
 	text-align: left;
 	z-index: 1;
-	box-shadow: 0 1px 1px #aaa;
+	text-shadow: 0px 1px 0px #000;
 }
 
 
@@ -330,9 +331,15 @@ background-color: white;
 }
 
 #map-canvas {
-        height: 250px;
+        height: 150px;
 		margin: 0px;
 		padding: 0px;
       }
-#map-canvas label { width: auto; display:inline; }
+#map-canvas label, .gmnoprint { width: auto !important; display:inline; }
 #map-canvas img { max-width: none;max-height: none;  }
+
+.formStatus{
+	border-radius: 10px;
+	padding: 0.2em .4em;
+	font-size: 1em;
+}

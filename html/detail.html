@@ -13,14 +13,15 @@
 					<!-- Default panel contents -->
 					<div class="panel-heading">
 
-						<span title="{{entry.gd$when[0].startTime}}"> <i class="icon-calendar"></i> {{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-							{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} <i class="icon-chevron-right"></i> {{entry.gd$when[0].endTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} </span>
+						<span title="{{entry.gd$when[0].startTime}}"> <i class="fa fa-calendar"></i> {{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+							{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} <i class="fa fa-chevron-right"></i> {{entry.gd$when[0].endTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} </span>
 
 						<span ng-bind-html-unsafe="entry.title.$t | getTwitterName"></span>
 					</div>
 					<div class="panel-body">
 						<p>
-							<span ng-bind-html-unsafe="entry.content.$t | breakline"></span>
+							<span ng-bind-html="entry.content.$t  | to_trusted_and_breakline"></span>
+							
 						</p>
 					</div>
 
@@ -31,25 +32,25 @@
 
 				<p class="text-center">
 
-					<a class="btn btn-default" style="background: #5BC8ED;color:white" href="https://twitter.com/intent/tweet?text=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t | encode}}%20%23caldev&url={{entry | getUrlEncode}}" target="_blank"> <i class=" icon-twitter  icon-2x"></i> </a>
+					<a class="btn btn-default" style="background: #5BC8ED;color:white" href="https://twitter.com/intent/tweet?text=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t | encode}}%20%23caldev&url={{entry | getUrlEncode}}" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
 
 					<a class="btn btn-primary" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t | encode}}%20%23caldev&amp;p[summary]={{entry.title.$t}}%0D%0A%0D%0A'{{entry | getUrlEncode}}'&amp;p[url]={{entry | getUrlEncode}}&amp;p[images][0]={{entry.content.$t | getImage}}"
-					onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;"   target="_blank"> <i class="icon-facebook-sign icon-2x"></i> </a>
+					onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;"   target="_blank"> <i class="fa fa-facebook fa fa-2x"></i> </a>
 
-					<a href="https://plus.google.com/share?url={{entry | getUrlEncode}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-danger" target="_blank"> <i class=" icon-google-plus icon-2x"></i> </a>
+					<a href="https://plus.google.com/share?url={{entry | getUrlEncode}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-danger" target="_blank"> <i class=" fa fa-google-plus fa fa-2x"></i> </a>
 
-					<a class="btn btn-default" href="http://www.linkedin.com/shareArticle?mini=true&url={{entry | getUrlEncode}}&title={{entry.title.$t}}&summary=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%20%23caldev&source=http://bilelz.fr" target="_blank"> <i class="icon-linkedin-sign  icon-2x" style="color: #0073B2"></i> </a>
+					<a class="btn btn-default" href="http://www.linkedin.com/shareArticle?mini=true&url={{entry | getUrlEncode}}&title={{entry.title.$t}}&summary=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%20%23caldev&source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x" style="color: #0073B2"></i> </a>
 
-					<a class="btn btn-default" href="mailto:?subject=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%20%23caldev&amp;body=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="icon-envelope icon-2x"> </i> </a>
+					<a class="btn btn-default" href="mailto:?subject=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%20%23caldev&amp;body=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
 
 				</p>
 
-				<a href="http://maps.google.com/maps?q={{entry.gd$where[0].valueString}}" target="_blank" class=""> <img src="http://maps.google.com/maps/api/staticmap?center={{entry.gd$where[0].valueString}}&zoom=12&size=400x200&maptype=roadmap&sensor=false&language=&markers={{entry.gd$where[0].valueString}}&amp;scale=2"/> <span class="maplink"> <i class="icon-map-marker"></i> {{entry.gd$where[0].valueString}} </span> </a>
+				<a href="http://maps.google.com/maps?q={{entry.gd$where[0].valueString}}" target="_blank" class=""> <img src="http://maps.google.com/maps/api/staticmap?center={{entry.gd$where[0].valueString}}&zoom=12&size=400x200&maptype=roadmap&sensor=false&language=&markers={{entry.gd$where[0].valueString}}&amp;scale=2"/> <span class="maplink"> <i class="fa fa-map-marker"></i> {{entry.gd$where[0].valueString}} </span> </a>
 
 				<br/>
 				<p>
-					<a href="{{entry.link[0].href}}" target="_blank" class="btn btn-default"><i class=" icon-calendar"></i> Google calendar</a>
-					<a href="+" class="btn btn-success"><i class="icon-plus"></i> Add an event</a>
+					<a href="{{entry.link[0].href}}" target="_blank" class="btn btn-default"><i class=" fa fa-calendar"></i> Google calendar</a>
+					<a href="+" class="btn btn-success"><i class="fa fa-plus"></i> Add an event</a>
 				</p>
 
 			</div>

@@ -15,13 +15,15 @@ require.config({
         async: 'libs/requirejs-plugins/src/async',
         goog: 'libs/requirejs-plugins/src/goog',
         angular : 'libs/angular/angular',
+        angularroute : 'libs/angular-route/angular-route',
         moment : 'libs/momentjs/moment',
         ngAnimate : 'libs/angular-animate/angular-animate'//,
         //project : 'project'
     },
   shim: {
     //'jQuery': {'exports' : 'jQuery'},
-    'angular' : {'exports' : 'angular'},    
+    'angular' : {'exports' : 'angular'},  
+    'angularroute': ['angular'],   
     //'bootstrap': { deps:['jQuery']}
   }
 });

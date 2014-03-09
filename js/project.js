@@ -2,19 +2,21 @@ define(function (require) {
   'use strict';
 
   var angular = require('angular');
+  var angularroute = require('angularroute');
   var moment = require('moment');
-  //var services = require('./services/services');
+  
+  //var services = require('services');
   //var controllers = require('./controllers/controllers');
   //var directives = require('./directives/directives');
 
-  var app = angular.module('angular-calendar', ['calendarFilters']).config(function($locationProvider, $routeProvider) {
+  var app = angular.module('angular-calendar', ['calendarFilters', 'ngRoute']).config(function($locationProvider, $routeProvider) {
 	    $locationProvider.html5Mode(true);
 	    $routeProvider.
 	      when('/', {controller:ListController, templateUrl:'html/list.html'}).
 	      when('/:eventLabel/:eventId', {controller:DetailController, templateUrl:'html/detail.html'}).
-	      when('/+', {controller:AddController, templateUrl:'html/add.html'}).
-	      when('/calendar', {controller:CalendarController, templateUrl:'html/calendar.html'}).
-	      otherwise({redirectTo:'angular-calendar/'});
+	      when('/a', {controller:AddController, templateUrl:'html/add.html'}).
+	      when('/c', {controller:CalendarController, templateUrl:'html/calendar.html'}).
+	      otherwise({redirectTo:'/'});
 	  });
 
   app.init = function () {
@@ -103,7 +105,15 @@ define(function (require) {
   		
 
   	};
-  });
+  }).filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]).filter('to_trusted_and_breakline', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text.replace(/\n/gi,'<br/>'));
+        };
+    }]);
 
 
   return app;
@@ -173,19 +183,69 @@ function DetailController($scope,$location, $routeParams, $http) {
 			$scope.log = "";
 			setTimeout(lazyLoadImage, 0);
 		}).
-  error(function(data, status, headers, config) {
-    alert("error http get!");
-  });
+		  error(function(data, status, headers, config) {
+		    alert("error http get!");
+		  });
 	};
 	
 	$scope.search();
 	
 }
 
-function AddController($scope){
+function AddController($scope, $http, $location){
 	$scope.today = new Date().toISOString().substring(0, 10);
 	var tomorrowTime = new Date().getTime() + 24 * 60 * 60 * 1000;
 	$scope.tomorrow  = new Date(tomorrowTime).toISOString().substring(0, 10);
+	
+	//$scope.newEvent = {};
+	$scope.mailSend = false;
+	$scope.mailSendError = false;
+	
+	$scope.event = {title:"TTT",
+						date: ""+new Date(tomorrowTime).toISOString().substring(0, 10),
+						hour:"18:00",
+						hourend:"20:30",
+						dateend: ""+new Date(tomorrowTime).toISOString().substring(0, 10),
+						adress: "",
+						description: "",
+						mail:""};
+						
+	$scope.eventForm = $scope.event ;					
+	$scope.addEvent = function(e) {
+		console.log(e);
+		
+		if ($scope.myFormNg.$valid) {
+	      console.log("valid");
+	      console.log($scope);
+	      var date = moment(e.date+e.hour, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
+	      
+			var dateend = moment(e.dateend+e.hourend, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
+	      var url = "js/php.php?title="+escape(e.title)+"&date="+date+"&dateend="+dateend+"&adress="+escape(e.adress)
+	      					+"&description="+escape(e.description)+"&mail="+e.mail+"&mailcc="+e.mailcc;
+	      console.log(url);
+	      $http({method: 'GET', url: url}).
+		    success(function(data, status, headers, config) {
+		      console.log(data);
+		      if(data.status == "OK"){
+		      	$scope.mailSend = true;
+		      	$scope.mailResponseTxt = data.response;
+		      	window.scrollTo(0,0);
+
+		      	//$location.url('/');
+
+		      }else{
+		      	$scope.mailSendError = true;
+		      	$scope.mailResponseTxt = data.response;
+		      }
+		    }).
+		    error(function(data, status, headers, config) {
+		      console.log(data);
+		    });
+	    } else {
+	      console.log("NO valid");	
+	      console.log(JSON.stringify(e.$error));  
+	     }
+	};
 	
 	require(['async!http://maps.google.com/maps/api/js?v=3.exp&sensor=false&&libraries=places'], function(){
 		var mapOptions = {
@@ -222,7 +282,7 @@ function AddController($scope){
 	      map.setCenter(place.geometry.location);
 	      map.setZoom(17);  // Why 17? Because it looks good.
 	    }
-	    marker.setIcon(/** @type {google.maps.Icon} */({
+	    marker.setIcon(({
 	      url: place.icon,
 	      size: new google.maps.Size(71, 71),
 	      origin: new google.maps.Point(0, 0),
@@ -243,13 +303,18 @@ function AddController($scope){
 	
 	    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
 	    infowindow.open(map, marker);
+	    
+	    $scope.myFormNg.adress = document.getElementById('adress').value;
+	    $scope.event.adress = document.getElementById('adress').value;
+
 	  });
 	});
 	
 	
 }
 
-function CalendarController($scope,$location, $routeParams, $http){
-	$scope.agendaID = agendaID;
+function CalendarController($scope,$location, $routeParams, $http, $sce){
+	$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
+					+"&src="+agendaID+"%40group.calendar.google.com&color=%232F6309&ctz=Europe%2FParis");
 }
 

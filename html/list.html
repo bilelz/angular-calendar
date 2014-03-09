@@ -10,7 +10,8 @@
 	    </i></h1>-->
 	    {{log}}
 		
-		
+		 <span  ng-show="mailSend">OK {{mailResponseTxt}}</span>
+       <span  ng-show="mailSendError">KO  {{mailResponseTxt}}</span>
 		<br/>
 		
 			<center>
@@ -27,7 +28,7 @@
 						</span>
 					
 					<p class="listWhere">
-						<i class="icon-map-marker"></i> {{entry.gd$where[0].valueString}}
+						<i class="fa fa-map-marker"></i> {{entry.gd$where[0].valueString}}
 					</p>
 					
 				</a>
