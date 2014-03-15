@@ -130,6 +130,9 @@ var $scope;
 // Création du controller
 function ListController($scope, $location, $http) {
 
+	removeClass(document.getElementById("nav-a"), "active");
+	removeClass(document.getElementById("nav-c"), "active");
+
 	$scope.trees=[];
     $scope.baseHref = "";
 
@@ -170,6 +173,10 @@ function ListController($scope, $location, $http) {
 
 // Création du controller
 function DetailController($scope,$location, $routeParams, $http) {
+
+	removeClass(document.getElementById("nav-a"), "active");
+	removeClass(document.getElementById("nav-c"), "active");
+
 	
 	var url = 'http://www.google.com/calendar/feeds/'+agendaID+'%40group.calendar.google.com/public/full/'+$routeParams.eventId+'?alt=json&callback=JSON_CALLBACK';
 	$scope.entry = [];
@@ -193,6 +200,10 @@ function DetailController($scope,$location, $routeParams, $http) {
 }
 
 function AddController($scope, $http, $location){
+
+	addClass(document.getElementById("nav-a"), "active");
+	removeClass(document.getElementById("nav-c"), "active");
+
 	$scope.today = new Date().toISOString().substring(0, 10);
 	var tomorrowTime = new Date().getTime() + 24 * 60 * 60 * 1000;
 	$scope.tomorrow  = new Date(tomorrowTime).toISOString().substring(0, 10);
@@ -318,6 +329,9 @@ function AddController($scope, $http, $location){
 }
 
 function CalendarController($scope,$location, $routeParams, $http, $sce){
+	removeClass(document.getElementById("nav-a"), "active");
+	addClass(document.getElementById("nav-c"), "active");
+
 	$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
 					+"&src="+agendaID+"%40group.calendar.google.com&color=%232F6309&ctz=Europe%2FParis");
 }

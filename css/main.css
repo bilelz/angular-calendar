@@ -226,7 +226,6 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 }
 
 .title{
-	background-color: #7fc04c;
 	color: white;
 	position: relative;
 	padding: 5px 15px;
@@ -260,24 +259,7 @@ margin-top: 0;
 	vertical-align: bottom;
 }
 
-.title::after {
-	position: absolute;
-	
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: 0 15px 10px 0;
-	border-color: transparent #999 transparent transparent;
-	content: ' ';
-	
-	left: auto;
-	right: 0;
-	bottom: -10px;
-	border-width: 10px 15px 0 0;
-	border-color: #5a8e32 transparent transparent transparent;
-	content: ' ';
-	
-}
+
 .animate-enter {
   -webkit-animation: enter_sequence 1s linear; /* Safari/Chrome */
   -moz-animation: enter_sequence 1s linear; /* Firefox */
@@ -340,3 +322,51 @@ margin-top: 0;
 	color:white;
 }
 
+.eventTitle{
+	display: block;
+	white-space: nowrap !important;
+	width: 100%;
+}
+
+.eventTitle .title{
+	font-size: 36px;
+	padding-right: 75px;
+}
+
+.listBlock .calendarframe{
+	position: absolute;
+	top: 45%;
+	right: 0px;
+	border-right: 0;
+}
+
+.calendarframe{
+border: 1px solid white;
+text-align: center;
+display: inline-block;
+position: relative;
+}
+
+.dayLabel{
+background: white;
+color: black;
+padding: 0px 5px;
+display: block;
+clear: both;
+}
+
+.dayNumber{
+display: block;
+font-size: 3em;
+line-height: 1em;
+color: white;
+text-shadow: 0 1px 1px black;
+}
+
+.monthLabel{
+	display: block;
+text-align: center;
+border-top: 1px solid white;
+color: white;
+text-shadow: 0 1px 1px black;
+}

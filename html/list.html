@@ -2,7 +2,14 @@
 <div class="row">
 	
 	<div class="col-md-12">		
-
+	
+	<center>
+	<span class="calendarframe">
+						<span class="dayLabel">Calendar</span>
+						<span class="dayNumber">4</span>
+						<span class="monthLabel">Dev & Design</span>
+					</span>
+</center>
 		<!--<h1 class="title brand">{{calendar.title.$t}} 
 			
 			<i class="icon-calendar-empty">
@@ -12,7 +19,6 @@
 		
 		 <span  ng-show="mailSend">OK {{mailResponseTxt}}</span>
        <span  ng-show="mailSendError">KO  {{mailResponseTxt}}</span>
-		<br/>
 		
 			<center>
 				<a href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" 
@@ -23,14 +29,18 @@
 					
 					<div data-img="{{entry.content.$t | getImage}}"></div>
 					
-					<span class="listDate" title="{{entry.gd$when[0].startTime}}">
+					<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
 							{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-						</span>
+						</span>-->
 					
 					<p class="listWhere">
 						<i class="fa fa-map-marker"></i> {{entry.gd$where[0].valueString}}
 					</p>
-					
+					<span class="calendarframe">
+						<span class="dayLabel">{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
+						<span class="dayNumber">{{entry.gd$when[0].startTime | date:'dd'}}</span>
+						<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>
+					</span>
 				</a>
 			</center>
 		

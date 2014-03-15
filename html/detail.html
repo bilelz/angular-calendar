@@ -6,9 +6,20 @@
 			<div class="col-md-8">
 
 				<title>{{entry.title.$t}}</title>
-				<h1 class="title">{{entry.title.$t}} {{log}}</h1>
-				<br/>
-
+				
+				
+				<div class="eventTitle">
+					<span class="calendarframe">
+						<span class="dayLabel">{{entry.gd$when[0].startTime | date:'EEEE'}}</span>
+						<span class="dayNumber">{{entry.gd$when[0].startTime | date:'dd'}}</span>
+						<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>
+					</span>
+					
+					
+					<h1 class="title">{{entry.title.$t}} {{log}}</h1>
+				
+				</div>
+				
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
 					<div class="panel-heading">
@@ -49,7 +60,7 @@
 
 				<br/>
 				<p>
-					<a href="{{entry.link[0].href}}" target="_blank" class="btn btn-default"><i class=" fa fa-calendar"></i> Google calendar</a>
+					<a href="{{entry.link[0].href}}" target="_blank" class="btn btn-default"><i class=" fa fa-calendar"></i> View in Google calendar</a>
 					<a href="a" class="btn btn-success"><i class="fa fa-plus"></i> Add an event</a>
 				</p>
 
