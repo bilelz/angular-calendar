@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/add.css">
 
 <div class="container"> 
 <div class="row">
@@ -24,12 +25,12 @@
     	</label>
     <div class="col-lg-10">
     	
-      <input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="25"
+      <input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="50"
       ng-blur="myFormNg.title.blured=true">
       
       	<span class="label label-danger" ng-show="myFormNg.title.$error.required && myFormNg.title.blured">Required!</span>
       	<span class="label label-warning" ng-show="myFormNg.title.$error.minlength && myFormNg.title.$dirty" >title is too short  (5 letters minimum).</span>
-        <span class="label label-warning" ng-show="myFormNg.title.$error.maxlength"  >title is too long (25 letters maximum).</span>
+        <span class="label label-warning" ng-show="myFormNg.title.$error.maxlength"  >title is too long (50 letters maximum).</span>
     </div>
   </div>
   <div class="form-group">
@@ -39,7 +40,7 @@
     		
     </label>
     <div class="col-lg-10">
-      {{event.date | date:'EEEE'}}
+      <!--{{event.date | date:'EEEE'}}-->
       <input type="date" id="date"   name="date" ng-model="event.date" placeholder="JJ/MM/AAAA" 
       style="width:auto !important; display: inline-block" required="required" class="form-control"/> 
 		
@@ -102,7 +103,7 @@
 			&nbsp;
 			<br/>
 			
-			{{event.dateend | date:'EEEE'}}
+			<!--{{event.dateend | date:'EEEE'}}-->
 			<input type="date" id="dateend" name="dateend"  ng-model="event.dateend"  placeholder="JJ/MM/AAAA" 
 			style="width:auto !important; display: inline-block" required="required" class="form-control"/> 
 		
@@ -183,7 +184,7 @@
     </label>
     <div class="col-lg-10">
       <textarea rows="5" name="description" id="description" ng-model="event.description" required
-       class="form-control" ng-minlength="10" ng-maxlength="500"  placeholder="10 characters minimum"
+       class="form-control" ng-minlength="10" ng-maxlength="1500"  placeholder="10 characters minimum"
        ng-blur="myFormNg.description.blured=true"></textarea>
        
       <span class="label label-danger" ng-show="myFormNg.description.$error.required && myFormNg.description.blured">Required!</span>
@@ -192,10 +193,10 @@
       		description is too short  (10 letters minimum).
       	</span>
         <span class="label label-warning" ng-show="myFormNg.description.$error.maxlength"  >
-        	description is too long (500 letters maximum).
+        	description is too long (1500 letters maximum).
         </span>
         <span class="label label-info" ng-show="!myFormNg.description.$error.required">
-      		{{event.description.length}}/{{500- event.description.length}} characters left
+      		{{event.description.length}}/{{1500- event.description.length}} characters left
       	</span>
     </div>
   </div>

@@ -1,0 +1,19 @@
+#map-canvas {
+        height: 150px;
+		margin: 0px;
+		padding: 0px;
+		//height: 0;
+		transition:.3s;
+      }
+#map-canvas label, .gmnoprint { width: auto !important; display:inline; }
+#map-canvas img { max-width: none;max-height: none;  }
+
+.formStatus{
+	border-radius: 10px;
+	padding: 0.2em .4em;
+	font-size: 1em;
+}
+
+.gmnoprint{
+	display: none;
+}

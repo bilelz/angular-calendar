@@ -228,6 +228,7 @@ function AddController($scope, $http, $location){
 		      console.log(data);
 		      if(data.status == "OK"){
 		      	$scope.mailSend = true;
+		      	$scope.mailSendError = false;
 		      	$scope.mailResponseTxt = data.response;
 		      	window.scrollTo(0,0);
 
@@ -235,6 +236,7 @@ function AddController($scope, $http, $location){
 
 		      }else{
 		      	$scope.mailSendError = true;
+		      	$scope.mailSend = false;
 		      	$scope.mailResponseTxt = data.response;
 		      }
 		    }).
@@ -250,7 +252,7 @@ function AddController($scope, $http, $location){
 	require(['async!http://maps.google.com/maps/api/js?v=3.exp&sensor=false&&libraries=places'], function(){
 		var mapOptions = {
 	    center: new google.maps.LatLng(48.8588589,2.3470599),
-	    zoom: 10
+	    zoom: 1
 	  };
 	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	  
@@ -269,6 +271,7 @@ function AddController($scope, $http, $location){
 	   
 	   google.maps.event.addListener(autocomplete, 'place_changed', function() {
 	    infowindow.close();
+	    document.getElementById('map-canvas').style.height = "150px";
 	    marker.setVisible(false);
 	    var place = autocomplete.getPlace();
 	    if (!place.geometry) {
@@ -280,7 +283,7 @@ function AddController($scope, $http, $location){
 	      map.fitBounds(place.geometry.viewport);
 	    } else {
 	      map.setCenter(place.geometry.location);
-	      map.setZoom(17);  // Why 17? Because it looks good.
+	      map.setZoom(10);  
 	    }
 	    marker.setIcon(({
 	      url: place.icon,
@@ -302,8 +305,9 @@ function AddController($scope, $http, $location){
 	    }
 	
 	    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-	    infowindow.open(map, marker);
+	    //infowindow.open(map, marker);
 	    
+
 	    $scope.myFormNg.adress = document.getElementById('adress').value;
 	    $scope.event.adress = document.getElementById('adress').value;
 
