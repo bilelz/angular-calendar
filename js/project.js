@@ -122,7 +122,7 @@ define(function (require) {
 
 
 var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
-agendaID = "u825pd9kqiahvdqljsk29rass4";
+//agendaID = "u825pd9kqiahvdqljsk29rass4";
 /* agenda de test */
 // agendaID = 'u825pd9kqiahvdqljsk29rass4'; 
 var $scope;
