@@ -97,6 +97,7 @@ a.listBlock{
 	.custom-header .nav-text{
 		display: none;
 	}
+	
 }
 
 
@@ -335,6 +336,27 @@ margin-top: 0;
 	padding-right: 75px;
 }
 
+@media (max-width: 620px){
+	.eventTitle .title{
+		font-size : 24px;
+		width: 230px;
+		padding-right: 0;
+	}
+	
+	.row .col-md-12{
+		padding: 0;
+	}
+	
+	a.listBlock{
+		
+		width: 100%;
+		margin-right : 0;
+		margin-left: 0; 
+		
+	}
+}
+
+
 .listBlock .calendarframe{
 	position: absolute;
 	top: 45%;
@@ -379,8 +401,31 @@ text-shadow: 0 1px 1px black;
 
 .shareLabel{
 	color: white;
-	text-shadow: 0 1px 1px black;
-font-size: 24px;
-font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-vertical-align: middle;
+	text-shadow: 0 1px 1px #aaa;
+	font-size: 24px;
+	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+	vertical-align: middle;
+}
+
+.shareBtn{
+	background: transparent;
+	color: white;
+	border: 0;
+	border-radius: 28px;
+	padding: 10px;
+	text-shadow: 0 1px 1px #aaa;
+	transition : .3s;
+	box-shadow: inset 0 1px 1px #aaa;
+}
+
+.shareBtn i{
+	min-width: 24px;
+}
+
+.shareBtn:hover, .shareBtn:focus{
+	color: #ccc;
+	background: white;
+	border: 0;
+	text-shadow: 0 3px 1px #fff;
+	transition: .1s;
 }
