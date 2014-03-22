@@ -50,6 +50,10 @@ img{
 	font-size: 1.5em;
 }
 
+h1.title {
+margin-top: 0;
+}
+
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */

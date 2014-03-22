@@ -28,12 +28,12 @@
     	</label>
     <div class="col-lg-10">
     	
-      <input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="50"
+      <input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="100"
       ng-blur="myFormNg.title.blured=true">
       
       	<span class="label label-danger" ng-show="myFormNg.title.$error.required && myFormNg.title.blured">Required!</span>
       	<span class="label label-warning" ng-show="myFormNg.title.$error.minlength && myFormNg.title.$dirty" >title is too short  (5 letters minimum).</span>
-        <span class="label label-warning" ng-show="myFormNg.title.$error.maxlength"  >title is too long (50 letters maximum).</span>
+        <span class="label label-warning" ng-show="myFormNg.title.$error.maxlength"  >title is too long (100 letters maximum).</span>
     </div>
   </div>
   <div class="form-group">

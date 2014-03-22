@@ -94,30 +94,28 @@ define(function (require) {
   	return function(entry){
   		return (entry == undefined)?undefined:encodeURIComponent(entry);
   	};
-  }).filter('getTwitterName', function(){
+  }).filter('getTwitterName', ['$sce', function($sce){
   	//http://www.simonwhatley.co.uk/examples/twitter/prototype/
   	return function(entry){
   		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
   			var username = entry.match(/[@]+[A-Za-z0-9-_]+/g)[0].replace("@","");
-  			return '<a href="https://twitter.com/'+username
-  					+'" class="btn btn-default twitter-btn" target="_blank"><i class="icon-twitter"></i> @'+username+'</a>';
+  			return $sce.trustAsHtml('<a href="https://twitter.com/'+username
+  					+'" class="btn btn-default twitter-btn" target="_blank"><i class="icon-twitter"></i> @'+username+'</a>');
   		}
   		
 
   	};
-  }).filter('to_trusted', ['$sce', function($sce){
+  }]).filter('to_trusted', ['$sce', function($sce){
         return function(text) {
         	if(text != undefined){
         		return $sce.trustAsHtml(text);
         	}
-            
         };
     }]).filter('to_trusted_and_breakline', ['$sce', function($sce){
         return function(text) {
         	if(text != undefined){
         		return $sce.trustAsHtml(text.replace(/\n/gi,'<br/>'));
         	}
-            
         };
     }]);
 
