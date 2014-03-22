@@ -107,11 +107,17 @@ define(function (require) {
   	};
   }).filter('to_trusted', ['$sce', function($sce){
         return function(text) {
-            return $sce.trustAsHtml(text);
+        	if(text != undefined){
+        		return $sce.trustAsHtml(text);
+        	}
+            
         };
     }]).filter('to_trusted_and_breakline', ['$sce', function($sce){
         return function(text) {
-            return $sce.trustAsHtml(text.replace(/\n/gi,'<br/>'));
+        	if(text != undefined){
+        		return $sce.trustAsHtml(text.replace(/\n/gi,'<br/>'));
+        	}
+            
         };
     }]);
 

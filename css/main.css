@@ -44,9 +44,11 @@ img{
 
 #footer .text-muted {
 	color: black;
-	text-align: right;
 }
 
+#footer i{
+	font-size: 1.5em;
+}
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -73,6 +75,10 @@ blockquote{
 	word-break: break-word;
 }
 
+
+#top{
+	float: right;
+}
 
 a.listBlock{
 	background-size: cover; 
