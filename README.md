@@ -1,8 +1,8 @@
-angular-calendar
+angular-calendar / caldev.io
 ================
 
-webapp calendar (first app with angularjs)
+webapp calendar (my first app with angularjs)
 
 POC to test angularjs framework
 
-demo : http://demo.bilelz.fr/angular-calendar
+demo : http://caldev.io
