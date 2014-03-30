@@ -16,6 +16,7 @@ require.config({
         goog: 'libs/requirejs-plugins/src/goog',
         angular : 'libs/angular/angular',
         angularroute : 'libs/angular-route/angular-route',
+        angularresource: "libs/angular-resource/angular-resource",
         moment : 'libs/momentjs/moment',
         ngAnimate : 'libs/angular-animate/angular-animate'//,
         //project : 'project'
@@ -24,12 +25,36 @@ require.config({
     //'jQuery': {'exports' : 'jQuery'},
     'angular' : {'exports' : 'angular'},  
     'angularroute': ['angular'],   
+    'angularresource': ['angular'],   
     //'bootstrap': { deps:['jQuery']}
-  }
+  },
+	priority: [
+		"angular"
+	]
 });
-
-require(['project'], function (app) {
+/*
+require(['angular', 'project'], function (angular,app) {
   app.init();
+});*/
+
+require( [
+	'angular',
+	'angularroute',
+	'angularresource',
+	'app',
+	'filters.2',
+	'services',
+	'controllers',
+	
+	'routes'
+], function(angular, app, routes, controllers) {
+	'use strict';
+
+	angular.element().ready(function(app) {
+		angular.bootstrap(document, ['caldev']);
+		window.onscroll = function() { lazyLoadImage(); };
+      	document.getElementById("top").onclick = function(){scrollTo(0,0); return false;};
+	});
 });
 
 
