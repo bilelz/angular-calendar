@@ -63,6 +63,8 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	background-color: #c644fc;
+	background-image: linear-gradient(top, rgba(88, 86, 214, 0.16) 0%,rgba(88, 86, 214, 0.5) 10%, rgba(88, 86, 214,1) 20%);
 	background-image: -webkit-linear-gradient(top, rgba(88, 86, 214, 0.16) 0%,rgba(88, 86, 214, 0.5) 10%, rgba(88, 86, 214,1) 20%);
 	z-index: 0;
 	width: 100%;

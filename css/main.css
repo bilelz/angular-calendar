@@ -6,6 +6,8 @@ html, body{
 
 
 body{
+	background-color: #c644fc;
+	background-image: -webkit-linear-gradient(#c644fc, #5856d6);
 	background-image: linear-gradient(#c644fc, #5856d6);
 	background-size: cover;
 	position: relative;
