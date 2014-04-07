@@ -1,7 +1,7 @@
 define(['angular','app'], function(angular, app)
 {
 	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
-	agendaID = "u825pd9kqiahvdqljsk29rass4";
+	//agendaID = "u825pd9kqiahvdqljsk29rass4";
     app.controller(
         'ListController', ['$scope', '$location', '$http', 'caldevServices' ,
         function($scope, $location, $http, caldevServices) {
@@ -31,96 +31,108 @@ define(['angular','app'], function(angular, app)
 		}]
 	);
 
-	app.controller('AddController', ['$scope', '$location', '$http',
-		function ($scope, $http, $location){
+	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,
+		function ($scope, $http, $location, $routeParams, caldevServices){
 
 		addClass(document.getElementById("nav-a"), "active");
 		removeClass(document.getElementById("nav-c"), "active");
 	
-		$scope.today = new Date().toISOString().substring(0, 10);
-		var tomorrowTime = new Date().getTime() + 24 * 60 * 60 * 1000;
-		$scope.tomorrow  = new Date(tomorrowTime).toISOString().substring(0, 10);
-		
+			
 		//$scope.newEvent = {};
 		$scope.mailSend = false;
 		$scope.mailSendError = false;
 		
-		$scope.event = {title:"TTT",
-							date: ""+new Date(tomorrowTime).toISOString().substring(0, 10),
+		$scope.event = {title:"",
+							date: moment().format("YYYY-MM-DD"),
 							hour:"18:00",
 							hourend:"20:30",
-							dateend: ""+new Date(tomorrowTime).toISOString().substring(0, 10),
+							dateend: moment().add('days', 1).format("YYYY-MM-DD"),
 							adress: "",
 							description: "",
 							mail:""};
-							
+		
+		// datepicker fallback
+		var elem = document.createElement('input');
+	    elem.setAttribute('type', 'date');
+	 
+      	if ( elem.type === 'text' ) {
+      		require(['jqueryui'], function(){
+      			$("head").append('<link href="/js/libs/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />');
+				$('.date').datepicker( { dateFormat:  "dd/mm/yy", changeMonth: true }); 
+				$("#date").val(moment().format("DD/MM/YYYY"));
+				$("#dateend").val(moment().add('days', 1).format("DD/MM/YYYY"));
+			}); 	
+      	}
+      	// end : datepicker fallback
+      	
+		
 		$scope.eventForm = $scope.event ;					
-		$scope.addEvent = function(e) {
+		$scope.addEvent = function(e, $http) {
 			console.log(e);
 			
 			if ($scope.myFormNg.$valid) {
-		      console.log("valid");
-		      console.log($scope);
 		      var date = moment(e.date+e.hour, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
+		      var dateend = moment(e.dateend+e.hourend, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
 		      
-				var dateend = moment(e.dateend+e.hourend, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
-		      var url = "js/misc/add.php?title="+escape(e.title)+"&date="+date+"&dateend="+dateend+"&adress="+escape(e.adress)
+		      var urladd = "js/misc/add.php?title="+escape(e.title)+"&date="+date+"&dateend="+dateend+"&adress="+escape(e.adress)
 		      					+"&description="+escape(e.description)+"&mail="+e.mail+"&mailcc="+e.mailcc;
-		      console.log(url);
-		      $http({method: 'GET', url: url}).
-			    success(function(data, status, headers, config) {
-			      console.log(data);
-			      if(data.status == "OK"){
-			      	$scope.mailSend = true;
-			      	$scope.mailSendError = false;
-			      	$scope.mailResponseTxt = data.response;
-			      	window.scrollTo(0,0);
-	
-			      	//$location.url('/');
-	
-			      }else{
-			      	$scope.mailSendError = true;
-			      	$scope.mailSend = false;
-			      	$scope.mailResponseTxt = data.response;
-			      }
-			    }).
-			    error(function(data, status, headers, config) {
-			      console.log(data);
-			    });
+		      
+		      caldevServices.add(urladd)
+		      				.then(function(data) {
+						      if(data.status == "OK"){
+						      	$scope.mailSend = true;
+						      	$scope.mailSendError = false;
+						      	$scope.mailResponseTxt = data.response;
+						      	window.scrollTo(0,0);
+						      }else{
+						      	$scope.mailSendError = true;
+						      	$scope.mailSend = false;
+						      	$scope.mailResponseTxt = data.response;
+						      }
+							});	
+		      
+		      
 		    } else {
 		      console.log("NO valid");	
 		      console.log(JSON.stringify(e.$error));  
 		     }
+		     
 		};
+		
+		
+		
+		
 		
 		require(['async!http://maps.google.com/maps/api/js?v=3.exp&sensor=false&&libraries=places'], function(){
 				var mapOptions = {
 			    center: new google.maps.LatLng(48.8588589,2.3470599),
 			    zoom: 1
 			  };
-			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			  //var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			  
 			   var input =  document.getElementById('adress');
 			   var types = document.getElementById('type-selector');
-			  //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-			  //map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 			
 			  var autocomplete = new google.maps.places.Autocomplete(input);
-			  autocomplete.bindTo('bounds', map);
+			  //autocomplete.bindTo('bounds', map);
 			
-			  var infowindow = new google.maps.InfoWindow();
+			  /*var infowindow = new google.maps.InfoWindow();
 			  var marker = new google.maps.Marker({
 			    map: map
-			  });
+			  });*/
+			  
+			  input.placeholder = "";
 			   
 			   google.maps.event.addListener(autocomplete, 'place_changed', function() {
-			    infowindow.close();
-			    document.getElementById('map-canvas').style.height = "150px";
-			    marker.setVisible(false);
 			    var place = autocomplete.getPlace();
 			    if (!place.geometry) {
 			      return;
 			    }
+			    /*
+			    infowindow.close();
+			    document.getElementById('map-canvas').style.height = "150px";
+			    marker.setVisible(false);
+			    
 			
 			    // If the place has a geometry, then present it on a map.
 			    if (place.geometry.viewport) {
@@ -150,8 +162,8 @@ define(['angular','app'], function(angular, app)
 			
 			    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
 			    //infowindow.open(map, marker);
-			    
-		
+			    */
+				
 			    $scope.myFormNg.adress = document.getElementById('adress').value;
 			    $scope.event.adress = document.getElementById('adress').value;
 		

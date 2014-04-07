@@ -30,6 +30,10 @@ define(['angular','moment', 'app'], function (angular, app) {
     return function(html) {    	
         return (html != undefined)?html.replace(/\n/gi,'<br/>'):undefined;
     };
+  }).filter('length', function() {
+    return function(text) {    	
+        return (text != undefined)?text.length:undefined;
+    };
   }).filter('getImage', function(){
   	return function(content){
   		//return (content == undefined)?undefined: $('<div/>').html(content).find("img:first").attr("src");
@@ -71,7 +75,7 @@ define(['angular','moment', 'app'], function (angular, app) {
   		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
   			var username = entry.match(/[@]+[A-Za-z0-9-_]+/g)[0].replace("@","");
   			return $sce.trustAsHtml('<a href="https://twitter.com/'+username
-  					+'" class="btn btn-default twitter-btn btn-sm" target="_blank"><i class="fa fa-twitter"></i> @'+username+'</a>');
+  					+'" class="btn btn-default twitter-btn" target="_blank"><i class="fa fa-twitter"></i> @'+username+'</a>');
   		}
   		
 

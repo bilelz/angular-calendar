@@ -20,36 +20,40 @@
 <form class="form-horizontal" novalidate name="myFormNg"  ng-submit="addEvent(event)">
   <div class="form-group">
   	
-    <label for="title" class="col-lg-2 control-label">Title 
-    	<i class="fa fa-asterisk formStatus" ng-show="!myFormNg.title.$valid"></i>
-    	<span  class="label label-success formStatus" ng-show="myFormNg.title.$valid"><i class="fa fa-check"></i></span>
-    	
-
-    	</label>
-    <div class="col-lg-10">
-    	
-      <input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="100"
-      ng-blur="myFormNg.title.blured=true">
-      
-      	<span class="label label-danger" ng-show="myFormNg.title.$error.required && myFormNg.title.blured">Required!</span>
-      	<span class="label label-warning" ng-show="myFormNg.title.$error.minlength && myFormNg.title.$dirty" >title is too short  (5 letters minimum).</span>
-        <span class="label label-warning" ng-show="myFormNg.title.$error.maxlength"  >title is too long (100 letters maximum).</span>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="date" class="col-lg-2 control-label">Date 
-    	<i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i>
-    	<span  class="label label-success formStatus" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"><i class="fa fa-check"></i></span>
-    		
-    </label>
-    <div class="col-lg-10">
-      <!--{{event.date | date:'EEEE'}}-->
-      <input type="date" id="date"   name="date" ng-model="event.date" placeholder="JJ/MM/AAAA" 
-      style="width:auto !important; display: inline-block" required="required" class="form-control"/> 
-		
-		<select  name="hour" id="hour"  ng-model="event.hour"  class="form-control" 
-		 style="width:85px !important; display: inline-block"
-		 > 
+  	<div class="col-lg-12 float">
+  		<input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="100"
+      		ng-blur="myFormNg.title.blured=true"  ng-class="{notempty: myFormNg.title.required}">
+	      <label for="title">
+	      		Title
+	      		<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.title.$valid"></i> -->
+	      		<i class="fa fa-check" ng-show="myFormNg.title.$valid"></i>
+	      		<span class="label label-danger" ng-show="myFormNg.title.$error.required && myFormNg.title.blured">Required!</span>
+		    	<span class="label label-warning" ng-show="myFormNg.title.$error.minlength && myFormNg.title.$dirty" >
+		      		too short  (5 letters minimum). 
+		      	</span>
+		        <span class="label label-warning" ng-show="myFormNg.title.$error.maxlength"  >
+		        	too long (100 letters maximum).
+		        </span>
+	    	</label>
+	    	
+	    <div class="progress">
+		  <div class="progress-bar {{(myFormNg.title.$error.maxlength)?'progress-bar-danger':'progress-bar-success'}}" role="progressbar" aria-valuenow="{{event.title.length*100/1500 | number:0}}" 
+		  	aria-valuemin="0" aria-valuemax="100" title="{{event.title.length*100/100 | number:0}}%"
+		  	style="width: {{(myFormNg.title.$error.maxlength)?100:event.title.length*100/100 | number:0}}%;">
+		  </div>
+		</div>
+  	</div>
+  	
+  	<div class="col-lg-12 float">
+  		<input type="date" id="date"   name="date" ng-model="event.date" placeholder="JJ/MM/AAAA" 
+     		 style="width:auto !important; display: inline-block;margin-right: -5px;" required="required" class="form-control date"/> <!--
+	       --><label for="date"  ><i class="fa fa-calendar-o"></i> Date 
+	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i> -->
+	    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
+	    </label><!--	    
+	    --><div class="float hour"><!--
+  		--><select  name="hour" id="hour" required ng-model="event.hour"  class="form-control" 
+		 			style="width:85px !important; display: inline-block" > 
 				<option value="00:00">00:00</option>
 				<option value="00:30">00:30</option>				
 				<option value="01:00">01:00</option>
@@ -99,136 +103,150 @@
 				<option value="23:00">23:00</option>
 				<option value="23:30">23:30</option>
 			</select>
-			
-
-			&nbsp;
-			<label for="dateend"> <i class="fa fa-chevron-right"></i> </label>
-			&nbsp;
-			<br/>
-			
-			<!--{{event.dateend | date:'EEEE'}}-->
-			<input type="date" id="dateend" name="dateend"  ng-model="event.dateend"  placeholder="JJ/MM/AAAA" 
-			style="width:auto !important; display: inline-block" required="required" class="form-control"/> 
-		
-		<select  name="hourend" id="hourend"  ng-model="event.hourend"  class="form-control" 
-		style="width:85px !important; display: inline-block"> 
-				<option value="00:00">00:00</option>
-				<option value="00:30">00:30</option>				
-				<option value="01:00">01:00</option>
-				<option value="01:30">01:30</option>				
-				<option value="02:00">02:00</option>
-				<option value="02:30">02:30</option>				
-				<option value="03:00">03:00</option>
-				<option value="03:30">03:30</option>				
-				<option value="04:00">04:00</option>
-				<option value="04:30">04:30</option>				
-				<option value="05:00">05:00</option>
-				<option value="05:30">05:30</option>				
-				<option value="06:00">06:00</option>
-				<option value="06:30">06:30</option>				
-				<option value="07:00">07:00</option>
-				<option value="07:30">07:30</option>				
-				<option value="08:00">08:00</option>
-				<option value="08:30">08:30</option>				
-				<option value="09:00">09:00</option>
-				<option value="09:30">09:30</option>				
-				<option value="10:00">10:00</option>
-				<option value="10:30">10:30</option>
-				<option value="11:00">11:00</option>
-				<option value="11:30">11:30</option>				
-				<option value="12:00">12:00</option>
-				<option value="12:30">12:30</option>				
-				<option value="13:00">13:00</option>
-				<option value="13:30">13:30</option>				
-				<option value="14:00">14:00</option>
-				<option value="14:30">14:30</option>				
-				<option value="15:00">15:00</option>
-				<option value="15:30">15:30</option>				
-				<option value="16:00">16:00</option>
-				<option value="16:30">16:30</option>				
-				<option value="17:00">17:00</option>
-				<option value="17:30">17:30</option>				
-				<option value="18:00">18:00</option>
-				<option value="18:30">18:30</option>				
-				<option value="19:00">19:00</option>
-				<option value="19:30">19:30</option>				
-				<option value="20:00">20:00</option>
-				<option value="20:30">20:30</option>				
-				<option value="21:00">21:00</option>
-				<option value="21:30">21:30</option>				
-				<option value="22:00">22:00</option>
-				<option value="22:30">22:30</option>				
-				<option value="23:00">23:00</option>
-				<option value="23:30">23:30</option>
-			</select>
-			
-
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="adress" class="col-lg-2 control-label">Adress 
-    	<i class="fa fa-asterisk formStatus" ng-show="!myFormNg.adress.$valid"></i>
-    	<span  class="label label-success formStatus" ng-show="myFormNg.adress.$valid"><i class="fa fa-check"></i></span>
-    	
-    </label>
-    <div class="col-lg-10">
+		      <label for="hour"  >  Hour 
+		    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i> -->
+		    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
+		    </label>
+	  	</div>
+  	
+  	
+	  	<div class="  float end">
+	  		<input type="date" id="dateend"   name="dateend" ng-model="event.dateend" placeholder="JJ/MM/AAAA" 
+	     		 style="width:auto !important; display: inline-block;margin-right: -5px;" required="required" class="form-control date"/> <!--
+		       --><label for="dateend"  ><i class="fa fa-calendar-o"></i> Date de fin
+		    	<i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i>
+		    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
+		    </label><!--	    
+		    --><div class="float hour"><!--
+	  		--><select  name="hourend" id="hourend" required ng-model="event.hourend"  class="form-control" 
+			 			style="width:85px !important; display: inline-block" > 
+					<option value="00:00">00:00</option>
+					<option value="00:30">00:30</option>				
+					<option value="01:00">01:00</option>
+					<option value="01:30">01:30</option>				
+					<option value="02:00">02:00</option>
+					<option value="02:30">02:30</option>				
+					<option value="03:00">03:00</option>
+					<option value="03:30">03:30</option>				
+					<option value="04:00">04:00</option>
+					<option value="04:30">04:30</option>				
+					<option value="05:00">05:00</option>
+					<option value="05:30">05:30</option>				
+					<option value="06:00">06:00</option>
+					<option value="06:30">06:30</option>				
+					<option value="07:00">07:00</option>
+					<option value="07:30">07:30</option>				
+					<option value="08:00">08:00</option>
+					<option value="08:30">08:30</option>				
+					<option value="09:00">09:00</option>
+					<option value="09:30">09:30</option>				
+					<option value="10:00">10:00</option>
+					<option value="10:30">10:30</option>
+					<option value="11:00">11:00</option>
+					<option value="11:30">11:30</option>				
+					<option value="12:00">12:00</option>
+					<option value="12:30">12:30</option>				
+					<option value="13:00">13:00</option>
+					<option value="13:30">13:30</option>				
+					<option value="14:00">14:00</option>
+					<option value="14:30">14:30</option>				
+					<option value="15:00">15:00</option>
+					<option value="15:30">15:30</option>				
+					<option value="16:00">16:00</option>
+					<option value="16:30">16:30</option>				
+					<option value="17:00">17:00</option>
+					<option value="17:30">17:30</option>				
+					<option value="18:00">18:00</option>
+					<option value="18:30">18:30</option>				
+					<option value="19:00">19:00</option>
+					<option value="19:30">19:30</option>				
+					<option value="20:00">20:00</option>
+					<option value="20:30">20:30</option>				
+					<option value="21:00">21:00</option>
+					<option value="21:30">21:30</option>				
+					<option value="22:00">22:00</option>
+					<option value="22:30">22:30</option>				
+					<option value="23:00">23:00</option>
+					<option value="23:30">23:30</option>
+				</select>
+				
+			      <label for="hourend"  >Hour 
+			    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i> -->
+			    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
+			    </label>
+		  	</div>
+	  	</div>
+	  </div>
+  	
+  	<div class="col-lg-12 float">
       <input type="text" class="form-control" id="adress" name="adress" ng-model="event.adress" required ng-minlength="3" ng-maxlength="100"
       ng-blur="myFormNg.adress.blured=true">
-      <span class="label label-danger" ng-show="myFormNg.adress.$error.required && myFormNg.adress.blured">Required!</span>
-      <div id="map-canvas"> </div>
-       
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="description" class="col-lg-2 control-label">Description 
-    	<i class="fa fa-asterisk formStatus" ng-show="!myFormNg.description.$valid"></i>
-    	<span  class="label label-success formStatus" ng-show="myFormNg.description.$valid"><i class="fa fa-check"></i></span>
-    </label>
-    <div class="col-lg-10">
-      <textarea rows="5" name="description" id="description" ng-model="event.description" required
-       class="form-control" ng-minlength="10" ng-maxlength="1500"  placeholder="10 characters minimum"
-       ng-blur="myFormNg.description.blured=true"></textarea>
-       
-      <span class="label label-danger" ng-show="myFormNg.description.$error.required && myFormNg.description.blured">Required!</span>
+      <label for="adress" ><i class="fa fa-globe"></i> Adress 
+	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.adress.$valid"></i> -->
+	    	<i class="fa fa-check" ng-show="myFormNg.adress.$valid"></i>    	
+	    	<span class="label label-danger" ng-show="myFormNg.adress.$error.required && myFormNg.adress.blured">Required!</span>
+    	</label>
       
-      	<span class="label label-warning" ng-show="myFormNg.description.$error.minlength && myFormNg.description.$dirty" >
-      		description is too short  (10 letters minimum).
-      	</span>
-        <span class="label label-warning" ng-show="myFormNg.description.$error.maxlength"  >
-        	description is too long (1500 letters maximum).
-        </span>
-        <span class="label label-info" ng-show="!myFormNg.description.$error.required">
-      		{{event.description.length}}/{{1500- event.description.length}} characters left
-      	</span>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="mail" class="col-lg-2 control-label">Mail 
-    	<i class="fa fa-asterisk formStatus" ng-show="!myFormNg.mail.$valid"></i>
-    	<span  class="label label-success formStatus" ng-show="myFormNg.mail.$valid"><i class="fa fa-check"></i></span>
-    </label>
-    <div class="col-lg-10">
-      <input type="email" class="form-control" name="mail" id="mail" ng-model="event.mail" placeholder="your@mail.com" required
-      ng-blur="myFormNg.mail.blured=true">
       
-      <span class="label label-danger" ng-show="myFormNg.mail.$error.required && myFormNg.mail.blured">Required!</span>
-      <span class="label label-warning" data-ng-show="myFormNg.mail.$invalid && myFormNg.mail.$dirty">Invalid email!</span>
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="mailcc" ng-model="event.mailcc"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <input type="submit" class="btn btn-success" ng-disabled="!myFormNg.$valid"/>
+      <div class="progress">
+		  <div class="progress-bar {{(myFormNg.adress.$error.maxlength)?'progress-bar-danger':'progress-bar-success'}}" role="progressbar" aria-valuenow="{{event.adress.length*100/1500 | number:0}}" 
+		  	aria-valuemin="0" aria-valuemax="100" title="{{event.adress.length*100/100 | number:0}}%"
+		  	style="width: {{(myFormNg.adress.$error.maxlength)?100:event.adress.length*100/100 | number:0}}%;">
+		  </div>
+		</div>
+      <!-- <div id="map-canvas"> </div> -->
+       
+  	</div>
+  	
+  	<div class="col-lg-12 float">
+	  
+	      <textarea rows="5" name="description" id="description" ng-model="event.description" required
+	       class="form-control" ng-minlength="10" ng-maxlength="1500" 
+	       ng-blur="myFormNg.description.blured=true"></textarea>
+	       
+	       	<label for="description"  >Description 
+	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.description.$valid"></i> -->
+	    	<i class="fa fa-check"  ng-show="myFormNg.description.$valid"></i>
+	    	<span class="label label-danger" ng-show="myFormNg.description.$error.required && myFormNg.description.blured">Required!</span>
+	    	<span class="label label-warning" ng-show="myFormNg.description.$error.minlength && myFormNg.description.$dirty" >
+	      		description is too short  (10 letters minimum).
+	      	</span>
+	        <span class="label label-warning" ng-show="myFormNg.description.$error.maxlength"  >
+	        	description is too long (1500 letters maximum).
+	        </span>
+	    </label>
+	       
+	      
+	      
+	      	
+	      	
+	      	<div class="progress">
+			  <div class="progress-bar {{(myFormNg.description.$error.maxlength)?'progress-bar-danger':'progress-bar-success'}}" role="progressbar" aria-valuenow="{{event.description.length*100/1500 | number:0}}" 
+			  	aria-valuemin="0" aria-valuemax="150" title="{{event.description.length*100/1500 | number:0}}%"
+			  	style="width: {{(myFormNg.description.$error.maxlength)?100:event.description.length*100/1500 | number:0}}%;">
+			  </div>
+			</div>
+	   </div>
+	   
+	  <div class="col-lg-12 float">
+	    
+	    
+	      <input type="email" class="form-control" name="mail" id="mail" ng-model="event.mail"   required
+	      ng-blur="myFormNg.mail.blured=true">
+	      
+	      <label for="mail">Mail 
+	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.mail.$valid"></i> -->
+	    	<i class="fa fa-check"  ng-show="myFormNg.mail.$valid"></i>
+	    	<span class="label label-danger" ng-show="myFormNg.mail.$error.required && myFormNg.mail.blured">Required!</span>
+	      	<span class="label label-warning" data-ng-show="myFormNg.mail.$invalid && myFormNg.mail.$dirty">Invalid email!</span>
+	    </label>
+	    
+  	</div>
+  	
+  	<div class="col-lg-12 ">
+      	<button type="submit" class="btn btn-default" ng-disabled="!myFormNg.$valid" ng-class="{'btn-primary':myFormNg.$valid}">
+	      	OK <i class="fa fa-chevron-right"></i> 
+	  	</button>
        <span class="error" ng-show="myFormNg.$error.required">Complete required fields please.</span>
 
 		<p class="alert alert-danger" id="mailSendError" ng-show="mailSendError">
@@ -237,6 +255,7 @@
        </p>
        
     </div>
+
   </div>
 </form>
 

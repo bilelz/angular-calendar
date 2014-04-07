@@ -10,7 +10,8 @@ require.config({
         // is using jQuery 1.9.0 located at
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
-        //jQuery: 'libs/jquery/jquery',
+        jquery: 'libs/jquery/dist/jquery.min',
+        jqueryui: 'libs/jquery-ui/ui/minified/jquery-ui.min',
         //bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
         async: 'libs/requirejs-plugins/src/async',
         goog: 'libs/requirejs-plugins/src/goog',
@@ -22,11 +23,11 @@ require.config({
         //project : 'project'
     },
   shim: {
-    //'jQuery': {'exports' : 'jQuery'},
+    'jquery': {'exports' : 'jquery'},
     'angular' : {'exports' : 'angular'},  
     'angularroute': ['angular'],   
     'angularresource': ['angular'],   
-    //'bootstrap': { deps:['jQuery']}
+    'jqueryui': { deps:['jquery']}
   },
 	priority: [
 		"angular"
@@ -42,9 +43,9 @@ require( [
 	'angularroute',
 	'angularresource',
 	'app',
-	'filters.2',
-	'services',
-	'controllers',
+	'filters.4',
+	'services.4',
+	'controllers.4',
 	
 	'routes'
 ], function(angular, app, routes, controllers) {

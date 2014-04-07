@@ -21,6 +21,7 @@
 .twitter-btn:focus, .twitter-btn:hover{
 	background: white;
 	color: black;
+	border: 1px solid white;
 }
 
 .twitter-btn i{
@@ -47,7 +48,8 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background-size: 100%;
+	background-size: cover;
+	background-position: center;
 	background-repeat: no-repeat;
 }
 
