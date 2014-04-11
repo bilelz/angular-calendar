@@ -1,7 +1,7 @@
 define(['angular','app'], function(angular, app)
 {
 	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
-	//agendaID = "u825pd9kqiahvdqljsk29rass4";
+	agendaID = "u825pd9kqiahvdqljsk29rass4";
     app.controller(
         'ListController', ['$scope', '$location', '$http', 'caldevServices' ,
         function($scope, $location, $http, caldevServices) {
@@ -66,7 +66,19 @@ define(['angular','app'], function(angular, app)
       	// end : datepicker fallback
       	
 		
-		$scope.eventForm = $scope.event ;					
+		$scope.eventForm = $scope.event ;	
+		
+		$scope.hours = [];
+        for(var i=0;i<=23;i++){
+        	$scope.hours.push({label: ((i<10)?("0"+i):i)+":00",value:  ((i<10)?("0"+i):i)+":00"}, {label:  ((i<10)?("0"+i):i)+":30",value:  ((i<10)?("0"+i):i)+":30"});
+        }
+        
+       
+		
+		$scope.dateChange = function(e) {
+	      console.log($scope.event.hour);
+	    };				
+	    
 		$scope.addEvent = function(e, $http) {
 			console.log(e);
 			

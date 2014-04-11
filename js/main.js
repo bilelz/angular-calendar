@@ -45,7 +45,7 @@ require( [
 	'app',
 	'filters.4',
 	'services.4',
-	'controllers.4',
+	'controllers.41',
 	
 	'routes'
 ], function(angular, app, routes, controllers) {
