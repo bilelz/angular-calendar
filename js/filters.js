@@ -30,6 +30,16 @@ define(['angular','moment', 'app'], function (angular, app) {
     return function(html) {    	
         return (html != undefined)?html.replace(/\n/gi,'<br/>'):undefined;
     };
+  }).filter('to_text', function() {
+    return function(html) {    
+    	if(html == undefined){
+    		return undefined;
+    	}
+    	
+    	var tmp = document.createElement("DIV");
+	   	tmp.innerHTML = html;
+	   	return tmp.textContent || tmp.innerText || "";
+    };
   }).filter('length', function() {
     return function(text) {    	
         return (text != undefined)?text.length:undefined;

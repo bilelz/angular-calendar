@@ -3,12 +3,12 @@ define(['angular','app'], function(angular, app)
 	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
 	agendaID = "u825pd9kqiahvdqljsk29rass4";
     app.controller(
-        'ListController', ['$scope', '$location', '$http', 'caldevServices' ,
-        function($scope, $location, $http, caldevServices) {
+        'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page',
+        function($scope, $location, $http, caldevServices, Page) {
             removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
 		
-			
+			Page.setTitle("CalDev.io - Agenda 4 developers & others...");
 			caldevServices.list(agendaID).then(function(data) {
 													$scope.calendar = data.feed;
 													setTimeout(lazyLoadImage, 0);
@@ -17,8 +17,8 @@ define(['angular','app'], function(angular, app)
         }]
     );
     
-    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,
-    	function($scope,$location, $routeParams, $http, caldevServices) {
+    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
+    	function($scope,$location, $routeParams, $http, caldevServices, Page) {
 
 			removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
@@ -26,16 +26,19 @@ define(['angular','app'], function(angular, app)
 		
 			caldevServices.get(agendaID, $routeParams.eventId).then(function(data) {
 													$scope.entry = data.entry;
+													Page.setTitle(data.entry.title.$t + " - CalDev.io");
 													setTimeout(lazyLoadImage, 0);
 												});			
 		}]
 	);
 
-	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,
-		function ($scope, $http, $location, $routeParams, caldevServices){
+	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
+		function ($scope, $http, $location, $routeParams, caldevServices, Page){
 
 		addClass(document.getElementById("nav-a"), "active");
 		removeClass(document.getElementById("nav-c"), "active");
+		
+		Page.setTitle("Submit an event - CalDev.io");
 	
 			
 		//$scope.newEvent = {};
@@ -186,8 +189,8 @@ define(['angular','app'], function(angular, app)
 		}]
 	);
 
-	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce',
-		function ($scope,$location, $routeParams, $http, $sce){
+	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page',
+		function ($scope,$location, $routeParams, $http, $sce, Page){
 			removeClass(document.getElementById("nav-a"), "active");
 			addClass(document.getElementById("nav-c"), "active");
 			

@@ -55,6 +55,21 @@ require( [
 		angular.bootstrap(document, ['caldev']);
 		window.onscroll = function() { lazyLoadImage(); };
       	document.getElementById("top").onclick = function(){scrollTo(0,0); return false;};
+      	
+      	window.addEventListener("deviceorientation", handleOrientation, true);
+      	/*document.body.onmousemove=function(event){
+      		console.log(event);
+			var centerX = document.body.offsetWidth/2;
+			var centerY = document.body.offsetHeight/2;
+			var bgX =  (centerX - event.x)/3;
+			var bgY =  (centerY - event.y)/3;
+			
+			var bgX =  (centerX - event.x)/3;
+			var bgY =  0;
+			
+			console.log(bgX+"px "+bgY+"px");
+			document.querySelector("#bigPicture").style.backgroundPosition = bgX+"px "+bgY+"px";
+      	};*/
 	});
 });
 
@@ -114,4 +129,19 @@ function removeClass(el, className){
 	  el.classList.remove(className);
 	else
 	  el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+}
+
+function handleOrientation(event) {
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma*3;
+	
+	//document.querySelector("#bigPicture").style.backgroundPosition = -gamma+"px 0px";
+	var imgList = document.querySelectorAll("a.listBlock div.imgLoaded");
+	for(var i = 0; i < imgList.length; i++) {
+		            	 imgList[i].style.backgroundRepeat = "repeat-x";
+		                imgList[i].style.backgroundPosition = -gamma+"px 0px";
+		            }
+  // Do stuff with the new orientation data
 }

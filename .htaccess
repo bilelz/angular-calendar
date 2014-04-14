@@ -2,9 +2,61 @@ RewriteEngine On
 RewriteRule ^(.*)\.[\d]+\.(css|js)$ $1.$2 [L] # Strip out the version number
 
 
-RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-f
- RewriteCond %{REQUEST_METHOD} !OPTIONS
 
- RewriteRule ^(.*)$ index.html [L]
+RewriteBase /
+RewriteCond %{HTTP_USER_AGENT} !bot
+RewriteCond %{HTTP_USER_AGENT} !facebookexternalhit
+RewriteCond %{HTTP_USER_AGENT} !msnbot
+RewriteCond %{HTTP_USER_AGENT} !snippet
+RewriteCond %{HTTP_USER_AGENT} !Slurp
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_METHOD} !OPTIONS
+RewriteRule ^(.*)$ index.html [L]
+
+
+RewriteBase /
+
+
+
+RewriteCond %{HTTP_USER_AGENT} bot [OR]
+RewriteCond %{HTTP_USER_AGENT} facebookexternalhit  [OR]
+RewriteCond %{HTTP_USER_AGENT} msnbot [OR]
+RewriteCond %{HTTP_USER_AGENT} snippet [OR]
+RewriteCond %{HTTP_USER_AGENT} Slurp
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_METHOD} !OPTIONS
+RewriteCond %{REQUEST_URI} ^(.*)$ 
+# pour les pages NON «détail » des événements
+RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/$1.html -f
+RewriteRule ^(.*)$ /js/misc/cache/$1.html [L]
+
+RewriteBase /
+RewriteCond %{HTTP_USER_AGENT} bot [OR]
+RewriteCond %{HTTP_USER_AGENT} facebookexternalhit  [OR]
+RewriteCond %{HTTP_USER_AGENT} msnbot [OR]
+RewriteCond %{HTTP_USER_AGENT} snippet [OR]
+RewriteCond %{HTTP_USER_AGENT} Slurp
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI}  / 
+# pour la page index du site
+RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/index.html -f
+RewriteRule ^(/|index\.html)$ /js/misc/cache/index.html [L]
+
+RewriteBase /
+RewriteCond %{HTTP_USER_AGENT} bot [OR]
+RewriteCond %{HTTP_USER_AGENT} facebookexternalhit  [OR]
+RewriteCond %{HTTP_USER_AGENT} msnbot [OR]
+RewriteCond %{HTTP_USER_AGENT} snippet [OR]
+RewriteCond %{HTTP_USER_AGENT} Slurp
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_METHOD} !OPTIONS
+RewriteCond %{REQUEST_URI} ^(.*)/(.*)$ 
+# pour les pages «détail » des événements
+RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/$2.html -f
+RewriteRule ^(.*)/(.*)$ /js/misc/cache/$2.html [L]
+
+
