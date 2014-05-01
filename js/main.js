@@ -19,7 +19,7 @@ require.config({
         angularroute : 'libs/angular-route/angular-route',
         angularresource: "libs/angular-resource/angular-resource",
         moment : 'libs/momentjs/moment',
-        ngAnimate : 'libs/angular-animate/angular-animate'//,
+        angularanimate : 'libs/angular-animate/angular-animate'//,
         //project : 'project'
     },
   shim: {
@@ -27,6 +27,7 @@ require.config({
     'angular' : {'exports' : 'angular'},  
     'angularroute': ['angular'],   
     'angularresource': ['angular'],   
+    'angularanimate': ['angular'],   
     'jqueryui': { deps:['jquery']}
   },
 	priority: [
@@ -42,6 +43,7 @@ require( [
 	'angular',
 	'angularroute',
 	'angularresource',
+	'angularanimate',
 	'app',
 	'filters.4',
 	'services.4',
@@ -144,4 +146,13 @@ function handleOrientation(event) {
 		                imgList[i].style.backgroundPosition = -gamma+"px 0px";
 		            }
   // Do stuff with the new orientation data
+}
+
+
+function showLoader(){
+	document.getElementById("loader").style.display ="block";
+}
+
+function hideLoader(){
+	document.getElementById("loader").style.display ="none";
 }

@@ -7,33 +7,39 @@ define(['angular','app'], function(angular, app)
         function($scope, $location, $http, caldevServices, Page) {
             removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
-		
+			showLoader();
+			
+
 			Page.setTitle("CalDev.io - Agenda 4 developers & others...");
 			caldevServices.list(agendaID).then(function(data) {
 													$scope.calendar = data.feed;
-													setTimeout(lazyLoadImage, 0);
+													setTimeout(lazyLoadImage, 10);
+													hideLoader();
 												});
-			
+			$scope.pageClass = 'page-home';
         }]
     );
     
     app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
     	function($scope,$location, $routeParams, $http, caldevServices, Page) {
-
+		$scope.pageClass = 'page-detail';
 			removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
-		
+			showLoader();
 		
 			caldevServices.get(agendaID, $routeParams.eventId).then(function(data) {
 													$scope.entry = data.entry;
 													Page.setTitle(data.entry.title.$t + " - CalDev.io");
-													setTimeout(lazyLoadImage, 0);
+													setTimeout(lazyLoadImage, 10);
+													hideLoader();
 												});			
 		}]
 	);
 
 	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
 		function ($scope, $http, $location, $routeParams, caldevServices, Page){
+
+		$scope.pageClass = 'page-add';
 
 		addClass(document.getElementById("nav-a"), "active");
 		removeClass(document.getElementById("nav-c"), "active");

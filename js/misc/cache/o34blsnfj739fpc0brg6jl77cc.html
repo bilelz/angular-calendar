@@ -10,6 +10,8 @@
   	<!-- build:css css/production.min.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="js/libs/animate.css/animate.min.css">
+	<link rel="stylesheet" href="css/nganimation.css">
 	<link rel="stylesheet" href="css/main.3.css">
 	<link rel="stylesheet" href="css/nav.2.css">
 	<!-- /build -->
@@ -27,7 +29,7 @@
 			</div>
 		</header>
 	
-		<!-- ngView:  --><div ng-view="" ng-animate="{enter: 'animate-enter'}" class="ng-scope"><link rel="stylesheet" href="css/detail.2.css" class="ng-scope">
+		<!-- ngView:  --><div ng-view="" class="page page-detail"><link rel="stylesheet" href="css/detail.2.css" class="ng-scope">
 <meta name="twitter:card" content="summary_large_image" class="ng-scope">
 <meta name="twitter:site" content="" class="ng-scope">
 <meta name="twitter:creator" content="@bilelz" class="ng-scope">
@@ -148,6 +150,7 @@ Registration
         </p>
       </div>
     </div>
+    <div id="loader" class="loader" style="display: none; "></div>
 	<!-- build:js js/production.min.js -->
     
     <!-- /build -->

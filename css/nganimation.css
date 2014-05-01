@@ -1,0 +1,87 @@
+
+/*
+.pageone.ng-enter {
+    position: absolute;
+    -webkit-transition: 1s ease-out all;
+    -webkit-transform: translate3d(100%,0,0);
+}
+
+.pageone.ng-enter.ng-enter-active {
+    position: absolute;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.pageone.ng-leave{
+    position: absolute;
+    -webkit-transition: 1s ease-out all;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+    .pageone.ng-leave.ng-leave-active {
+        position: absolute;
+        -webkit-transform: translate3d(-100%,0,0);
+    }
+
+.pagetwo.ng-enter {
+    position: absolute;
+    -webkit-transition: 1s ease-out all;
+    -webkit-transform: translate3d(-100%,0,0);
+}
+
+    .pagetwo.ng-enter.ng-enter-active {
+        position: absolute;
+        -webkit-transform: translate3d(0,0,0);
+    }
+
+.pagetwo.ng-leave{
+    position: absolute;
+    -webkit-transition: 1s ease-out all;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+    .pagetwo.ng-leave.ng-leave-active {
+        position: absolute;
+        -webkit-transform: translate3d(100%,0,0);
+    }*/
+ /* ANIMATIONS
+============================================================================= */
+
+.page.ng-leave  { z-index:9999; transition:all linear 1s; }
+.page.ng-enter  { z-index:8888; transition:all linear 1s;}
+
+/* page specific animations ------------------------ */
+
+/* home -------------------------- */
+.page-home.ng-leave         {
+   /* -webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;*/
+    
+   -webkit-animation: scaleDown 0.5s both ease-out;
+}
+.page-home.ng-enter         {  
+    -webkit-animation: scaleIn 0.5s both ease-out;
+}
+
+/* detail ------------------------ */
+.page-detail.ng-leave        {
+     -webkit-animation: scaleDown .5s both ease-out;
+}
+.page-detail.ng-enter        {  
+   -webkit-animation: scaleIn 0.5s both ease-out;
+}
+
+/* add ---------------------- */
+.page-add.ng-leave      {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation: rotateOutNewspaper .7s both ease-out;
+    -moz-transform-origin: 50% 50%;
+    -moz-animation: rotateOutNewspaper .7s both ease-out;
+    transform-origin: 50% 50%;
+    animation: rotateOutNewspaper .7s both ease-out;
+}
+.page-add.ng-enter      { 
+    -webkit-animation:slideInUp 0.7s both ease-out;
+    -moz-animation:slideInUp 0.7s both ease-out;
+    animation:slideInUp 0.7s both ease-out;  
+}

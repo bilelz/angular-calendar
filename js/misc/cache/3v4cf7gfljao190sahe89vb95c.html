@@ -10,6 +10,8 @@
   	<!-- build:css css/production.min.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="js/libs/animate.css/animate.min.css">
+	<link rel="stylesheet" href="css/nganimation.css">
 	<link rel="stylesheet" href="css/main.3.css">
 	<link rel="stylesheet" href="css/nav.2.css">
 	<!-- /build -->
@@ -27,7 +29,7 @@
 			</div>
 		</header>
 	
-		<!-- ngView:  --><div ng-view="" ng-animate="{enter: 'animate-enter'}" class="ng-scope"><link rel="stylesheet" href="css/detail.2.css" class="ng-scope">
+		<!-- ngView:  --><div ng-view="" class="page page-detail"><link rel="stylesheet" href="css/detail.2.css" class="ng-scope">
 <meta name="twitter:card" content="summary_large_image" class="ng-scope">
 <meta name="twitter:site" content="" class="ng-scope">
 <meta name="twitter:creator" content="@bilelz" class="ng-scope">
@@ -36,9 +38,12 @@
 
 Coming summer 2014 in a selection of styles
 
+moto360.motorola.com 
+
+       &lt;img src=&quot;http://i.ytimg.com/vi/QrqZl2QIz0c/hqdefault.jpg&quot; alt=&quot;youtube&quot;/&gt;    
 
 
-moto360.motorola.com " class="ng-scope">
+" class="ng-scope">
 <meta name="twitter:image:src" content="http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif" class="ng-scope">
 <div itemscope="" itemtype="http://schema.org/Event" class="ng-scope">
 	<!--<div class="blurBg" data-img="{{entry.content.$t | getImage}}"></div>-->
@@ -86,7 +91,7 @@ moto360.motorola.com " class="ng-scope">
 					</div>
 					<div class="panel-body">
 						<p>
-							<span ng-bind-html="entry.content.$t  | to_trusted_and_breakline" class="ng-binding"><img src="http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif" alt="moto"><br><br>Coming summer 2014 in a selection of styles<br><br><img src="https://moto360.motorola.com/img/final2.jpg" alt="moto"><br><br><a href="https://moto360.motorola.com/" target="_blank" class="btn btn-primary">moto360.motorola.com</a> <a href="http://www.android.com/wear/" class="btn" target="_blank" style="background:black;width: 163px;"><img src="https://moto360.motorola.com/img/poweredby.png" alt="powered by android wear"></a></span>
+							<span ng-bind-html="entry.content.$t  | to_trusted_and_breakline" class="ng-binding"><center><img src="http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif" alt="moto"><br><br><h2>Coming summer 2014 in a selection of styles</h2><br><br><a href="https://moto360.motorola.com/" target="_blank" class="btn btn-default">moto360.motorola.com</a> <a href="http://www.android.com/wear/" class="btn btn-success" target="_blank" style="width: 163px;"><img src="https://moto360.motorola.com/img/poweredby.png" alt="powered by android wear"></a><br><br><div style="position: relative; padding-bottom: 56.25%; overflow: hidden; max-width: 100%; height: auto;padding-top: 30px; background:black;cursor:pointer" onclick="var a=this;console.log(a);a.querySelector('iframe').style.display='block';this.querySelector('iframe').setAttribute('src',this.querySelector('iframe').getAttribute('data-src'));a.removeChild(a.querySelector('img'));a.removeChild(a.querySelector('img'));return false;"> <img src="http://i.ytimg.com/vi/QrqZl2QIz0c/hqdefault.jpg" alt="youtube" style="border:0;margin:0;padding:0;width:100%;height: 100%;position:absolute;top:0;left:0;z-index:4;"> <img src="http://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png" alt="youtube" style="border:0;margin:0;padding:0;position:absolute;top:50%; left:50%;margin-top: -22px;margin-left: -32px;width:64px;z-index:5"><iframe src="about:blank" data-src="http://www.youtube.com/embed/QrqZl2QIz0c?autoplay=1" allowfullscreen="true" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">     &lt;img src="http://i.ytimg.com/vi/QrqZl2QIz0c/hqdefault.jpg" alt="youtube"/&gt;    </iframe></div><br><br><img src="https://moto360.motorola.com/img/final2.jpg" alt="moto"></center><br></span>
 							
 						</p>
 					</div>
@@ -146,6 +151,7 @@ moto360.motorola.com " class="ng-scope">
         </p>
       </div>
     </div>
+    <div id="loader" class="loader" style="display: none; "></div>
 	<!-- build:js js/production.min.js -->
     
     <!-- /build -->

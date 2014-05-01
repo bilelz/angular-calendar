@@ -10,6 +10,8 @@
   	<!-- build:css css/production.min.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="js/libs/animate.css/animate.min.css">
+	<link rel="stylesheet" href="css/nganimation.css">
 	<link rel="stylesheet" href="css/main.3.css">
 	<link rel="stylesheet" href="css/nav.2.css">
 	<!-- /build -->
@@ -27,7 +29,7 @@
 			</div>
 		</header>
 	
-		<!-- ngView:  --><div ng-view="" ng-animate="{enter: 'animate-enter'}" class="ng-scope"><link rel="stylesheet" href="css/detail.2.css" class="ng-scope">
+		<!-- ngView:  --><div ng-view="" class="page page-detail"><link rel="stylesheet" href="css/detail.2.css" class="ng-scope">
 <meta name="twitter:card" content="summary_large_image" class="ng-scope">
 <meta name="twitter:site" content="" class="ng-scope">
 <meta name="twitter:creator" content="@bilelz" class="ng-scope">
@@ -44,7 +46,7 @@ Bastian AllgeierTBAChris CoyierTBAJessica HischeTBADan MallTBAEthan MarcotteTBA"
 <meta name="twitter:image:src" content="http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" class="ng-scope">
 <div itemscope="" itemtype="http://schema.org/Event" class="ng-scope">
 	<!--<div class="blurBg" data-img="{{entry.content.$t | getImage}}"></div>-->
-	<div id="bigPicture" data-img="http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" class="imgLoading imgLoaded" style="background-image: url(http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png); ">
+	<div id="bigPicture" data-img="http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" class="imgLoading">
 		<span class="bgGradient"></span>
 	</div>
 	<div id="bigTitle">
@@ -84,7 +86,7 @@ Bastian AllgeierTBAChris CoyierTBAJessica HischeTBADan MallTBAEthan MarcotteTBA"
 						<meta itemprop="startDate" content="2014-05-19">
 						<meta itemprop="endDate" content="2014-05-21">
 						<span title="2014-05-19T09:00:00.000+02:00" class="ng-binding"> <i class="fa fa-calendar"></i> 05/19/2014 at 9:00 AM
-						<strong class="ng-binding">in a month</strong> <i class="fa fa-chevron-right"></i> 05/21/2014 at 10:00 PM </span>
+						<strong class="ng-binding">in 18 days</strong> <i class="fa fa-chevron-right"></i> 05/21/2014 at 10:00 PM </span>
 					</div>
 					<div class="panel-body">
 						<p>
@@ -102,15 +104,15 @@ Bastian AllgeierTBAChris CoyierTBAJessica HischeTBADan MallTBAEthan MarcotteTBA"
 				
 				<span class="shareLabel">Share</span>
 
-					<a class="btn btn-default shareBtn" href="https://twitter.com/intent/tweet?text=[05/19/2014 at 9:00 AM in a month] beyond%20tellerrand%20%2F%2F%20web%202014%20%40btconf%20%23caldev&amp;url=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
+					<a class="btn btn-default shareBtn" href="https://twitter.com/intent/tweet?text=[05/19/2014 at 9:00 AM in 18 days] beyond%20tellerrand%20%2F%2F%20web%202014%20%40btconf%20%23caldev&amp;url=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
 
-					<a class="btn btn-primary shareBtn" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=[05/19/2014 at 9:00 AM in a month] beyond%20tellerrand%20%2F%2F%20web%202014%20%40btconf%20%23caldev&amp;p[summary]=beyond tellerrand // web 2014 @btconf%0D%0A%0D%0A'http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0'&amp;p[url]=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0&amp;p[images][0]=http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;" target="_blank"> <i class="fa fa-facebook fa fa-2x"></i> </a>
+					<a class="btn btn-primary shareBtn" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=[05/19/2014 at 9:00 AM in 18 days] beyond%20tellerrand%20%2F%2F%20web%202014%20%40btconf%20%23caldev&amp;p[summary]=beyond tellerrand // web 2014 @btconf%0D%0A%0D%0A'http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0'&amp;p[url]=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0&amp;p[images][0]=http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;" target="_blank"> <i class="fa fa-facebook fa fa-2x"></i> </a>
 
 					<a href="https://plus.google.com/share?url=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-danger shareBtn" target="_blank"> <i class=" fa fa-google-plus fa fa-2x"></i> </a>
 
-					<a class="btn btn-default shareBtn" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0&amp;title=beyond tellerrand // web 2014 @btconf&amp;summary=[05/19/2014 at 9:00 AM in a month] beyond tellerrand // web 2014 @btconf%20%23caldev&amp;source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x"></i> </a>
+					<a class="btn btn-default shareBtn" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2F127.0.0.1%3A81%2Fbeyond_tellerrand__web_2014_btconf%2Fup0838ms3ghv5idi3r0bhmvve0&amp;title=beyond tellerrand // web 2014 @btconf&amp;summary=[05/19/2014 at 9:00 AM in 18 days] beyond tellerrand // web 2014 @btconf%20%23caldev&amp;source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x"></i> </a>
 
-					<a class="btn btn-default shareBtn" href="mailto:?subject=[05/19/2014 at 9:00 AM in a month] beyond tellerrand // web 2014 @btconf%20%23caldev&amp;body=[05/19/2014 at 9:00 AM in a month] beyond tellerrand // web 2014 @btconf%0D%0A%0D%0Ahttp://127.0.0.1:81/beyond_tellerrand__web_2014_btconf/up0838ms3ghv5idi3r0bhmvve0"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
+					<a class="btn btn-default shareBtn" href="mailto:?subject=[05/19/2014 at 9:00 AM in 18 days] beyond tellerrand // web 2014 @btconf%20%23caldev&amp;body=[05/19/2014 at 9:00 AM in 18 days] beyond tellerrand // web 2014 @btconf%0D%0A%0D%0Ahttp://127.0.0.1:81/beyond_tellerrand__web_2014_btconf/up0838ms3ghv5idi3r0bhmvve0"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
 
 				</p>
 
@@ -148,6 +150,7 @@ Bastian AllgeierTBAChris CoyierTBAJessica HischeTBADan MallTBAEthan MarcotteTBA"
         </p>
       </div>
     </div>
+    <div id="loader" class="loader" style="display: none; "></div>
 	<!-- build:js js/production.min.js -->
     
     <!-- /build -->

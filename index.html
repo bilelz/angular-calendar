@@ -12,6 +12,8 @@
   	<!-- build:css css/production.min.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="js/libs/animate.css/animate.min.css">
+	<link rel="stylesheet" href="css/nganimation.css">
 	<link rel="stylesheet" href="css/main.3.css">
 	<link rel="stylesheet" href="css/nav.2.css">
 	<!-- /build -->
@@ -29,7 +31,7 @@
 			</div>
 		</header>
 	
-		<div ng-view ng-animate="{enter: 'animate-enter'}">
+		<div ng-view class="page {{ pageClass }} ">
 	  		<div class="container"> Loading... </div>
 		</div>	
 	</div>
@@ -45,6 +47,7 @@
         </p>
       </div>
     </div>
+    <div id="loader" class="loader"></div>
 	<!-- build:js js/production.min.js -->
     <script src="js/libs/requirejs/require.js" data-main="js/main.6"></script>
     <!-- /build -->

@@ -10,6 +10,8 @@
   	<!-- build:css css/production.min.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="js/libs/animate.css/animate.min.css">
+	<link rel="stylesheet" href="css/nganimation.css">
 	<link rel="stylesheet" href="css/main.3.css">
 	<link rel="stylesheet" href="css/nav.2.css">
 	<!-- /build -->
@@ -27,7 +29,7 @@
 			</div>
 		</header>
 	
-		<!-- ngView:  --><div ng-view="" ng-animate="{enter: 'animate-enter'}" class="ng-scope"><meta name="twitter:card" content="summary_large_image" class="ng-scope">
+		<!-- ngView:  --><div ng-view="" class="page page-home"><meta name="twitter:card" content="summary_large_image" class="ng-scope">
 <meta name="twitter:site" content="" class="ng-scope">
 <meta name="twitter:title" content="CalDev.io" class="ng-scope">
 <meta name="twitter:description" content="Calendar for developers &amp; designers" class="ng-scope">
@@ -47,12 +49,12 @@
        <span ng-show="mailSendError" class="ng-binding ng-hide">KO  </span>
 		
 			<center>
-				<!-- ngRepeat: entry in calendar.entry --><a href="DevArt__Art_made_with_code_googledevs/q7ecf18qdro0fa4gnu76r7ekfs" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
-						<link itemprop="url" href="DevArt__Art_made_with_code_googledevs/q7ecf18qdro0fa4gnu76r7ekfs">
-						<h4 itemprop="name" class="ng-binding">#DevArt : Art made with code @googledevs</h4>
+				<!-- ngRepeat: entry in calendar.entry --><a href="E3_2014_E3/iml2ebeiuhlasb645hghe4qvm8" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
+						<link itemprop="url" href="E3_2014_E3/iml2ebeiuhlasb645hghe4qvm8">
+						<h4 itemprop="name" class="ng-binding">E3 2014 @E3</h4>
 						
-						<div data-img="http://cdn1.sbnation.com/entry_photo_images/9795985/devartlede_large_verge_medium_landscape.jpg" class="imgLoading imgLoaded" style="background-image: url(http://cdn1.sbnation.com/entry_photo_images/9795985/devartlede_large_verge_medium_landscape.jpg); ">
-							<meta itemprop="image" content="http://cdn1.sbnation.com/entry_photo_images/9795985/devartlede_large_verge_medium_landscape.jpg">
+						<div data-img="https://www.e3expo.com/img/2014-design/carousel/e3-future.jpg" class="imgLoading">
+							<meta itemprop="image" content="https://www.e3expo.com/img/2014-design/carousel/e3-future.jpg">
 						</div>
 						
 						<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
@@ -62,100 +64,22 @@
 						<span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
 							<p class="listWhere">
 								<i class="fa fa-map-marker"></i>
-								<span itemprop="name" class="ng-binding"> Earth </span>
+								<span itemprop="name" class="ng-binding"> Moscone Center, Howard Street, San Francisco, Californie, États-Unis </span>
 							</p>
 						</span>
 						
-						<meta itemprop="startDate" content="2014-02-04">
-						<meta itemprop="endDate" content="2014-04-15">
+						<meta itemprop="startDate" content="2014-05-10">
+						<meta itemprop="endDate" content="2014-05-12">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">2 months ago</span>
-							<span class="dayNumber ng-binding">4</span>
-							<span class="monthLabel ng-binding">February</span>
-						</span>
-				</a><!-- end ngRepeat: entry in calendar.entry --><a href="Webinaire_lancement_XL_Deploy_40/3kbg9jork1g1l7vqm4d16acrrs" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
-						<link itemprop="url" href="Webinaire_lancement_XL_Deploy_40/3kbg9jork1g1l7vqm4d16acrrs">
-						<h4 itemprop="name" class="ng-binding">Webinaire: lancement XL Deploy 4.0</h4>
-						
-						<div data-img="http://www.xebialabs.com/resources/images/styles/logo.jpg" class="imgLoading imgLoaded" style="background-image: url(http://www.xebialabs.com/resources/images/styles/logo.jpg); ">
-							<meta itemprop="image" content="http://www.xebialabs.com/resources/images/styles/logo.jpg">
-						</div>
-						
-						<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
-								{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-							</span>-->
-						
-						<span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-							<p class="listWhere">
-								<i class="fa fa-map-marker"></i>
-								<span itemprop="name" class="ng-binding"> 156 Boulevard Haussmann, 75008 Paris, France </span>
-							</p>
-						</span>
-						
-						<meta itemprop="startDate" content="2014-04-15">
-						<meta itemprop="endDate" content="2014-04-15">
-						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in a day</span>
-							<span class="dayNumber ng-binding">15</span>
-							<span class="monthLabel ng-binding">April</span>
-						</span>
-				</a><!-- end ngRepeat: entry in calendar.entry --><a href="DEVOXX_FRANCE_2014_DevoxxFR/3632d345k2op833trb8o0knmss" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
-						<link itemprop="url" href="DEVOXX_FRANCE_2014_DevoxxFR/3632d345k2op833trb8o0knmss">
-						<h4 itemprop="name" class="ng-binding">DEVOXX FRANCE 2014 @DevoxxFR</h4>
-						
-						<div data-img="http://www.devoxx.fr/wp-content/uploads/2013/10/slide_paris.jpg" class="imgLoading imgLoaded" style="background-image: url(http://www.devoxx.fr/wp-content/uploads/2013/10/slide_paris.jpg); ">
-							<meta itemprop="image" content="http://www.devoxx.fr/wp-content/uploads/2013/10/slide_paris.jpg">
-						</div>
-						
-						<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
-								{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-							</span>-->
-						
-						<span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-							<p class="listWhere">
-								<i class="fa fa-map-marker"></i>
-								<span itemprop="name" class="ng-binding"> 17 Boulevard Saint-Jacques  75014 Paris </span>
-							</p>
-						</span>
-						
-						<meta itemprop="startDate" content="2014-04-16">
-						<meta itemprop="endDate" content="2014-04-18">
-						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in 2 days</span>
-							<span class="dayNumber ng-binding">16</span>
-							<span class="monthLabel ng-binding">April</span>
-						</span>
-				</a><!-- end ngRepeat: entry in calendar.entry --><a href="The_Next_Web_Europe_Conference_2014_tnwconference/5mv3tco1uaq9ccjau868vrb0c8" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
-						<link itemprop="url" href="The_Next_Web_Europe_Conference_2014_tnwconference/5mv3tco1uaq9ccjau868vrb0c8">
-						<h4 itemprop="name" class="ng-binding">The Next Web Europe Conference 2014 @tnwconference</h4>
-						
-						<div data-img="http://thenextweb.com/conference/assets/img/speakers.png" class="imgLoading imgLoaded" style="background-image: url(http://thenextweb.com/conference/assets/img/speakers.png); ">
-							<meta itemprop="image" content="http://thenextweb.com/conference/assets/img/speakers.png">
-						</div>
-						
-						<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
-								{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-							</span>-->
-						
-						<span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-							<p class="listWhere">
-								<i class="fa fa-map-marker"></i>
-								<span itemprop="name" class="ng-binding"> Westerpark, Amsterdam, Pays-Bas </span>
-							</p>
-						</span>
-						
-						<meta itemprop="startDate" content="2014-04-24">
-						<meta itemprop="endDate" content="2014-04-25">
-						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in 10 days</span>
-							<span class="dayNumber ng-binding">24</span>
-							<span class="monthLabel ng-binding">April</span>
+							<span class="dayLabel ng-binding">in 9 days</span>
+							<span class="dayNumber ng-binding">10</span>
+							<span class="monthLabel ng-binding">May</span>
 						</span>
 				</a><!-- end ngRepeat: entry in calendar.entry --><a href="Concours__le_meilleur_dev_de_France_2014_MeilleurDev/t4h17e2jgndahjrfbqfvqi6fvk" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
 						<link itemprop="url" href="Concours__le_meilleur_dev_de_France_2014_MeilleurDev/t4h17e2jgndahjrfbqfvqi6fvk">
 						<h4 itemprop="name" class="ng-binding">Concours : le meilleur dev de France 2014 @MeilleurDev‎</h4>
 						
-						<div data-img="http://lemeilleurdevdefrance.com/2014/wp-content/uploads/2014/02/paris.jpg" class="imgLoading imgLoaded" style="background-image: url(http://lemeilleurdevdefrance.com/2014/wp-content/uploads/2014/02/paris.jpg); ">
+						<div data-img="http://lemeilleurdevdefrance.com/2014/wp-content/uploads/2014/02/paris.jpg" class="imgLoading">
 							<meta itemprop="image" content="http://lemeilleurdevdefrance.com/2014/wp-content/uploads/2014/02/paris.jpg">
 						</div>
 						
@@ -173,7 +97,7 @@
 						<meta itemprop="startDate" content="2014-05-15">
 						<meta itemprop="endDate" content="2014-05-15">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in a month</span>
+							<span class="dayLabel ng-binding">in 15 days</span>
 							<span class="dayNumber ng-binding">15</span>
 							<span class="monthLabel ng-binding">May</span>
 						</span>
@@ -199,7 +123,7 @@
 						<meta itemprop="startDate" content="2014-05-16">
 						<meta itemprop="endDate" content="2014-05-17">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in a month</span>
+							<span class="dayLabel ng-binding">in 15 days</span>
 							<span class="dayNumber ng-binding">16</span>
 							<span class="monthLabel ng-binding">May</span>
 						</span>
@@ -207,7 +131,7 @@
 						<link itemprop="url" href="beyond_tellerrand__web_2014_btconf/up0838ms3ghv5idi3r0bhmvve0">
 						<h4 itemprop="name" class="ng-binding">beyond tellerrand // web 2014 @btconf</h4>
 						
-						<div data-img="http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" class="imgLoading imgLoaded" style="background-image: url(http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png); ">
+						<div data-img="http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png" class="imgLoading">
 							<meta itemprop="image" content="http://www.mehr.de/uploads/media/SPIELSTAETTE-header-CTD_02.png">
 						</div>
 						
@@ -225,7 +149,7 @@
 						<meta itemprop="startDate" content="2014-05-19">
 						<meta itemprop="endDate" content="2014-05-21">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in a month</span>
+							<span class="dayLabel ng-binding">in 18 days</span>
 							<span class="dayNumber ng-binding">19</span>
 							<span class="monthLabel ng-binding">May</span>
 						</span>
@@ -251,7 +175,7 @@
 						<meta itemprop="startDate" content="2014-06-02">
 						<meta itemprop="endDate" content="2014-06-06">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in 2 months</span>
+							<span class="dayLabel ng-binding">in a month</span>
 							<span class="dayNumber ng-binding">2</span>
 							<span class="monthLabel ng-binding">June</span>
 						</span>
@@ -277,15 +201,41 @@
 						<meta itemprop="startDate" content="2014-06-12">
 						<meta itemprop="endDate" content="2014-06-13">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in 2 months</span>
+							<span class="dayLabel ng-binding">in a month</span>
 							<span class="dayNumber ng-binding">12</span>
+							<span class="monthLabel ng-binding">June</span>
+						</span>
+				</a><!-- end ngRepeat: entry in calendar.entry --><a href="REMIXJOBS_DAY_RemixJobs/l0lmvt5drdvnv4duhnt7qdbosc" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
+						<link itemprop="url" href="REMIXJOBS_DAY_RemixJobs/l0lmvt5drdvnv4duhnt7qdbosc">
+						<h4 itemprop="name" class="ng-binding">REMIXJOBS DAY @RemixJobs</h4>
+						
+						<div data-img="http://d13yacurqjgara.cloudfront.net/users/2559/screenshots/1518120/attachments/229231/candidates_newsletter.png" class="imgLoading">
+							<meta itemprop="image" content="http://d13yacurqjgara.cloudfront.net/users/2559/screenshots/1518120/attachments/229231/candidates_newsletter.png">
+						</div>
+						
+						<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
+								{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+							</span>-->
+						
+						<span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+							<p class="listWhere">
+								<i class="fa fa-map-marker"></i>
+								<span itemprop="name" class="ng-binding"> École 42, Boulevard Bessières, Paris, France </span>
+							</p>
+						</span>
+						
+						<meta itemprop="startDate" content="2014-06-19">
+						<meta itemprop="endDate" content="2014-06-19">
+						<span class="calendarframe">
+							<span class="dayLabel ng-binding">in 2 months</span>
+							<span class="dayNumber ng-binding">19</span>
 							<span class="monthLabel ng-binding">June</span>
 						</span>
 				</a><!-- end ngRepeat: entry in calendar.entry --><a href="Moto360__Its_Time_Motorola/3v4cf7gfljao190sahe89vb95c" ng-repeat="entry in calendar.entry" itemscope="" itemtype="http://schema.org/Event" class="listBlock ng-scope">
 						<link itemprop="url" href="Moto360__Its_Time_Motorola/3v4cf7gfljao190sahe89vb95c">
 						<h4 itemprop="name" class="ng-binding">#Moto360 : It's Time @Motorola</h4>
 						
-						<div data-img="http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif" class="imgLoading imgLoaded" style="background-image: url(http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif); ">
+						<div data-img="http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif" class="imgLoading">
 							<meta itemprop="image" content="http://lh3.googleusercontent.com/-mllsfpW4saE/Uy8EwKyj9fI/AAAAAAACcAQ/Ga6diLQYlmQ/s319-p/android_wear_-_clock_app_design_ramotion.gif">
 						</div>
 						
@@ -355,7 +305,7 @@
 						<meta itemprop="startDate" content="2014-09-04">
 						<meta itemprop="endDate" content="2014-09-06">
 						<span class="calendarframe">
-							<span class="dayLabel ng-binding">in 5 months</span>
+							<span class="dayLabel ng-binding">in 4 months</span>
 							<span class="dayNumber ng-binding">4</span>
 							<span class="monthLabel ng-binding">September</span>
 						</span>
@@ -383,6 +333,7 @@
         </p>
       </div>
     </div>
+    <div id="loader" class="loader" style="display: none; "></div>
 	<!-- build:js js/production.min.js -->
     
     <!-- /build -->
