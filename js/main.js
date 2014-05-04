@@ -58,7 +58,7 @@ require( [
 		window.onscroll = function() { lazyLoadImage(); };
       	document.getElementById("top").onclick = function(){scrollTo(0,0); return false;};
       	
-      	window.addEventListener("deviceorientation", handleOrientation, true);
+      	//window.addEventListener("deviceorientation", handleOrientation, true);
       	/*document.body.onmousemove=function(event){
       		console.log(event);
 			var centerX = document.body.offsetWidth/2;
