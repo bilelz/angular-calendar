@@ -45,9 +45,9 @@ require( [
 	'angularresource',
 	'angularanimate',
 	'app',
-	'filters.4',
-	'services.4',
-	'controllers.41',
+	'filters',
+	'services',
+	'controllers',
 	
 	'routes'
 ], function(angular, app, routes, controllers) {
@@ -155,4 +155,13 @@ function showLoader(){
 
 function hideLoader(){
 	document.getElementById("loader").style.display ="none";
+}
+
+var timeOut;
+function scrollTop() {
+  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+    window.scrollBy(0,-50);
+    timeOut=setTimeout('scrollTop()',20);
+  }
+  else clearTimeout(timeOut);
 }

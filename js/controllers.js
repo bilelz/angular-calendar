@@ -3,11 +3,12 @@ define(['angular','app'], function(angular, app)
 	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
 	agendaID = "u825pd9kqiahvdqljsk29rass4";
     app.controller(
-        'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page',
-        function($scope, $location, $http, caldevServices, Page) {
+        'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page', '$timeout',
+        function($scope, $location, $http, caldevServices, Page, $timeout) {
             removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
 			showLoader();
+			scrollTop();
 			
 
 			Page.setTitle("CalDev.io - Agenda 4 developers & others...");
@@ -17,16 +18,25 @@ define(['angular','app'], function(angular, app)
 													hideLoader();
 												});
 			$scope.pageClass = 'page-home';
+			// On attend 1s et on met la direction (pour la transition right);
+			$scope.uidirection = '';
+        $timeout(function(){
+            $scope.uidirection = 'right';
+        }, 1000);
+			
         }]
     );
     
     app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
     	function($scope,$location, $routeParams, $http, caldevServices, Page) {
 		$scope.pageClass = 'page-detail';
+		$scope.uidirection = 'right';
+		
 			removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
 			showLoader();
-		
+			scrollTop();
+			
 			caldevServices.get(agendaID, $routeParams.eventId).then(function(data) {
 													$scope.entry = data.entry;
 													Page.setTitle(data.entry.title.$t + " - CalDev.io");
@@ -39,6 +49,10 @@ define(['angular','app'], function(angular, app)
 	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
 		function ($scope, $http, $location, $routeParams, caldevServices, Page){
 
+
+	    scrollTop();
+	    $scope.uidirection = 'right';
+    
 		$scope.pageClass = 'page-add';
 
 		addClass(document.getElementById("nav-a"), "active");
@@ -197,6 +211,9 @@ define(['angular','app'], function(angular, app)
 
 	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page',
 		function ($scope,$location, $routeParams, $http, $sce, Page){
+			$scope.uidirection = 'right';
+			scrollTop();
+			
 			removeClass(document.getElementById("nav-a"), "active");
 			addClass(document.getElementById("nav-c"), "active");
 			

@@ -9,13 +9,16 @@
   	<link rel="icon" sizes="196x196" href="img/caldevio.png">
   	<link rel="apple-touch-icon" sizes="128x128" href="img/caldevio.png">
   	
-  	<!-- build:css css/production.min.css -->
+  	<!-- build:css css/build.css -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="js/libs/animate.css/animate.min.css">
-	<link rel="stylesheet" href="css/nganimation.css">
-	<link rel="stylesheet" href="css/main.3.css">
+	<link rel="stylesheet" href="css/nganimation.1.css">
+	<link rel="stylesheet" href="css/main.34.css">
 	<link rel="stylesheet" href="css/nav.2.css">
+	<link rel="stylesheet" href="css/add.css">
+<link rel="stylesheet" href="css/detail.2.css">
+
 	<!-- /build -->
   </head>
   <body>  	
@@ -31,7 +34,7 @@
 			</div>
 		</header>
 	
-		<div ng-view class="page {{ pageClass }} ">
+		<div ng-view class="page scroll  {{ pageClass }} {{uidirection}} ">
 	  		<div class="container"> Loading... </div>
 		</div>	
 	</div>
@@ -48,8 +51,8 @@
       </div>
     </div>
     <div id="loader" class="loader"></div>
-	<!-- build:js js/production.min.js -->
-    <script src="js/libs/requirejs/require.js" data-main="js/main.6"></script>
+	<!-- build:js js/build.js -->
+    <script src="js/libs/requirejs/require.js" data-main="js/main"></script>
     <!-- /build -->
   </body>
 </html>

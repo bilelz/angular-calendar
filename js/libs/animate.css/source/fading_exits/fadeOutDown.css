@@ -1,15 +1,14 @@
 @keyframes fadeOutDown {
-	0% {
-		opacity: 1;
-		transform: translateY(0);
-	}
+  0% {
+    opacity: 1;
+  }
 
-	100% {
-		opacity: 0;
-		transform: translateY(20px);
-	}
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
 }
 
 .fadeOutDown {
-	animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
 }

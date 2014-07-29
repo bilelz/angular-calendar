@@ -1,7 +1,8 @@
 html, body{
 	position: relative;
 	min-height: 100%;
-	-webkit-font-smoothing: antialiased; //grrrr
+	height: 100%;
+	-webkit-font-smoothing: antialiased; 
 }
 
 
@@ -29,19 +30,17 @@ img{
 
 /* Wrapper for page content to push down footer */
 #wrap {
+	position: relative;
   min-height: 100%;
   height: auto;
-  /* Negative indent footer by its height */
-  //margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  //padding: 0 0 60px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  //height: 60px;
   background-color: rgba(255, 255, 255, 0.31);
   position: relative;
+width: 100%;
+margin-top: -33px;
 }
 
 #footer .text-muted {
@@ -101,7 +100,6 @@ a.listBlock{
 	margin: 10px;
 	text-decoration: none;
 	background: white;
-	//overflow: hidden;
 	transition: .3s;
 }
 
@@ -129,6 +127,7 @@ a.listBlock div{
 	top: 0;
 	left: 0;
 	background-size: cover;
+	background-position: top center;
 	background-repeat: no-repeat;
 	transition: .5s;
 	-webkit-transform:scale(0.8);
@@ -202,12 +201,10 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 	bottom: 0;
 	right:0;
 	background-color: white;
-	//background-color: rgba(255, 255, 255, 0.7);
 	color : black;
 	margin: 0;
 	padding: 0 5px;
 	text-align: right;
-	//width: 100%;
 }
 
 .list-group{	
@@ -255,7 +252,6 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 	color: white;
 	position: relative;
 	padding: 5px 15px;
-	//font-size: 24px;
 	font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 	display: inline-block;
 	text-shadow: 0 2px 1px black;
@@ -272,8 +268,6 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 
 .title a.btn {
 	text-shadow: none;
-	//color : white;
-	//display: block;
 }
 
 .title iframe{
@@ -399,6 +393,7 @@ left: 50%;
 border-radius: 85px;
 color: white;
 z-index: 500;
+display: none;
 }
 
 .loader:before,

@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		      banner: '/* My minified css file */'
 		    },
 		    files: {
-		      'build/css/production.min.css': ['css/*.css']
+		      'build/css/build.css': ['js/libs/bootstrap/dist/css/bootstrap.min.css', 'js/libs/font-awesome/css/font-awesome.min.css', 'css/*.css']
 		    }
 		  }
 		},
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 		        collapseWhitespace: true
 		      },
 		      files: {                                   // Dictionary of files
-		        'build/index.html': 'index.html',    // 'destination': 'source'
+		        'build/index.html': 'build/index.html',    // 'destination': 'source'
 		        'build/html/add.html' : 'html/add.html',
 		        'build/html/calendar.html' : 'html/calendar.html',
 		        'build/html/detail.html' : 'html/detail.html',
@@ -69,10 +69,28 @@ module.exports = function(grunt) {
 		  main: {
 		    files: [
 		      // includes files within path
-		      {expand: true, flatten: true, src: ['js/libs/font-awesome/font/*'], dest: 'build/css/font/', filter: 'isFile'}
+		      {expand: true, flatten: true, src: ['js/libs/font-awesome/fonts/*'], dest: 'build/fonts/', filter: 'isFile'}
 		    ]
 		  }
-	}
+		},
+		// require js optimization
+		requirejs: {
+		    compile: {
+		        options: {
+		            // name is required
+		            name: "main",
+		            // the base path of our optimization
+		            baseUrl: "js/",
+		            // include almond to get define (in place of require.js)
+		           // include: "../lib/almond-0.2.5",
+		            // use our original main configuration file to avoid
+		            // duplication.  this file will pull in all our dependencies
+		            mainConfigFile: "js/main.js",
+		            // the output optimized file name
+		            out: "build/js/build.js"
+		        }
+		    }
+		}
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
@@ -85,8 +103,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
 
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', [ 'uglify', 'cssmin','processhtml', 'htmlmin', 'copy']);
+    grunt.registerTask('default', [ 'uglify', 'cssmin','processhtml', 'htmlmin', 'copy', 'requirejs']);
 
 };
