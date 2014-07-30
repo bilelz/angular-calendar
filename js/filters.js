@@ -5,7 +5,7 @@ define(['angular','moment', 'app'], function (angular, app) {
 		.filter('momentfromnow', function() {
 	    return function(dateString, formatIn) {
 	        return (dateString == undefined)?undefined:moment(dateString, formatIn).fromNow();
-	        //2013-04-26T17:00:00.000+02:00
+	        /*2013-04-26T17:00:00.000+02:00*/
 	    };
 	  }).filter('momentcalendar', function() {
 	    return function(dateString, formatIn) {
@@ -46,7 +46,7 @@ define(['angular','moment', 'app'], function (angular, app) {
     };
   }).filter('getImage', function(){
   	return function(content){
-  		//return (content == undefined)?undefined: $('<div/>').html(content).find("img:first").attr("src");
+  		/*return (content == undefined)?undefined: $('<div/>').html(content).find("img:first").attr("src");*/
   		
   		if(content == undefined){
   			return undefined;
@@ -80,7 +80,7 @@ define(['angular','moment', 'app'], function (angular, app) {
   		return (entry == undefined)?undefined:encodeURIComponent(entry);
   	};
   }).filter('getTwitterName', ['$sce', function($sce){
-  	//http://www.simonwhatley.co.uk/examples/twitter/prototype/
+  	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
   	return function(entry){
   		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
   			var username = entry.match(/[@]+[A-Za-z0-9-_]+/g)[0].replace("@","");
@@ -91,7 +91,7 @@ define(['angular','moment', 'app'], function (angular, app) {
 
   	};
   }]).filter('getTitleWithoutTwitterName', ['$sce', function($sce){
-  	//http://www.simonwhatley.co.uk/examples/twitter/prototype/
+  	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
   	return function(entry){
   		if(entry != undefined){
   			if(entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){

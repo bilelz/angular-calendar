@@ -2,25 +2,17 @@
 require.config({
     baseUrl: 'js',
     paths: {
-        // the left side is the module ID,
-        // the right side is the path to
-        // the jQuery file, relative to baseUrl.
-        // Also, the path should NOT include
-        // the '.js' file extension. This example
-        // is using jQuery 1.9.0 located at
-        // js/lib/jquery-1.9.0.js, relative to
-        // the HTML page.
+        
         jquery: 'libs/jquery/dist/jquery.min',
         jqueryui: 'libs/jquery-ui/ui/minified/jquery-ui.min',
-        //bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
+        /*bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',*/
         async: 'libs/requirejs-plugins/src/async',
         goog: 'libs/requirejs-plugins/src/goog',
         angular : 'libs/angular/angular',
         angularroute : 'libs/angular-route/angular-route',
         angularresource: "libs/angular-resource/angular-resource",
         moment : 'libs/momentjs/moment',
-        angularanimate : 'libs/angular-animate/angular-animate'//,
-        //project : 'project'
+        angularanimate : 'libs/angular-animate/angular-animate'
     },
   shim: {
     'jquery': {'exports' : 'jquery'},
@@ -100,7 +92,6 @@ function lazyLoadImage() {
 	var divImg = document.querySelectorAll("[data-img]");
 	var nodes = Array.prototype.slice.call(divImg, 0);
 
-	// nodes is an array now.
 	nodes.forEach(function(el) {
 		if (windowBottom > getPosition(el).top && !el.classList.contains('imgLoading') && !el.classList.contains('imgLoaded')) {
 			var elTmp = el;
@@ -139,13 +130,12 @@ function handleOrientation(event) {
   var beta     = event.beta;
   var gamma    = event.gamma*3;
 	
-	//document.querySelector("#bigPicture").style.backgroundPosition = -gamma+"px 0px";
+	/*document.querySelector("#bigPicture").style.backgroundPosition = -gamma+"px 0px";*/
 	var imgList = document.querySelectorAll("a.listBlock div.imgLoaded");
 	for(var i = 0; i < imgList.length; i++) {
 		            	 imgList[i].style.backgroundRepeat = "repeat-x";
 		                imgList[i].style.backgroundPosition = -gamma+"px 0px";
 		            }
-  // Do stuff with the new orientation data
 }
 
 

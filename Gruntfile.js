@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 	        },
 	        build: {
 		      files: {
-	          'build/js/production.min.js': ['js/libs/jquery/jquery.min.js','js/libs/requirejs/require.js','js/*.js'] // make sure we load jQuery first
+	          'build/js/build.js': ['build/js/build.js'] // make sure we load jQuery first
 	        }
 		    }
 	   },
@@ -29,16 +29,27 @@ module.exports = function(grunt) {
 		      banner: '/* My minified css file */'
 		    },
 		    files: {
-		      'build/css/build.css': ['js/libs/bootstrap/dist/css/bootstrap.min.css', 'js/libs/font-awesome/css/font-awesome.min.css', 'css/*.css']
+		      'build/css/build.css': [	'js/libs/bootstrap/dist/css/bootstrap.min.css', 
+		      							'js/libs/font-awesome/css/font-awesome.min.css', 
+		      							'js/libs/animate.css/animate.min.css',
+		      							'css/*.css']
 		    }
 		  }
 		},
 	   processhtml: {
-	      dist: {
-	        files: {
-	        'build/index.html': ['index.html']
-	        }
-	      }
+			options: {
+		      data: {
+		        message: 'Hello world!', 
+		        version : function (){
+		        return ""+pkg.version.replace(/\\./g,"");
+		        }
+		      }
+		    },
+			  dist: {
+			    files: {
+			    'build/index.html': ['index.html']
+			    }
+			  }
 	    },
 		htmlmin: {                                     // Task
 		    dist: {                                      // Target
@@ -69,7 +80,12 @@ module.exports = function(grunt) {
 		  main: {
 		    files: [
 		      // includes files within path
-		      {expand: true, flatten: true, src: ['js/libs/font-awesome/fonts/*'], dest: 'build/fonts/', filter: 'isFile'}
+		      {expand: true, flatten: true, src: ['js/libs/font-awesome/fonts/*'], dest: 'build/fonts/', filter: 'isFile'},
+		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/async.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
+		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/goog.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
+		      {expand: true, flatten: true, src: ['js/misc/add.php'], dest: 'build/js/misc/', filter: 'isFile'}
+
+		      
 		    ]
 		  }
 		},
@@ -82,15 +98,39 @@ module.exports = function(grunt) {
 		            // the base path of our optimization
 		            baseUrl: "js/",
 		            // include almond to get define (in place of require.js)
-		           // include: "../lib/almond-0.2.5",
+		            include: "libs/requirejs/require.js",
 		            // use our original main configuration file to avoid
 		            // duplication.  this file will pull in all our dependencies
 		            mainConfigFile: "js/main.js",
 		            // the output optimized file name
-		            out: "build/js/build.js"
+		            out: "build/js/build.js",
+		            optimize: "none"
 		        }
 		    }
-		}
+		},
+		imagemin: {                          // Task
+		    
+		    dynamic: {                         // Another target
+		      files: [{
+		        expand: true,                  // Enable dynamic expansion
+		        cwd: 'img/',                   // Src matches are relative to this path
+		        src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+		        dest: 'build/img/'                  // Destination path prefix
+		      }]
+		    }
+		  },
+		 clean: ["build/"],
+		 // make a zipfile
+		compress: {
+		  main: {
+		    options: {
+		      archive: 'build/build_<%= grunt.template.today("yyyy-mm-dd_hhMM") %>.zip'
+		    },
+		    files: [
+		      {src: ['build/**'], dest: '/'}, // includes files in path and its subdirs
+		    ]
+		  }
+	}
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
@@ -104,8 +144,13 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+
+
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', [ 'uglify', 'cssmin','processhtml', 'htmlmin', 'copy', 'requirejs']);
+    grunt.registerTask('default', ['clean', 'cssmin','processhtml', 'htmlmin', 'copy', 'requirejs', 'uglify', 'imagemin', 'compress']);
 
 };

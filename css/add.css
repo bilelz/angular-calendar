@@ -2,7 +2,6 @@
         height: 150px;
 		margin: 0px;
 		padding: 0px;
-		//height: 0;
 		transition:.3s;
       }
 #map-canvas label, .gmnoprint { width: auto !important; display:inline; }
@@ -46,7 +45,6 @@ label{
 
 div.float {
   position: relative;
-  //display: inline-block;
 }
 
 div.float > label {

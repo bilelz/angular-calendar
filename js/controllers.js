@@ -18,7 +18,7 @@ define(['angular','app'], function(angular, app)
 													hideLoader();
 												});
 			$scope.pageClass = 'page-home';
-			// On attend 1s et on met la direction (pour la transition right);
+			/* On attend 1s et on met la direction (pour la transition right);*/
 			$scope.uidirection = '';
         $timeout(function(){
             $scope.uidirection = 'right';
@@ -61,7 +61,6 @@ define(['angular','app'], function(angular, app)
 		Page.setTitle("Submit an event - CalDev.io");
 	
 			
-		//$scope.newEvent = {};
 		$scope.mailSend = false;
 		$scope.mailSendError = false;
 		
@@ -74,7 +73,7 @@ define(['angular','app'], function(angular, app)
 							description: "",
 							mail:""};
 		
-		// datepicker fallback
+		/* datepicker fallback */
 		var elem = document.createElement('input');
 	    elem.setAttribute('type', 'date');
 	 
@@ -86,7 +85,7 @@ define(['angular','app'], function(angular, app)
 				$("#dateend").val(moment().add('days', 1).format("DD/MM/YYYY"));
 			}); 	
       	}
-      	// end : datepicker fallback
+      	/* end : datepicker fallback*/
       	
 		
 		$scope.eventForm = $scope.event ;	
@@ -143,13 +142,13 @@ define(['angular','app'], function(angular, app)
 			    center: new google.maps.LatLng(48.8588589,2.3470599),
 			    zoom: 1
 			  };
-			  //var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			  /*var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);*/
 			  
 			   var input =  document.getElementById('adress');
 			   var types = document.getElementById('type-selector');
 			
 			  var autocomplete = new google.maps.places.Autocomplete(input);
-			  //autocomplete.bindTo('bounds', map);
+			  /*autocomplete.bindTo('bounds', map);*/
 			
 			  /*var infowindow = new google.maps.InfoWindow();
 			  var marker = new google.maps.Marker({
