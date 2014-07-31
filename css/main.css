@@ -22,7 +22,7 @@ img{
 }
 
 .io{
-	text-indent: -1.75em;
+	text-indent: -1.35em;
 	display: inline-block;
 	font-size: .6em;
 	font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
@@ -342,19 +342,17 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 	position: absolute;
 	top: 45%;
 	right: 0px;
-	border-right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
 }
 
 .calendarframe{
-border: 1px solid white;
 text-align: center;
 display: inline-block;
 position: relative;
 }
 
 .dayLabel{
-background: white;
-color: black;
 padding: 0px 5px;
 display: block;
 clear: both;
@@ -364,19 +362,13 @@ clear: both;
 display: block;
 font-size: 3em;
 line-height: 1em;
-color: white;
-text-shadow: 0 1px 1px black;
-background: rgba(0, 0, 0, 0.15);
+
 font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
 }
 
 .monthLabel{
 	display: block;
 text-align: center;
-border-top: 1px solid white;
-color: white;
-background: rgba(0, 0, 0, 0.15);
-text-shadow: 0 1px 1px black;
 }
 
 .loader {

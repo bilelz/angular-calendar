@@ -124,10 +124,10 @@ module.exports = function(grunt) {
 		compress: {
 		  main: {
 		    options: {
-		      archive: 'build/build_<%= grunt.template.today("yyyy-mm-dd_hhMM") %>.zip'
+		      archive: 'build/build_<%= grunt.template.today("yyyy-mm-dd_HHMM") %>.zip'
 		    },
 		    files: [
-		      {src: ['build/**'], dest: '/'}, // includes files in path and its subdirs
+		      {expand: true, src: ['**', '!build/*.zip'], cwd: 'build/'}, // includes files in path and its subdirs
 		    ]
 		  }
 	}
