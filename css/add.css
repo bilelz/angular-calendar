@@ -133,3 +133,29 @@ div.float > label {
 	z-index: 1001 !important;
 	font-size: .9em;
 }
+
+[type="submit"]{
+	width: 100%;
+	position: relative;
+}
+
+[type="submit"] span.text{
+	z-index: 2;
+	position: relative;
+}
+
+#add-progress{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	transition: 3s;
+background: rgba(255, 255, 255, 0.49);
+z-index: 1
+}
+
+#add-progress.loading{
+	width: 100%;
+	transition: 3s;
+}

@@ -2,19 +2,14 @@
 <div class="container"> 
 <div class="row">
 	
-	<div class="col-md-8">	
+	<div class="col-md-12">	
 
-
-<h1 class="title">Submit an event</h1>
-
-
-
+	<h1 class="title">Submit an event</h1>
 
 	<div class="alert alert-success" ng-show="mailSend">
-       			
-					<i class="fa fa-smile-o fa-2x"></i>
-					{{mailResponseTxt}}
-       </div>
+		<i class="fa fa-smile-o fa-2x"></i>
+		{{mailResponseTxt}}
+    </div>
 
 <form class="form-horizontal" novalidate name="myFormNg"  ng-submit="addEvent(event)">
   <div class="form-group">
@@ -146,12 +141,15 @@
 	    </label>
 	    
   	</div>
-  	
+  	<br/>
   	<div class="col-lg-12 ">
-      	<button type="submit" class="btn btn-default" ng-disabled="!myFormNg.$valid" ng-class="{'btn-primary':myFormNg.$valid}">
-	      	OK <i class="fa fa-chevron-right"></i> 
+      	<button type="submit" class="btn btn-primary" ng-disabled="!myFormNg.$valid" ng-class="{'btn-primary':myFormNg.$valid}">
+	      	
+	      	<span class="error text" ng-show="!myFormNg.$valid"><i class="fa fa-paper-plane-o"></i>&nbsp;Complete all fields please.</span>
+	      	<span class="text" ng-show="myFormNg.$valid"><i class="fa fa-paper-plane"></i>&nbsp;Send</span>
+	      	<div id="add-progress"> </div>
+
 	  	</button>
-       <span class="error" ng-show="myFormNg.$error.required">Complete required fields please.</span>
 
 		<p class="alert alert-danger" id="mailSendError" ng-show="mailSendError">
        	 <i class="fa fa-exclamation fa-2x"></i>
@@ -175,3 +173,4 @@
 	</div>
 </div>
 </div>
+

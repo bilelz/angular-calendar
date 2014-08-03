@@ -24,7 +24,12 @@
 					 class="listBlock">
 						<link itemprop="url" href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" />
 						<h4 itemprop="name">{{entry.title.$t}}</h4>
-						
+						<span class="calendarframe">
+							<span class="dayLabel">{{entry.gd$when[0].startTime | date:'d'}} {{entry.gd$when[0].startTime | date:'MMMM'}}, 
+							{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
+							<!--<span class="dayNumber">{{entry.gd$when[0].startTime | date:'d'}}</span>
+							<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>-->
+						</span>
 						<div data-img="{{entry.content.$t | getImage}}">
 							<meta itemprop="image" content="{{entry.content.$t | getImage}}">
 						</div>
@@ -42,11 +47,7 @@
 						
 						<meta itemprop="startDate" content="{{entry.gd$when[0].startTime | date:'yyyy-MM-dd'}}">
 						<meta itemprop="endDate" content="{{entry.gd$when[0].endTime | date:'yyyy-MM-dd'}}">
-						<span class="calendarframe">
-							<span class="dayLabel">{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
-							<span class="dayNumber">{{entry.gd$when[0].startTime | date:'d'}}</span>
-							<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>
-						</span>
+						
 				</a>
 			</center>
 		

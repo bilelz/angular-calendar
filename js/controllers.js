@@ -31,6 +31,9 @@ define(['angular','app'], function(angular, app)
     	function($scope,$location, $routeParams, $http, caldevServices, Page) {
 		$scope.pageClass = 'page-detail';
 		$scope.uidirection = 'right';
+		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
+		
+		
 		
 			removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
@@ -113,6 +116,8 @@ define(['angular','app'], function(angular, app)
 		      
 		      caldevServices.add(urladd)
 		      				.then(function(data) {
+		      					scrollTop();
+		      					
 						      if(data.status == "OK"){
 						      	$scope.mailSend = true;
 						      	$scope.mailSendError = false;

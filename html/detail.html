@@ -6,17 +6,26 @@
 <meta name="twitter:image:src" content="{{entry.content.$t | getImage}}">
 <div  itemscope itemtype="http://schema.org/Event">
 	<!--<div class="blurBg" data-img="{{entry.content.$t | getImage}}"></div>-->
-	<div id="bigPicture" data-img="{{entry.content.$t | getImage}}">
-		<span class="bgGradient"></span>
-	</div>
+	
 	<div id="bigTitle">
-		<span class="calendarframe">
-			<span class="dayLabel">{{entry.gd$when[0].startTime | date:'EEEE'}}</span>
-			<span class="dayNumber">{{entry.gd$when[0].startTime | date:'d'}}</span>
-			<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>
-		</span>
-		<h1  itemprop="name">{{entry.title.$t  | getTitleWithoutTwitterName}}</h1>
-		<span ng-bind-html="entry.title.$t | getTwitterName"></span>
+	
+		<div id="bigPicture" data-img="{{entry.content.$t | getImage}}">
+			<span class="bgGradient"></span>
+		</div>
+	
+		<div id="bigTitleContent">
+			<span class="calendarframe">
+				<span class="dayLabel">{{entry.gd$when[0].startTime | date:'EEEE'}} 
+				{{entry.gd$when[0].startTime | date:'d'}} 
+				 {{entry.gd$when[0].startTime | date:'MMMM'}} - 
+				 {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
+			</span>
+			<h1  itemprop="name">{{entry.title.$t  | getTitleWithoutTwitterName}}</h1>
+			<span ng-bind-html="entry.title.$t | getTwitterName"></span>
+			<br/>
+			<i class="fa fa-angle-down fa-2x bounceInDown" id="downinfo"></i>
+		</div>
+		
 		
 	</div>
 	<div class="container">
@@ -78,7 +87,7 @@
 				</p>
 
 				<a href="http://maps.google.com/maps?q={{entry.gd$where[0].valueString}}" target="_blank" class="">
-					<img src="http://maps.google.com/maps/api/staticmap?center={{entry.gd$where[0].valueString}}&zoom=12&size=400x200&maptype=roadmap&sensor=false&language=&markers={{entry.gd$where[0].valueString}}&amp;scale=2"/> 
+					<img src="http://maps.google.com/maps/api/staticmap?center={{entry.gd$where[0].valueString}}&zoom=12&size=400x200&maptype=roadmap&sensor=false&language=&markers={{entry.gd$where[0].valueString}}&amp;scale=2&amp;key=AIzaSyBk8ZqXadQlSHZlqlKu4OR5MfveoA-hatQ"/> 
 						<span itemprop="location" itemscope itemtype="http://schema.org/Place">
 							<span class="maplink"  itemprop="name"> 
 								<i class="fa fa-map-marker"></i> {{entry.gd$where[0].valueString}} 
@@ -89,6 +98,7 @@
 				<br/>
 				<p>
 					<a href="{{entry.link[0].href}}" target="_blank" class="btn btn-default"><i class=" fa fa-calendar"></i> View in Google calendar</a>
+					&nbsp;
 					<a href="a" class="btn btn-success"><i class="fa fa-plus"></i> Add an event</a>
 				</p>
 

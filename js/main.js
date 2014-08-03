@@ -48,9 +48,13 @@ require( [
 	angular.element().ready(function(app) {
 		angular.bootstrap(document, ['caldev']);
 		window.onscroll = function() { lazyLoadImage(); };
-      	document.getElementById("top").onclick = function(){scrollTo(0,0); return false;};
+		
+		window.onresize = function(event) {
+    		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
+	};
+      	/*document.getElementById("top").onclick = scrollTop();
       	
-      	//window.addEventListener("deviceorientation", handleOrientation, true);
+      	window.addEventListener("deviceorientation", handleOrientation, true);*/
       	/*document.body.onmousemove=function(event){
       		console.log(event);
 			var centerX = document.body.offsetWidth/2;
@@ -154,4 +158,19 @@ function scrollTop() {
     timeOut=setTimeout('scrollTop()',20);
   }
   else clearTimeout(timeOut);
+  
+  return false;
+}
+
+function scrollToContent(){
+	var top = getPosition(document.getElementById("downinfo")).top;
+	
+	if (document.body.scrollTop!= top || document.documentElement.scrollTop!= top){
+    window.scrollBy(0,1);
+    timeOut=setTimeout('scrollToContent()',20);
+  }
+  else clearTimeout(timeOut);
+  
+  return false;
+
 }

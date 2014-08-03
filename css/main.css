@@ -35,12 +35,16 @@ img{
   height: auto;
 }
 
+.page{
+	//position: relative;
+	z-index: 2;
+}
+
 /* Set the fixed height of the footer here */
 #footer {
-  background-color: rgba(255, 255, 255, 0.31);
+  background-color: white;
   position: relative;
 width: 100%;
-margin-top: -33px;
 }
 
 #footer .text-muted {
@@ -99,7 +103,7 @@ a.listBlock{
 	position: relative;
 	margin: 10px;
 	text-decoration: none;
-	background: white;
+	background: rgba(0, 0, 0, 0.5);
 	transition: .3s;
 }
 
@@ -338,22 +342,28 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 }
 
 
-.listBlock .calendarframe{
-	position: absolute;
-	top: 45%;
-	right: 0px;
-	background: rgba(0, 0, 0, 0.5);
-	color: white;
-}
+
 
 .calendarframe{
 text-align: center;
 display: inline-block;
 position: relative;
+padding: 5px;
+background: rgba(0, 0, 0, 0.25);
+	color: white;
+}
+
+.listBlock .calendarframe{
+	position: absolute;
+	//top: 45%;
+	right: 0px;
+	background: rgba(0, 0, 0, 0.5);
+z-index: 1;
+	
 }
 
 .dayLabel{
-padding: 0px 5px;
+
 display: block;
 clear: both;
 }
