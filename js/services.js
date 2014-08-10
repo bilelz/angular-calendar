@@ -43,6 +43,18 @@ define(['angular', 'app'], function (angular, app) {
         }
     };
 });
+
+app.service('viewSlideIndex', function () {
+    var viewIndex;
+    return {
+        getViewIndex: function () {
+            return viewIndex;
+        },
+        setViewIndex: function (val) {
+            viewIndex = val;
+        }
+    };
+});
 });
 
 

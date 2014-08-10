@@ -19,7 +19,7 @@
        <span  ng-show="mailSendError">KO  {{mailResponseTxt}}</span>
 		
 			<center>
-				<a href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" 
+				<a ng-href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}"
 					ng-repeat="entry in calendar.entry"  itemscope itemtype="http://schema.org/Event"
 					 class="listBlock">
 						<link itemprop="url" href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" />

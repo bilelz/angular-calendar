@@ -2,13 +2,29 @@ define(['angular','app'], function(angular, app)
 {
 	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
 	agendaID = "u825pd9kqiahvdqljsk29rass4";
+	
+	
+	
     app.controller(
-        'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page', '$timeout',
-        function($scope, $location, $http, caldevServices, Page, $timeout) {
+        'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page', '$timeout','viewSlideIndex',
+        function($scope, $location, $http, caldevServices, Page, $timeout, viewSlideIndex) {
             removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
 			showLoader();
 			scrollTop();
+			
+				
+			if (viewSlideIndex.getViewIndex() == "detail") {
+				$scope.uidirection = 'right';
+			} else if (viewSlideIndex.getViewIndex() == "add") {
+				$scope.uidirection = 'right';
+			} else if (viewSlideIndex.getViewIndex() == "calendar") {
+				$scope.uidirection = 'right';
+			} else {
+				$scope.uidirection = 'zoom';
+			}
+			document.querySelector('[ng-view]').className = "page scroll ng-scope " +$scope.uidirection;
+			viewSlideIndex.setViewIndex("list");
 			
 
 			Page.setTitle("CalDev.io - Agenda 4 developers & others...");
@@ -17,23 +33,36 @@ define(['angular','app'], function(angular, app)
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 												});
-			$scope.pageClass = 'page-home';
-			/* On attend 1s et on met la direction (pour la transition right);*/
-			$scope.uidirection = '';
-        $timeout(function(){
-            $scope.uidirection = 'right';
-        }, 1000);
+			
+	         
+			$scope.slideView = function(index, $event) {
+	
+				$scope.uidirection = 'zoom';
+				console.log($event);
+				$location.url($event.currentTarget.href.replace($event.currentTarget.baseURI, ""));
+				$event.preventDefault();
+			}; 
+
 			
         }]
     );
     
-    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
-    	function($scope,$location, $routeParams, $http, caldevServices, Page) {
+    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page','viewSlideIndex',
+    	function($scope,$location, $routeParams, $http, caldevServices, Page, viewSlideIndex) {
 		$scope.pageClass = 'page-detail';
-		$scope.uidirection = 'right';
 		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
 		
-		
+			if (viewSlideIndex.getViewIndex() == "detail") {
+				$scope.uidirection = 'right';
+			} else if (viewSlideIndex.getViewIndex() == "add") {
+				$scope.uidirection = 'right';
+			} else if (viewSlideIndex.getViewIndex() == "calendar") {
+				$scope.uidirection = 'right';
+			} else {
+				$scope.uidirection = 'zoom';
+			}
+		document.querySelector('[ng-view]').className = "page scroll ng-scope " +$scope.uidirection;
+		viewSlideIndex.setViewIndex("detail");
 		
 			removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
@@ -45,17 +74,46 @@ define(['angular','app'], function(angular, app)
 													Page.setTitle(data.entry.title.$t + " - CalDev.io");
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
-												});			
+												});		
+												
+			$scope.slideView = function (index, $event) {
+	        //
+	        // Set the value of the current view index to compare against here:
+	        //
+	       // alert(url);
+	        if (index <3) {
+	            $scope.uidirection = 'left';
+	        } else {
+	            $scope.uidirection = 'right';
+	        };
+	        console.log($event);
+	       $location.url($event.currentTarget.href.replace($event.currentTarget.baseURI,""));
+	       $event.preventDefault();
+	    }	;
 		}]
+		
+		 
 	);
 
-	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page',
-		function ($scope, $http, $location, $routeParams, caldevServices, Page){
+	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page','viewSlideIndex',
+		function ($scope, $http, $location, $routeParams, caldevServices, Page, viewSlideIndex){
 
 
+
+		if (viewSlideIndex.getViewIndex() == "detail") {
+				$scope.uidirection = 'left';
+			} else if (viewSlideIndex.getViewIndex() == "list") {
+				$scope.uidirection = 'left';
+			} else if (viewSlideIndex.getViewIndex() == "calendar") {
+				$scope.uidirection = 'right';
+			} else {
+				$scope.uidirection = 'zoom';
+			}
+		
+		document.querySelector('[ng-view]').className = "page scroll ng-scope " +$scope.uidirection;
+
+		viewSlideIndex.setViewIndex("add");
 	    scrollTop();
-	    $scope.uidirection = 'right';
-    
 		$scope.pageClass = 'page-add';
 
 		addClass(document.getElementById("nav-a"), "active");
@@ -208,21 +266,61 @@ define(['angular','app'], function(angular, app)
 		
 			  });
 			});	
+			
+			 $scope.slideView = function (index, $event) {
+	        //
+	        // Set the value of the current view index to compare against here:
+	        //
+	       // alert(url);
+	        if (index <3) {
+	            $scope.uidirection = 'left';
+	        } else {
+	            $scope.uidirection = 'right';
+	        };
+	        console.log($event);
+	       $location.url($event.currentTarget.href.replace($event.currentTarget.baseURI,""));
+	       $event.preventDefault();
+	    };
 	
 	
 		}]
 	);
 
-	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page',
-		function ($scope,$location, $routeParams, $http, $sce, Page){
-			$scope.uidirection = 'right';
+	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page','viewSlideIndex',
+		function ($scope,$location, $routeParams, $http, $sce, Page, viewSlideIndex){
 			scrollTop();
 			
+			if (viewSlideIndex.getViewIndex() == "detail") {
+				$scope.uidirection = 'left';
+			} else if (viewSlideIndex.getViewIndex() == "add") {
+				$scope.uidirection = 'left';
+			} else if (viewSlideIndex.getViewIndex() == "list") {
+				$scope.uidirection = 'left';
+			} else {
+				$scope.uidirection = 'zoom';
+			}
+			document.querySelector('[ng-view]').className = "page scroll ng-scope " +$scope.uidirection;
+			viewSlideIndex.setViewIndex("calendar");
 			removeClass(document.getElementById("nav-a"), "active");
 			addClass(document.getElementById("nav-c"), "active");
 			
 			$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
 							+"&src="+agendaID+"%40group.calendar.google.com&color=%232F6309&ctz=Europe%2FParis");
+		
+		 $scope.slideView = function (index, $event) {
+	        //
+	        // Set the value of the current view index to compare against here:
+	        //
+	       // alert(url);
+	        if (index <3) {
+	            $scope.uidirection = 'left';
+	        } else {
+	            $scope.uidirection = 'right';
+	        };
+	        console.log($event);
+	       $location.url($event.currentTarget.href.replace($event.currentTarget.baseURI,""));
+	       $event.preventDefault();
+	    };
 		
 		}]
 	);
