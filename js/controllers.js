@@ -34,16 +34,6 @@ define(['angular','app'], function(angular, app)
 													hideLoader();
 												});
 			
-	         
-			$scope.slideView = function(index, $event) {
-	
-				$scope.uidirection = 'zoom';
-				console.log($event);
-				$location.url($event.currentTarget.href.replace($event.currentTarget.baseURI, ""));
-				$event.preventDefault();
-			}; 
-
-			
         }]
     );
     
@@ -76,20 +66,7 @@ define(['angular','app'], function(angular, app)
 													hideLoader();
 												});		
 												
-			$scope.slideView = function (index, $event) {
-	        //
-	        // Set the value of the current view index to compare against here:
-	        //
-	       // alert(url);
-	        if (index <3) {
-	            $scope.uidirection = 'left';
-	        } else {
-	            $scope.uidirection = 'right';
-	        };
-	        console.log($event);
-	       $location.url($event.currentTarget.href.replace($event.currentTarget.baseURI,""));
-	       $event.preventDefault();
-	    }	;
+			
 		}]
 		
 		 
@@ -267,20 +244,7 @@ define(['angular','app'], function(angular, app)
 			  });
 			});	
 			
-			 $scope.slideView = function (index, $event) {
-	        //
-	        // Set the value of the current view index to compare against here:
-	        //
-	       // alert(url);
-	        if (index <3) {
-	            $scope.uidirection = 'left';
-	        } else {
-	            $scope.uidirection = 'right';
-	        };
-	        console.log($event);
-	       $location.url($event.currentTarget.href.replace($event.currentTarget.baseURI,""));
-	       $event.preventDefault();
-	    };
+			 
 	
 	
 		}]
@@ -306,21 +270,6 @@ define(['angular','app'], function(angular, app)
 			
 			$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
 							+"&src="+agendaID+"%40group.calendar.google.com&color=%232F6309&ctz=Europe%2FParis");
-		
-		 $scope.slideView = function (index, $event) {
-	        //
-	        // Set the value of the current view index to compare against here:
-	        //
-	       // alert(url);
-	        if (index <3) {
-	            $scope.uidirection = 'left';
-	        } else {
-	            $scope.uidirection = 'right';
-	        };
-	        console.log($event);
-	       $location.url($event.currentTarget.href.replace($event.currentTarget.baseURI,""));
-	       $event.preventDefault();
-	    };
 		
 		}]
 	);
