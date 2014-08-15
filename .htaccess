@@ -56,7 +56,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_METHOD} !OPTIONS
 RewriteCond %{REQUEST_URI} ^(.*)/(.*)$ 
 # pour les pages «détail » des événements
-RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/$2.html -f
-RewriteRule ^(.*)/(.*)$ /js/misc/cache/$2.html [L]
+#RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/$2.html -f
+#RewriteCond %{DOCUMENT_ROOT}/js/misc/detail.php?event=$2 -f
+
+#RewriteRule ^(.*)/(.*)$ /js/misc/cache/$2.html [L]
+RewriteRule ^(.*)/(.*)$ /js/misc/detail.php?event=$2 [L]
 
 

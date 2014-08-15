@@ -101,13 +101,16 @@ function lazyLoadImage() {
 			var elTmp = el;
 
 			var imgTmp = document.createElement("img");
-			imgTmp.src = elTmp.getAttribute("data-img");
-			elTmp.classList.add("imgLoading");
-
+			
 			imgTmp.addEventListener('load', function() {
 				elTmp.style.backgroundImage = "url('" + elTmp.getAttribute("data-img") + "')";
 				elTmp.classList.add("imgLoaded");
 			}, false);
+			
+			imgTmp.src = elTmp.getAttribute("data-img");
+			elTmp.classList.add("imgLoading");
+
+			
 		}
 
 	});
@@ -153,12 +156,13 @@ function hideLoader(){
 
 var timeOut;
 function scrollTop() {
-  if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+	window.scrollTo(0,0);
+ /* if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
     window.scrollBy(0,-50);
     timeOut=setTimeout('scrollTop()',20);
   }
   else clearTimeout(timeOut);
-  
+  */
   return false;
 }
 

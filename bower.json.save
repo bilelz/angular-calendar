@@ -1,0 +1,17 @@
+
+z{
+  "name": "angular-calendar",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "momentjs": "latest",
+    "requirejs": "latest",
+    "requirejs-plugins": "~1.0.2",
+    "jquery-ui": "~1.10.4"
+  },
+  "license": "MIT",
+  "private": true
+}

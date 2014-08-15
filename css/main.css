@@ -11,6 +11,8 @@ body{
 	background-image: -webkit-linear-gradient(#c644fc, #5856d6);
 	background-image: linear-gradient(#c644fc, #5856d6);
 	background:fixed radial-gradient(circle farthest-side at right top,#f8cdda,#1d2b64 80%,#0e153a);
+	background-image : url('../img/desk1600.jpg'); /*http://startupstockphotos.com/post/94180097361/download#notes*/
+	background-attachment: fixed;
 	background-size: cover;
 	position: relative;	
 }
@@ -33,6 +35,8 @@ img{
 	position: relative;
   min-height: 100%;
   height: auto;
+  	margin: 0 auto -32px; /* the bottom margin is the negative value of the footer's height */
+
 }
 
 .page{
@@ -42,21 +46,30 @@ img{
 
 /* Set the fixed height of the footer here */
 #footer {
-  background-color: white;
+  background-color: black;
   position: relative;
 width: 100%;
 }
 
 #footer .text-muted {
-	color: black;
+	color: #aaa;
 }
 
 #footer i{
 	font-size: 1.5em;
+	vertical-align: middle;
+}
+
+#footer iframe{
+	vertical-align: middle;
 }
 
 #footer a{
-	color : #444;
+	color : #fff;
+}
+
+#footer, .push {
+height: 32px;
 }
 
 h1.title {

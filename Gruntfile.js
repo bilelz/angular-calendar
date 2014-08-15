@@ -40,9 +40,7 @@ module.exports = function(grunt) {
 			options: {
 		      data: {
 		        message: 'Hello world!', 
-		        version : function (){
-		        return ""+pkg.version.replace(/\\./g,"");
-		        }
+		        version : '<%= grunt.template.today("yyyymmddHHMM") %>'
 		      }
 		    },
 			  dist: {
@@ -83,7 +81,7 @@ module.exports = function(grunt) {
 		      {expand: true, flatten: true, src: ['js/libs/font-awesome/fonts/*'], dest: 'build/fonts/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/async.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/goog.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
-		      {expand: true, flatten: true, src: ['js/misc/add.php'], dest: 'build/js/misc/', filter: 'isFile'}
+		      {expand: true, flatten: true, src: ['js/misc/add.php', 'js/misc/detail.php'], dest: 'build/js/misc/', filter: 'isFile'}
 
 		      
 		    ]
@@ -130,7 +128,7 @@ module.exports = function(grunt) {
 		      {expand: true, src: ['**', '!build/*.zip'], cwd: 'build/'}, // includes files in path and its subdirs
 		    ]
 		  }
-	}
+		}
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
@@ -147,6 +145,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-ftp-deploy');
 
 
 
