@@ -42,8 +42,9 @@ RewriteCond %{HTTP_USER_AGENT} Slurp
 #RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI}  / 
 # pour la page index du site
-RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/index.html -f
-RewriteRule ^(/|index\.html)$ /js/misc/cache/index.html [L]
+#RewriteCond %{DOCUMENT_ROOT}/js/misc/cache/index.html -f
+#RewriteRule ^(/|index\.html)$ /js/misc/cache/index.html [L]
+RewriteRule ^(/|index\.html)$ /js/misc/list.php [L]
 
 RewriteBase /
 RewriteCond %{HTTP_USER_AGENT} bot [OR]
