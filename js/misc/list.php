@@ -23,11 +23,7 @@
 	
 	function dateFormat($string)
 	{
-		//echo $string;
 		return substr($string, 0, 10);
-		//$date = new DateTime($string);
-		//echo $date->format('Y-m-d');
-		
 	}
 	
 ?>

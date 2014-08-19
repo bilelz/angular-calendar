@@ -16,6 +16,10 @@
        $img =  $tag->getAttribute('src');
 		break; // only the first image
 	}
+	
+	function dateFormat($string){
+		return substr($string, 0, 10);
+	}
 ?>
 <!doctype html>
 <html>
@@ -40,12 +44,19 @@
 	
 	<link itemprop="url" href="." />
 	
-	<meta itemprop="startDate" content=" <?php echo $obj['entry']['gd$when'][0]['startTime'] /* | date:'yyyy-MM-dd'*/?>">
-	<meta itemprop="endDate" content="<?php echo $obj['entry']['gd$when'][0]['endTime'] /* | date:'yyyy-MM-dd'*/?>">
+	<meta itemprop="startDate" content=" <?php echo $obj['entry']['gd$when'][0]['startTime']?>">
+	<meta itemprop="endDate" content="<?php echo $obj['entry']['gd$when'][0]['endTime']?>">
 	
 	<p>
 		<?php echo $obj['entry']['content']['$t']?>
 	</p>
+	
+	<span itemprop="location" itemscope itemtype="http://schema.org/Place">
+		
+							<span class="maplink"  itemprop="name"> 
+								<?php echo $obj['entry']['gd$where'][0]['valueString']?>
+							</span> 
+						</span>
 </div>	
 
 <a href="https://plus.google.com/+BilelZeghad?rel=author" target="_blank">Bilelz</a>			
