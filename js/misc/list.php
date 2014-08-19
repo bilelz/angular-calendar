@@ -35,7 +35,7 @@
 <html>
   <head>
 
-	<title><?php echo $obj['entry']['title']['$t'] ?> - Caldev.io</title>
+	<title>Caldev.io</title>
 	
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
@@ -47,11 +47,13 @@
 
 </head>
 <body>
+	<ul>
+		
+	
 
 <?php
 
 foreach ($obj['feed']['entry'] as $event) {
-       echo $event['title']['$t'];
 	
 	$doc = new DOMDocument();
 	@$doc -> loadHTML($event['content']['$t']);
@@ -65,11 +67,10 @@ foreach ($obj['feed']['entry'] as $event) {
 
 ?>
 
-<a href="/<?php echo text2AlphaNum($event['title']['$t']).'/'.getId($event['id']['$t']); ?>"
-					 itemscope itemtype="http://schema.org/Event"
-					 >
+<li>
+<a href="/<?php echo text2AlphaNum($event['title']['$t']).'/'.getId($event['id']['$t']); ?>" itemscope itemtype="http://schema.org/Event">
 						<link itemprop="url" href="/<?php echo text2AlphaNum($event['title']['$t']).'/'.getId($event['id']['$t']); ?>" />
-						<h4 itemprop="name"><?php echo utf8_decode($event['title']['$t']);?></h4>
+						<span itemprop="name"><?php echo utf8_decode($event['title']['$t']);?></span>
 						
 						
 							<meta itemprop="image" content="<?php echo $img;?>">
@@ -82,11 +83,14 @@ foreach ($obj['feed']['entry'] as $event) {
 						</span>
 						
 						
-						<meta itemprop="startDate" content="<?php dateFormat($event['gd$when'][0]['startTime']); ?>">
-						<meta itemprop="endDate" content="<?php dateFormat($event['gd$when'][0]['endTime']); ?>">
+						<meta itemprop="startDate" content="<?php echo dateFormat($event['gd$when'][0]['startTime']); ?>">
+						<meta itemprop="endDate" content="<?php echo dateFormat($event['gd$when'][0]['endTime']); ?>">
 						
 				</a>
+</li>
 <?php } ?>
+
+</ul>
 <a href="https://plus.google.com/+BilelZeghad?rel=author" target="_blank">Bilelz</a>			
 </body>
 </html>
