@@ -54,7 +54,7 @@ define(['angular','moment', 'app'], function (angular, app) {
   		
   		var regex = /<img[^>]+src="([^">]+)"/i; 
     	var tmp = content.match(regex);
-    	if(tmp.length>1){
+    	if(tmp != null && tmp.length>1){
     		return tmp[1];
     	}
   	};

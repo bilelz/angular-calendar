@@ -1,5 +1,6 @@
 <!-- special page for BOT -->
 <?php
+header("Content-Type: text/html; charset=UTF-8");
 	$agendaID = "u825pd9kqiahvdqljsk29rass4";
 	
 	$today =  date('Y-m-d');
@@ -32,7 +33,8 @@
   <head>
 
 	<title>Caldev.io</title>
-	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
 	<meta name="twitter:title" content="CalDev.io">
@@ -74,13 +76,13 @@ foreach ($obj['feed']['entry'] as $event) {
 						
 						<span itemprop="location" itemscope itemtype="http://schema.org/Place">
 								<span itemprop="name"> 
-									<?php echo utf8_decode ($event['gd$where'][0]['valueString']);?>
+									<?php echo utf8_decode($event['gd$where'][0]['valueString']);?>
 									</span>
 						</span>
 						
 						
-						<meta itemprop="startDate" content="<?php echo dateFormat($event['gd$when'][0]['startTime']); ?>">
-						<meta itemprop="endDate" content="<?php echo dateFormat($event['gd$when'][0]['endTime']); ?>">
+						<meta itemprop="startDate" content="<?php echo $event['gd$when'][0]['startTime']; ?>">
+						<meta itemprop="endDate" content="<?php echo $event['gd$when'][0]['endTime']; ?>">
 						
 				</a>
 </li>

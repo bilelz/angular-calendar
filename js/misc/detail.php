@@ -1,5 +1,6 @@
 <!-- special page for BOT -->
 <?php
+	header("Content-Type: text/html; charset=UTF-8");
 	$agendaID = "u825pd9kqiahvdqljsk29rass4";
 	$eventID = $_GET["event"];
 	$url = "http://www.google.com/calendar/feeds/" . $agendaID . "%40group.calendar.google.com/public/full/" . $eventID . "?alt=json";
@@ -25,8 +26,9 @@
 <html>
   <head>
 
-	<title><?php echo $obj['entry']['title']['$t'] ?> - Caldev.io</title>
-	
+	<title><?php echo utf8_decode($obj['entry']['title']['$t']) ?> - Caldev.io</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="">
 	<meta name="twitter:creator" content="@bilelz">
@@ -38,7 +40,7 @@
 <body>
 <div  itemscope itemtype="http://schema.org/Event">
 			
-	<h1 itemprop="name"><?php echo $obj['entry']['title']['$t'] ?></h1>
+	<h1 itemprop="name"><?php echo utf8_decode($obj['entry']['title']['$t']) ?></h1>
 	
 	<meta itemprop="image" content="<?php echo $img ?>">
 	

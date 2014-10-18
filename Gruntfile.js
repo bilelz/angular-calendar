@@ -81,7 +81,7 @@ module.exports = function(grunt) {
 		      {expand: true, flatten: true, src: ['js/libs/font-awesome/fonts/*'], dest: 'build/fonts/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/async.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/goog.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
-		      {expand: true, flatten: true, src: ['js/misc/add.php', 'js/misc/detail.php'], dest: 'build/js/misc/', filter: 'isFile'}
+		      {expand: true, flatten: true, src: ['js/misc/add.php', 'js/misc/detail.php', 'js/misc/list.php'], dest: 'build/js/misc/', filter: 'isFile'}
 
 		      
 		    ]
