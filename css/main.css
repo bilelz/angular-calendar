@@ -17,6 +17,9 @@ body{
 	position: relative;	
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
 
 
 img{
