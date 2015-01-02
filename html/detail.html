@@ -1,27 +1,27 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="">
 <meta name="twitter:creator" content="@bilelz">
-<meta name="twitter:title" content="{{entry.title.$t}}">
-<meta name="twitter:description" content="{{entry.content.$t  | to_text}}">
-<meta name="twitter:image:src" content="{{entry.content.$t | getImage}}">
+<meta name="twitter:title" content="{{entry.summary}}">
+<meta name="twitter:description" content="{{entry.description  | to_text}}">
+<meta name="twitter:image:src" content="{{entry.description | getImage}}">
 <div  itemscope itemtype="http://schema.org/Event">
-	<!--<div class="blurBg" data-img="{{entry.content.$t | getImage}}"></div>-->
+	<!--<div class="blurBg" data-img="{{entry.description| getImage}}"></div>-->
 	
 	<div id="bigTitle">
 	
-		<div id="bigPicture" data-imgooo="{{entry.content.$t | getImage}}" style="background-image:url('{{entry.content.$t | getImage}}')">
+		<div id="bigPicture" data-imgooo="{{entry.description | getImage}}" style="background-image:url('{{entry.description | getImage}}')">
 			<span class="bgGradient"></span>
 		</div>
 	
 		<div id="bigTitleContent">
 			<span class="calendarframe">
-				<span class="dayLabel">{{entry.gd$when[0].startTime | date:'EEEE'}} 
-				{{entry.gd$when[0].startTime | date:'d'}} 
-				 {{entry.gd$when[0].startTime | date:'MMMM'}} - 
-				 {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
+				<span class="dayLabel">{{entry.start.dateTime | date:'EEEE'}} 
+				{{entry.start.dateTime | date:'d'}} 
+				 {{entry.start.dateTime | date:'MMMM'}} - 
+				 {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
 			</span>
-			<h1  itemprop="name">{{entry.title.$t  | getTitleWithoutTwitterName}}</h1>
-			<span ng-bind-html="entry.title.$t | getTwitterName"></span>
+			<h1  itemprop="name">{{entry.summary  | getTitleWithoutTwitterName}}</h1>
+			<span ng-bind-html="entry.summary | getTwitterName"></span>
 			<br/>
 			<i class="fa fa-angle-down fa-2x bounceInDown" id="downinfo"></i>
 		</div>
@@ -31,20 +31,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<meta itemprop="image" content="{{entry.content.$t | getImage}}">
+				<meta itemprop="image" content="{{entry.description | getImage}}">
 
-				<title>{{entry.title.$t}}</title>
+				<title>{{entry.summary}}</title>
 				
-				<link itemprop="url" href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" />
+				<link itemprop="url" href="{{entry.summary | text2AlphaNum}}/{{entry.id.$t | getId}}" />
 				<!--<div class="eventTitle">
 					<span class="calendarframe">
-						<span class="dayLabel">{{entry.gd$when[0].startTime | date:'EEEE'}}</span>
-						<span class="dayNumber">{{entry.gd$when[0].startTime | date:'dd'}}</span>
-						<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>
+						<span class="dayLabel">{{entry.start.dateTime | date:'EEEE'}}</span>
+						<span class="dayNumber">{{entry.start.dateTime | date:'dd'}}</span>
+						<span class="monthLabel">{{entry.start.dateTime | date:'MMMM'}}</span>
 					</span>
 					
 					
-					<h1 class="title">{{entry.title.$t}} {{log}}</h1>
+					<h1 class="title">{{entry.summary}} {{entry.log}}</h1>
 				
 				</div>-->
 				
@@ -52,14 +52,14 @@
 					<!-- Default panel contents -->
 					<div class="panel-heading">
 
-						<meta itemprop="startDate" content="{{entry.gd$when[0].startTime | date:'yyyy-MM-dd'}}">
-						<meta itemprop="endDate" content="{{entry.gd$when[0].endTime | date:'yyyy-MM-dd'}}">
-						<span title="{{entry.gd$when[0].startTime}}"> <i class="fa fa-calendar"></i> {{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-						<strong>{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</strong> <i class="fa fa-chevron-right"></i> {{entry.gd$when[0].endTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} </span>
+						<meta itemprop="startDate" content="{{entry.start.dateTime | date:'yyyy-MM-dd'}}">
+						<meta itemprop="endDate" content="{{entry.end.dateTime | date:'yyyy-MM-dd'}}">
+						<span title="{{entry.start.dateTime}}"> <i class="fa fa-calendar"></i> {{entry.start.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
+						<strong>{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</strong> <i class="fa fa-chevron-right"></i> {{entry.end.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} </span>
 					</div>
 					<div class="panel-body">
 						<p>
-							<span ng-bind-html="entry.content.$t  | to_trusted_and_breakline"></span>
+							<span ng-bind-html="entry.description  | to_trusted_and_breakline"></span>
 							
 						</p>
 					</div>
@@ -73,16 +73,16 @@
 				
 				<span class="shareLabel">Share</span>
 &nbsp;
-					<a class="btn btn-default shareBtn" href="https://twitter.com/intent/tweet?text=[{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t | encode}}%20%23caldevio&url={{entry | getUrlEncode}}" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
+					<a class="btn btn-default shareBtn" href="https://twitter.com/intent/tweet?text=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary | encode}}%20%23caldevio&url={{entry | getUrlEncode}}" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
 					&nbsp;
-					<a class="btn btn-primary shareBtn" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=[{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t | encode}}%20%23caldevio&amp;p[summary]={{entry.title.$t}}%0D%0A%0D%0A'{{entry | getUrlEncode}}'&amp;p[url]={{entry | getUrlEncode}}&amp;p[images][0]={{entry.content.$t | getImage}}"
+					<a class="btn btn-primary shareBtn" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary | encode}}%20%23caldevio&amp;p[summary]={{entry.summary}}%0D%0A%0D%0A'{{entry | getUrlEncode}}'&amp;p[url]={{entry | getUrlEncode}}&amp;p[images][0]={{entry.description | getImage}}"
 					onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;"   target="_blank"> <i class="fa fa-facebook fa fa-2x"></i> </a>
 &nbsp;
 					<a href="https://plus.google.com/share?url={{entry | getUrlEncode}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-danger shareBtn" target="_blank"> <i class=" fa fa-google-plus fa fa-2x"></i> </a>
 &nbsp;
-					<a class="btn btn-default shareBtn" href="http://www.linkedin.com/shareArticle?mini=true&url={{entry | getUrlEncode}}&title={{entry.title.$t}}&summary=[{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%20%23caldevio&source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x"></i> </a>
+					<a class="btn btn-default shareBtn" href="http://www.linkedin.com/shareArticle?mini=true&url={{entry | getUrlEncode}}&title={{entry.summary}}&summary=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x"></i> </a>
 &nbsp;
-					<a class="btn btn-default shareBtn" href="mailto:?subject=[{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%20%23caldevio&amp;body=[{{entry.gd$when[0].startTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.title.$t}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
+					<a class="btn btn-default shareBtn" href="mailto:?subject=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&amp;body=[{{entry.start.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
 
 				</p>
 

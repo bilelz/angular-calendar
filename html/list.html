@@ -19,37 +19,36 @@
        <span  ng-show="mailSendError">KO  {{mailResponseTxt}}</span>
 		
 			<center>
-				<a ng-href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}"
-					ng-repeat="entry in calendar.entry"  itemscope itemtype="http://schema.org/Event"
+				<a ng-href="{{entry.summary | text2AlphaNum}}/{{entry.id}}" ng-repeat="entry in calendar.items"  itemscope itemtype="http://schema.org/Event"
 					 class="listBlock">
-						<link itemprop="url" href="{{entry.title.$t | text2AlphaNum}}/{{entry.id.$t | getId}}" />
+						<link itemprop="url" href="{{entry.summary | text2AlphaNum}}/{{entry.id}}" />
 						
-						<div data-img="{{entry.content.$t | getImage}}">
-							<meta itemprop="image" content="{{entry.content.$t | getImage}}">
+						<div data-img="{{entry.description | getImage}}">
+							<meta itemprop="image" content="{{entry.description | getImage}}">
 						</div>
 						
 						<!--<span class="listDate" title="{{entry.gd$when[0].startTime}}">
 								{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
 							</span>-->
 						<span class="listBigTitle">
-							<span itemprop="name" class="listTitle">{{entry.title.$t}}</span>
+							<span itemprop="name" class="listTitle">{{entry.summary}}</span>
 							<span class="listDate">
-								<span class="">{{entry.gd$when[0].startTime | date:'d'}} {{entry.gd$when[0].startTime | date:'MMMM'}},</span> 
-								<span class="dayMoment">{{entry.gd$when[0].startTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
+								<span class="">{{entry.start.dateTime | date:'d'}} {{entry.start.dateTime | date:'MMMM'}},</span> 
+								<span class="dayMoment">{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
 								<!--<span class="dayNumber">{{entry.gd$when[0].startTime | date:'d'}}</span>
 								<span class="monthLabel">{{entry.gd$when[0].startTime | date:'MMMM'}}</span>-->
 							</span>
 							<span itemprop="location" itemscope itemtype="http://schema.org/Place">
 								<span class="listWhere">
 									<i class="fa fa-globe"></i>&nbsp;
-									<span itemprop="name"> {{entry.gd$where[0].valueString}} </span>
+									<span itemprop="name"> {{entry.location}} </span>
 								</span>
 							</span>
 						</span>
 						
 						
-						<meta itemprop="startDate" content="{{entry.gd$when[0].startTime | date:'yyyy-MM-dd'}}">
-						<meta itemprop="endDate" content="{{entry.gd$when[0].endTime | date:'yyyy-MM-dd'}}">
+						<meta itemprop="startDate" content="{{entry.start.dateTime | date:'yyyy-MM-dd'}}">
+						<meta itemprop="endDate" content="{{entry.end.dateTime | date:'yyyy-MM-dd'}}">
 						
 				</a>
 			</center>

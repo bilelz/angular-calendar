@@ -1,7 +1,9 @@
 define(['angular','app'], function(angular, app)
 {
 	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
-	agendaID = "u825pd9kqiahvdqljsk29rass4";
+	agendaID = "u825pd9kqiahvdqljsk29rass4@group.calendar.google.com";
+	
+	var clientKey = 'AIzaSyA3dweFJyhbf-mJ3mxXqFCFnKRNb9idvJ8';
 	
 	
 	
@@ -29,7 +31,7 @@ define(['angular','app'], function(angular, app)
 
 			Page.setTitle("CalDev.io - Agenda 4 developers & others...");
 			caldevServices.list(agendaID).then(function(data) {
-													$scope.calendar = data.feed;
+													$scope.calendar = data;
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 												});
@@ -60,8 +62,8 @@ define(['angular','app'], function(angular, app)
 			scrollTop();
 			
 			caldevServices.get(agendaID, $routeParams.eventId).then(function(data) {
-													$scope.entry = data.entry;
-													Page.setTitle(data.entry.title.$t + " - CalDev.io");
+													$scope.entry = data;
+													Page.setTitle(data.summary + " - CalDev.io");
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 												});		
