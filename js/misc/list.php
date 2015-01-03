@@ -1,12 +1,19 @@
 <!-- special page for BOT -->
 <?php
 header("Content-Type: text/html; charset=UTF-8");
-	$agendaID = "u825pd9kqiahvdqljsk29rass4";
+
+	$agendaID = "u825pd9kqiahvdqljsk29rass4@group.calendar.google.com";
+	$clientKey = "AIzaSyA3dweFJyhbf-mJ3mxXqFCFnKRNb9idvJ8";
+	$serverKey = "AIzaSyC7oGgEJaPG2ecxEcHD2klMuyIYKpjHbm4";
+
+	$today =  date('Y-m-d')."T00%3A00%3A00%2B00%3A00";
+
+	// google calendar v3
+	$url = 'https://www.googleapis.com/calendar/v3/calendars/'.$agendaID.'/events?key='.$serverKey.'&timeMin='.$today;
+
 	
-	$today =  date('Y-m-d');
-	//https://www.google.com/calendar/feeds/u825pd9kqiahvdqljsk29rass4%40group.calendar.google.com/public/full?alt=json&orderby=starttime&sortorder=ascending&start-min=2014-08-16
-	$url = "http://www.google.com/calendar/feeds/" . $agendaID . "%40group.calendar.google.com/public/full/?start-min=".$today."&orderby=starttime&sortorder=ascending&alt=json";
 	$json = file_get_contents($url);
+	
 	$obj = json_decode($json, true);
 	
 	function text2AlphaNum($string)
@@ -51,10 +58,11 @@ header("Content-Type: text/html; charset=UTF-8");
 
 <?php
 
-foreach ($obj['feed']['entry'] as $event) {
+
+foreach ($obj['items'] as $event) {
 	
 	$doc = new DOMDocument();
-	@$doc -> loadHTML($event['content']['$t']);
+	@$doc -> loadHTML($event['description']);
 	
 	$tags = $doc -> getElementsByTagName('img');
 	foreach ($tags as $tag) {
@@ -66,9 +74,9 @@ foreach ($obj['feed']['entry'] as $event) {
 ?>
 
 <li>
-<a href="/<?php echo text2AlphaNum($event['title']['$t']).'/'.getId($event['id']['$t']); ?>" itemscope itemtype="http://schema.org/Event">
-						<link itemprop="url" href="/<?php echo text2AlphaNum($event['title']['$t']).'/'.getId($event['id']['$t']); ?>" />
-						<span itemprop="name"><?php echo utf8_decode($event['title']['$t']);?></span>
+<a href="/<?php echo text2AlphaNum($event['summary']).'/'.$event['id']; ?>" itemscope itemtype="http://schema.org/Event">
+						<link itemprop="url" href="/<?php echo text2AlphaNum($event['summary']).'/'.$event['id']; ?>" />
+						<span itemprop="name"><?php echo utf8_decode($event['summary']);?></span>
 						
 						
 							<meta itemprop="image" content="<?php echo $img;?>">
@@ -76,13 +84,13 @@ foreach ($obj['feed']['entry'] as $event) {
 						
 						<span itemprop="location" itemscope itemtype="http://schema.org/Place">
 								<span itemprop="name"> 
-									<?php echo utf8_decode($event['gd$where'][0]['valueString']);?>
+									<?php echo utf8_decode($event['location']);?>
 									</span>
 						</span>
 						
 						
-						<meta itemprop="startDate" content="<?php echo $event['gd$when'][0]['startTime']; ?>">
-						<meta itemprop="endDate" content="<?php echo $event['gd$when'][0]['endTime']; ?>">
+						<meta itemprop="startDate" content="<?php echo $event['start']['dateTime']; ?>">
+						<meta itemprop="endDate" content="<?php echo $event['end']['dateTime']; ?>">
 						
 				</a>
 </li>
