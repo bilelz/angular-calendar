@@ -121,6 +121,7 @@ a.listBlock{
 	text-decoration: none;
 	background: rgba(0, 0, 0, 0.5);
 	transition: .3s;
+	
 }
 
 @media (min-width: 992px){
@@ -190,12 +191,15 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 	width: 100%;
 	height: 100%;
 	transition : .3s;
+	box-shadow: 2em 0em .2em transparent, 0 2em .2em transparent, -2em 0 .2em transparent, 0 -2em .2em transparent;
 
 }
 
 a.listBlock:hover .listBigTitle, a.listBlock:focus .listBigTitle{
 	
-box-shadow : 0 0em 3em black;
+//box-shadow : 0 0em 3em black;
+transition: .3s;
+box-shadow: .5em 0 1em white, 0 .5em 1em white, -.5em 0 1em white, 0 -.5em 1em white;
 }
 
 

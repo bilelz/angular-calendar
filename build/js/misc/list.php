@@ -47,7 +47,7 @@ header("Content-Type: text/html; charset=UTF-8");
 	<meta name="twitter:title" content="CalDev.io">
 	<meta name="twitter:description" content="Calendar for developers & designers">
 	<meta name="twitter:creator" content="bilelz">
-	<meta name="twitter:image:src" content="http://caldev.io/js/misc/cache/index.png">
+	<meta name="twitter:image:src" content="http://caldev.io/img/index.png">
 
 
 </head>

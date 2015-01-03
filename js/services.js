@@ -8,7 +8,7 @@ define(['angular', 'app'], function (angular, app) {
 	    this.list = function (agendaID) {
 		        var todayISO = moment().format("YYYY-MM-DDTHH:mm:ss")+"%2B00%3A00";
 			
-				var url = 'https://www.googleapis.com/calendar/v3/calendars/u825pd9kqiahvdqljsk29rass4@group.calendar.google.com/events?key='+clientKey+'&callback=JSON_CALLBACK&timeMin=' + todayISO;
+				var url = 'https://www.googleapis.com/calendar/v3/calendars/u825pd9kqiahvdqljsk29rass4@group.calendar.google.com/events?key='+clientKey+'&orderBy=startTime&singleEvents=true&callback=JSON_CALLBACK&timeMin=' + todayISO;
 				return $http.jsonp(url).then(function(result) {
 	                            //resolve the promise as the data
 	                            return result.data;
