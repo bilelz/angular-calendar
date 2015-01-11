@@ -50,6 +50,8 @@ define(['angular','app'], function(angular, app)
 				$scope.uidirection = 'right';
 			} else if (viewSlideIndex.getViewIndex() == "calendar") {
 				$scope.uidirection = 'right';
+			} else if (viewSlideIndex.getViewIndex() == "list") {
+				$scope.uidirection = 'left';
 			} else {
 				$scope.uidirection = 'zoom';
 			}
@@ -67,7 +69,23 @@ define(['angular','app'], function(angular, app)
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 												});		
-												
+											
+			/* parallax effect */									
+			window.onscroll = function() { 
+				var doc = document.documentElement;
+				var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+				var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+				var windowHeight = document.documentElement.clientHeight || window.innerHeight;
+			
+				var windowBottom = windowTop + windowHeight;
+	
+				var el = document.getElementById("bigPicture");
+				var imgBottom = getPosition(el).top+windowHeight;
+				
+				el.style.backgroundPosition = "center "+ (1.05*(imgBottom - windowBottom))+"px";
+				
+			 };
+			
 			
 		}]
 		
@@ -271,8 +289,7 @@ define(['angular','app'], function(angular, app)
 			addClass(document.getElementById("nav-c"), "active");
 			
 			$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
-							+"&src="+agendaID+"%40group.calendar.google.com&color=%232F6309&ctz=Europe%2FParis");
-		
+							+"&src="+agendaID+"&color=%232F6309&ctz=Europe%2FParis");
 		}]
 	);
 		

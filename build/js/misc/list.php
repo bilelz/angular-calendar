@@ -9,7 +9,7 @@ header("Content-Type: text/html; charset=UTF-8");
 	$today =  date('Y-m-d')."T00%3A00%3A00%2B00%3A00";
 
 	// google calendar v3
-	$url = 'https://www.googleapis.com/calendar/v3/calendars/'.$agendaID.'/events?key='.$serverKey.'&timeMin='.$today;
+	$url = 'https://www.googleapis.com/calendar/v3/calendars/'.$agendaID.'/events?key='.$serverKey.'&orderBy=startTime&singleEvents=true&timeMin='.$today;
 
 	
 	$json = file_get_contents($url);

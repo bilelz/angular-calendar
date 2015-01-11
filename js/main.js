@@ -97,8 +97,9 @@ function lazyLoadImage() {
 	var nodes = Array.prototype.slice.call(divImg, 0);
 
 	nodes.forEach(function(el) {
+		var elTmp = el;
 		if (windowBottom > getPosition(el).top && !el.classList.contains('imgLoading') && !el.classList.contains('imgLoaded')) {
-			var elTmp = el;
+			
 
 			var imgTmp = document.createElement("img");
 			
@@ -109,10 +110,12 @@ function lazyLoadImage() {
 			
 			imgTmp.src = elTmp.getAttribute("data-img");
 			elTmp.classList.add("imgLoading");
-
+			
 			
 		}
-
+		
+		
+		
 	});
 }
 

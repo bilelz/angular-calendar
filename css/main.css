@@ -121,6 +121,7 @@ a.listBlock{
 	text-decoration: none;
 	background: rgba(0, 0, 0, 0.5);
 	transition: .3s;
+	overflow: hidden;
 	
 }
 
@@ -170,9 +171,9 @@ a.listBlock:hover div, .listBlock:focus div{
 }
 
 a.listBlock div.imgLoaded, [data-img].imgLoaded{
-	-webkit-transform:scale(1);
-	-moz-transform:scale(1);
-	transform:scale(1);
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+	transform:scale(1.2);
 	opacity:1;
 }
 
