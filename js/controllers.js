@@ -82,7 +82,17 @@ define(['angular','app'], function(angular, app)
 				var el = document.getElementById("bigPicture");
 				var imgBottom = getPosition(el).top+windowHeight;
 				
-				el.style.backgroundPosition = "center "+ (1.05*(imgBottom - windowBottom))+"px";
+				if(windowHeight>windowTop){
+					el.style.backgroundPosition = "center "+ (0.5*(imgBottom - windowBottom))+"px";
+					
+					var percent = (windowHeight-windowTop)/windowHeight;
+					;
+					document.getElementById("bigTitleContent").style.webkitTransform = "scale("+percent+")";
+					document.getElementById("bigTitleContent").style.MozTransform = "scale("+percent+")";
+					document.getElementById("bigTitleContent").style.transform = "scale("+percent+")";
+					document.getElementById("bigTitleContent").style.opacity = percent;
+				}
+				
 				
 			 };
 			

@@ -51,7 +51,7 @@
 	background-size: cover;
 	background-position: top center;
 	background-repeat: repeat-y;
-	background-attachment: fixed;
+	background-attachment: scroll;
 }
 
 #bigPicture img{

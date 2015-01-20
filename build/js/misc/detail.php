@@ -21,6 +21,13 @@
 		break; // only the first image
 	}
 	
+	function text2AlphaNum($string)
+	{
+		$result =  preg_replace('/ /i', '_', $string);
+		$result =  preg_replace('/[^a-zA-Z_\-0-9]+/i', '', $result);
+	    return $result;
+	}
+	
 	function dateFormat($string){
 		return substr($string, 0, 10);
 	}
@@ -47,7 +54,7 @@
 	
 	<meta itemprop="image" content="<?php echo $img ?>">
 	
-	<link itemprop="url" href="." />
+	<link itemprop="url" href="http://<?php echo $_SERVER['SERVER_NAME'].'/'.text2AlphaNum($obj['summary']).'/'.$obj['id']; ?>" />
 	
 	<meta itemprop="startDate" content=" <?php echo $obj['start']['dateTime']?>">
 	<meta itemprop="endDate" content="<?php echo $obj['end']['dateTime']?>">
