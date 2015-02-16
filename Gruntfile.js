@@ -60,7 +60,8 @@ module.exports = function(grunt) {
 		        'build/html/add.html' : 'html/add.html',
 		        'build/html/calendar.html' : 'html/calendar.html',
 		        'build/html/detail.html' : 'html/detail.html',
-		        'build/html/list.html' : 'html/list.html'
+		        'build/html/list.html' : 'html/list.html',
+		        'build/html/search.html' : 'html/search.html'
 		      }
 		    }
 		  },

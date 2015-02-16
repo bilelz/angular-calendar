@@ -57,10 +57,31 @@
   animation-name: zoomIn;
 }
 
+.page.top.ng-leave {
+  -webkit-animation-name: fadeOutUp; 
+  animation-name: fadeOutDownUp; 
+}
+
+.page.top.ng-enter {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.page.bottom.ng-leave {
+  -webkit-animation-name: fadeOutDown; 
+  animation-name: fadeOutDownDown; 
+}
+
+.page.bottom.ng-enter {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
 .page.zoom.ng-leave {
   -webkit-animation-name: fadeOutDownBig; 
   animation-name: fadeOutDownBig; 
 }
+
 
 #wrap{
 	-webkit-transform-style: preserve-3d;

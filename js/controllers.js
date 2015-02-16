@@ -7,6 +7,7 @@ define(['angular','app'], function(angular, app)
 	
 	
 	
+	
     app.controller(
         'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page', '$timeout','viewSlideIndex',
         function($scope, $location, $http, caldevServices, Page, $timeout, viewSlideIndex) {
@@ -20,6 +21,8 @@ define(['angular','app'], function(angular, app)
 				$scope.uidirection = 'right';
 			} else if (viewSlideIndex.getViewIndex() == "add") {
 				$scope.uidirection = 'right';
+			} else if (viewSlideIndex.getViewIndex() == "addFly") {
+				$scope.uidirection = 'top';
 			} else if (viewSlideIndex.getViewIndex() == "calendar") {
 				$scope.uidirection = 'right';
 			} else {
@@ -35,6 +38,8 @@ define(['angular','app'], function(angular, app)
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 												});
+												
+			initSearch();
 			
         }]
     );
@@ -43,7 +48,7 @@ define(['angular','app'], function(angular, app)
     	function($scope,$location, $routeParams, $http, caldevServices, Page, viewSlideIndex) {
 		$scope.pageClass = 'page-detail';
 		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
-		
+		initSearch();
 			if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'right';
 			} else if (viewSlideIndex.getViewIndex() == "add") {
@@ -102,10 +107,10 @@ define(['angular','app'], function(angular, app)
 		 
 	);
 
-	app.controller('AddController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page','viewSlideIndex',
-		function ($scope, $http, $location, $routeParams, caldevServices, Page, viewSlideIndex){
+	app.controller('AddController', ['$scope','$routeParams', '$location', '$http', 'caldevServices' ,'Page','viewSlideIndex', '$timeout',
+		function ($scope, $http, $routeParams, $location, caldevServices, Page, viewSlideIndex, $timeout){
 
-
+initSearch();
 
 		if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'left';
@@ -274,6 +279,13 @@ define(['angular','app'], function(angular, app)
 			  });
 			});	
 			
+			
+			
+			$scope.ngsend = function() {
+			
+				send($timeout, viewSlideIndex);
+                    
+			  };
 			 
 	
 	
@@ -283,13 +295,15 @@ define(['angular','app'], function(angular, app)
 	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page','viewSlideIndex',
 		function ($scope,$location, $routeParams, $http, $sce, Page, viewSlideIndex){
 			scrollTop();
-			
+			initSearch();
 			if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'left';
 			} else if (viewSlideIndex.getViewIndex() == "add") {
 				$scope.uidirection = 'left';
 			} else if (viewSlideIndex.getViewIndex() == "list") {
 				$scope.uidirection = 'left';
+			} else if (viewSlideIndex.getViewIndex() == "search") {
+				$scope.uidirection = 'top';
 			} else {
 				$scope.uidirection = 'zoom';
 			}
@@ -302,6 +316,7 @@ define(['angular','app'], function(angular, app)
 							+"&src="+agendaID+"&color=%232F6309&ctz=Europe%2FParis");
 		}]
 	);
+	
 		
     
 });

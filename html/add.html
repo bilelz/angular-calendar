@@ -11,7 +11,11 @@
 		{{mailResponseTxt}}
     </div>
 
-<form class="form-horizontal" novalidate name="myFormNg"  ng-submit="addEvent(event)">
+
+
+	<div id="bigContainerSend">
+				<div id="plate" class="frontSend">
+					<form class="form-horizontal" novalidate name="myFormNg"  ng-submit="addEvent(event)">
   <div class="form-group">
   	
   	<div class="col-lg-12 float">
@@ -160,6 +164,31 @@
 
   </div>
 </form>
+					
+					<button class="send" ng-click='ngsend()'>
+						Fly it
+					</button>
+					
+					
+				</div>
+
+				<div id="containerSend" class="beginning">
+					<div id="left-wing">
+						<div class="top_left curvable" id="curvable1"></div>
+						<div class="bottom_left curvable" id="curvable2"></div>
+						<div class="wing wing1"></div>
+						<div class="wing wing2"></div>
+					</div>
+
+					<div id="right-wing">
+						<div class="top_right curvable"  id="curvable3"></div>
+						<div class="bottom_right curvable"  id="curvable4"></div>
+						<div class="wing wing3"></div>
+						<div class="wing wing4"></div>
+					</div>
+
+				</div>
+			</div>
 
 </div>
 	<div class="col-md-4" style="display: none">	
