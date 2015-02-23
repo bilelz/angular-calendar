@@ -113,7 +113,7 @@ function scrollToContent() {
 }
 
 /*Of course I can code this more programatically, but this seems good to me.*/
-function send($timeout, viewSlideIndex) {
+function sendAnimation($timeout, viewSlideIndex) {
 	$timeout(function() {
 
 		// $('#plate').removeClass('frontSend');
@@ -141,24 +141,29 @@ function send($timeout, viewSlideIndex) {
 					//addClassId('containerSend','fly_away');
 
 					$timeout(function() {
-						//$('#plate').addClass('frontSend');
-						addClassId('plate', 'frontSend');
-
-						//$('#containerSend').removeClass('fly_away fly_away_first hover').addClass('beginning');
-						removeClassId("containerSend", "flyIt");
-						removeClassId("containerSend", "fly_away_first");
-						removeClassId("containerSend", "hover");
-						addClassId('containerSend', 'beginning');
-
-						//$('.curvable').removeClass('curved');
-						removeClassId('curvable1', 'curved');
-						removeClassId('curvable2', 'curved');
-						removeClassId('curvable3', 'curved');
-						removeClassId('curvable4', 'curved');
-
+						
+						// back to the home page
 						viewSlideIndex.setViewIndex("addFly");
 						document.querySelector("[href='.']").click();
-					}, 1300);
+						
+						$timeout(function() {
+							
+							//$('#plate').addClass('frontSend');
+							addClassId('plate', 'frontSend');
+	
+							//$('#containerSend').removeClass('fly_away fly_away_first hover').addClass('beginning');
+							removeClassId("containerSend", "flyIt");
+							removeClassId("containerSend", "fly_away_first");
+							removeClassId("containerSend", "hover");
+							addClassId('containerSend', 'beginning');
+	
+							//$('.curvable').removeClass('curved');
+							removeClassId('curvable1', 'curved');
+							removeClassId('curvable2', 'curved');
+							removeClassId('curvable3', 'curved');
+							removeClassId('curvable4', 'curved');
+						}, 300);
+					}, 1200);
 				}, 600);
 			}, 2000);
 		}, 2800);

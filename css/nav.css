@@ -117,4 +117,11 @@ background: white;
 
 [name='search']{
 	background: white !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	padding-left: 5px !important;
+}
+
+.gsib_a {
+	padding:0 !important;
 }

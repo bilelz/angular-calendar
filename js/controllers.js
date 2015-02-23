@@ -15,14 +15,14 @@ define(['angular','app'], function(angular, app)
 			removeClass(document.getElementById("nav-c"), "active");
 			showLoader();
 			scrollTop();
-			
-				
+
 			if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'right';
 			} else if (viewSlideIndex.getViewIndex() == "add") {
 				$scope.uidirection = 'right';
 			} else if (viewSlideIndex.getViewIndex() == "addFly") {
 				$scope.uidirection = 'top';
+				$scope.addEventSended = true;				
 			} else if (viewSlideIndex.getViewIndex() == "calendar") {
 				$scope.uidirection = 'right';
 			} else {
@@ -193,6 +193,7 @@ initSearch();
 						      	$scope.mailSendError = false;
 						      	$scope.mailResponseTxt = data.response;
 						      	window.scrollTo(0,0);
+						      	sendAnimation($timeout, viewSlideIndex);
 						      }else{
 						      	$scope.mailSendError = true;
 						      	$scope.mailSend = false;
@@ -282,8 +283,10 @@ initSearch();
 			
 			
 			$scope.ngsend = function() {
+				
+				$scope.addEventSended = "true";
 			
-				send($timeout, viewSlideIndex);
+				sendAnimation($timeout, viewSlideIndex);
                     
 			  };
 			 

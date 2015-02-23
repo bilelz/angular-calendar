@@ -110,7 +110,7 @@ blockquote{
 }
 
 
-a.listBlock{
+.listBlock{
 	background-size: cover; 
 	width: 265px;
 	height:250px; 
@@ -125,24 +125,49 @@ a.listBlock{
 	
 }
 
-@media (min-width: 992px){
 
-	a.listBlock:first-child, a.listBlock:nth-child(8), a.listBlock:nth-child(9){
-		width: 550px;
-	}
+
+.listBlock div.thankyouBG {
+	background-color: #c644fc;
+	background-image: -webkit-linear-gradient(#c644fc, #5856d6);
+	background-image: linear-gradient(#c644fc, #5856d6) !important;
+	transform: scale(1);
+	opacity: 1;
 }
 
-@media (max-width: 620px){
+.thankyou .iconthankyou{
+	font-size: 3em;
+	display: block;
+	text-align: center;
+	margin: 0.25em;
+}
 
-	.custom-header .nav-text{
-		display: none;
-	}
-	
+
+.thankyoubutton {
+	margin-top: 0;
+	width: 100%;
+	display: block;
+	text-align: center;
+	z-index: 5;
+	position: relative;
 }
 
 
 
-a.listBlock div{
+
+.thankyoubutton a{
+	color: white;
+	text-align: center;
+	border: 1px solid white;
+	text-shadow: none;
+}
+
+.thankyoubutton a:hover{
+	background: white;
+	color: #5856d6;
+}
+
+.listBlock div{
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -166,11 +191,11 @@ a.listBlock div{
 	opacity:0;
 }
 
-a.listBlock:hover div, .listBlock:focus div{
+.listBlock:hover div, .listBlock:focus div{
 	transition: .3s;
 }
 
-a.listBlock div.imgLoaded, [data-img].imgLoaded{
+.listBlock div.imgLoaded, [data-img].imgLoaded{
 	-webkit-transform:scale(1.2);
 	-moz-transform:scale(1.2);
 	transform:scale(1.2);
@@ -198,7 +223,7 @@ a.listBlock div.imgLoaded, [data-img].imgLoaded{
 
 }
 
-a.listBlock:hover .listBigTitle, a.listBlock:focus .listBigTitle{
+.listBlock:hover .listBigTitle, .listBlock:focus .listBigTitle{
 	
 //box-shadow : 0 0em 3em black;
 transition: .3s;
@@ -368,11 +393,11 @@ padding: 5px;
 
 
 .calendarframe{
-text-align: center;
-display: inline-block;
-position: relative;
-padding: 5px;
-background: rgba(0, 0, 0, 0.25);
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	padding: 5px;
+	background: rgba(0, 0, 0, 0.33);
 	color: white;
 }
 
@@ -454,4 +479,28 @@ display: none;
     -webkit-transform: scale(1);
     opacity: 0;
   }
+}
+
+@media (min-width: 992px){
+
+	.listBlock:first-child, .listBlock:nth-child(8), .listBlock:nth-child(9){
+		width: 550px;
+	}
+	
+	.thankyoubutton {
+		margin-top: 3em;
+	}
+	
+	.thankyou .iconthankyou{
+		font-size: 6em;
+		display: inline-block;
+	}
+}
+
+@media (max-width: 620px){
+
+	.custom-header .nav-text{
+		display: none;
+	}
+	
 }
