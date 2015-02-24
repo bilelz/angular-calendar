@@ -83,24 +83,24 @@ define(['angular','moment', 'app'], function (angular, app) {
   	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
   	return function(entry){
   		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
-  			var username = entry.match(/[@]+[A-Za-z0-9-_]+/g)[0].replace("@","");
-  			return $sce.trustAsHtml('<a href="https://twitter.com/'+username
-  					+'" class="btn btn-default twitter-btn" target="_blank"><i class="fa fa-twitter"></i> @'+username+'</a>');
+  			var twitterResult = "";
+  			entry.match(/[@]+[A-Za-z0-9-_]+/g).forEach(function(username) {
+			    twitterResult += '<a href="https://twitter.com/'+username.slice(1) +'"'+
+  								+' class="btn btn-default twitter-btn" target="_blank">'
+  								+'<i class="fa fa-twitter"></i>'+username+'</a>&nbsp;';
+			});
+  			return $sce.trustAsHtml(twitterResult);
   		}
-  		
-
   	};
   }]).filter('getTitleWithoutTwitterName', ['$sce', function($sce){
   	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
   	return function(entry){
   		if(entry != undefined){
-  			if(entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
-  				return entry.replace(entry.match(/[@]+[A-Za-z0-9-_]+/g)[0], "");
-  			}
+  			entry.match(/[@]+[A-Za-z0-9-_]+/g).forEach(function(username) {
+			    entry = entry.replace(username, "");
+			});
   			return entry;
   		}
-  		
-
   	};
   }]).filter('to_trusted', ['$sce', function($sce){
         return function(text) {
