@@ -1,6 +1,6 @@
 define(['angular','app'], function(angular, app)
 {
-	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek';
+	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com';
 	agendaID = "u825pd9kqiahvdqljsk29rass4@group.calendar.google.com";
 	
 	var clientKey = 'AIzaSyA3dweFJyhbf-mJ3mxXqFCFnKRNb9idvJ8';

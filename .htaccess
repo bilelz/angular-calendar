@@ -1,6 +1,11 @@
 RewriteEngine On
 RewriteRule ^(.*)\.[\d]+\.(css|js)$ $1.$2 [L] # Strip out the version number
 
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_METHOD} !OPTIONS
+RewriteRule ^rss$ /js/misc/rss.php [L]
 
 
 RewriteBase /
@@ -13,6 +18,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_METHOD} !OPTIONS
 RewriteRule ^(.*)$ index.html [L]
+
+
+
 
 
 RewriteBase /

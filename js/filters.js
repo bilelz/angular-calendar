@@ -85,7 +85,7 @@ define(['angular','moment', 'app'], function (angular, app) {
   		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
   			var twitterResult = "";
   			entry.match(/[@]+[A-Za-z0-9-_]+/g).forEach(function(username) {
-			    twitterResult += '<a href="https://twitter.com/'+username.slice(1) +'"'+
+			    twitterResult += '<a href="https://twitter.com/'+username.slice(1) + '"'
   								+' class="btn btn-default twitter-btn" target="_blank">'
   								+'<i class="fa fa-twitter"></i>'+username+'</a>&nbsp;';
 			});

@@ -8,7 +8,7 @@ define(['angular', 'app'], function (angular, app) {
 	    this.list = function (agendaID) {
 		        var todayISO = moment().format("YYYY-MM-DDTHH:mm:ss")+"%2B00%3A00";
 			
-				var url = 'https://www.googleapis.com/calendar/v3/calendars/u825pd9kqiahvdqljsk29rass4@group.calendar.google.com/events?key='+clientKey+'&orderBy=startTime&singleEvents=true&callback=JSON_CALLBACK&timeMin=' + todayISO;
+				var url = 'https://www.googleapis.com/calendar/v3/calendars/'+agendaID+'/events?key='+clientKey+'&orderBy=startTime&singleEvents=true&callback=JSON_CALLBACK&timeMin=' + todayISO;
 				return $http.jsonp(url).then(function(result) {
 	                            //resolve the promise as the data
 	                            return result.data;
@@ -38,24 +38,24 @@ define(['angular', 'app'], function (angular, app) {
 	});
 	
 	app.service('Page', function($rootScope){
-    return {
-        setTitle: function(title){
-            $rootScope.title = title;
-        }
-    };
-});
+	    return {
+	        setTitle: function(title){
+	            $rootScope.title = title;
+	        }
+	    };
+	});
 
-app.service('viewSlideIndex', function () {
-    var viewIndex;
-    return {
-        getViewIndex: function () {
-            return viewIndex;
-        },
-        setViewIndex: function (val) {
-            viewIndex = val;
-        }
-    };
-});
+	app.service('viewSlideIndex', function () {
+	    var viewIndex;
+	    return {
+	        getViewIndex: function () {
+	            return viewIndex;
+	        },
+	        setViewIndex: function (val) {
+	            viewIndex = val;
+	        }
+	    };
+	});
 });
 
 
