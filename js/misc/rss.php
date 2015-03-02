@@ -1,6 +1,4 @@
-<?php
-header("Content-Type: text/xml; charset=UTF-8");
-echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
+<?php header("Content-Type: text/xml; charset=UTF-8"); echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 
 <rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
 
@@ -39,19 +37,19 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 	
 	$dayNamesTab = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
 	$dayMinusNamesTab = array('Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa');
-	$monthNamesTab = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Decembre');
+	$monthNamesTab = array('Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Ao�t', 'Septembre', 'Octobre', 'Novembre', 'Decembre');
 	
 	
 	
 	$message=array(	"this"=>"This",			"this_fr-fr"=>"Ce",
-					"last"=>"Last",			"this_fr-fr"=>"Dernier",
+					"last"=>"Last",			"last_fr-fr"=>"Dernier",
 					"today"=>"Today",		"today_fr-fr"=>"Aujourd'hui",	
 					"tomorrow"=>"Tomorrow",	"tomorrow_fr-fr"=>"Demain",
 					"week"=>"week",			"week_fr-fr"=>"semaine",
 					"weekof"=>"week of",	"weekof_fr-fr"=>"semaine du",
 					"andthisweekend"=>"and this week-end",	"andthisweekend_fr-fr"=>"et ce week-end",
-					"event"=>"event",		"event_fr-fr"=>"événement",
-					"events"=>"events",		"events_fr-fr"=>"événements",
+					"event"=>"event",		"event_fr-fr"=>"evenement",
+					"events"=>"events",		"events_fr-fr"=>"evenements",
 					"forthe"=>"for the",	"forthe_fr-fr"=>"pour le",
 					"forthis"=>"for this",	"forthis_fr-fr"=>"pour ce",
 					"forthef"=>"for the",	"forthef_fr-fr"=>"pour la",
@@ -67,7 +65,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 						"7"=>"sunday",			"7_fr-fr"=>"dimanche");
 	
 	$messageMonth=array("1"=>"january",			"1_fr-fr"=>"janvier",
-						"2"=>"febrary",			"2_fr-fr"=>"février",
+						"2"=>"febrary",			"2_fr-fr"=>"fevrier",
 						"3"=>"mars",			"3_fr-fr"=>"mars",
 						"4"=>"april",			"4_fr-fr"=>"avril",
 						"5"=>"may",				"5_fr-fr"=>"mai",
@@ -77,7 +75,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 						"9"=>"september",		"9_fr-fr"=>"septembre",
 						"10"=>"october",		"10_fr-fr"=>"octobre",
 						"11"=>"november",		"11_fr-fr"=>"novembre",
-						"12"=>"december",		"12_fr-fr"=>"cécembre");
+						"12"=>"december",		"12_fr-fr"=>"decembre");
 	
 
 	$three_months_in_seconds = 60 * 60 * 24 * 28 * 3;
@@ -103,7 +101,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 	$titleYear = date("Y", $faketime);
 	$titleLabelDay = $titleDay." ".$titleDayNumber." ".$titleMonth." ".$titleYear;
 	
-	$todayFormatted = date(DATE_RSS, $faketime);
+	$todayFormattedRSS = date(DATE_RSS, $faketime);
 	
 	
 	
@@ -112,15 +110,15 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 	$vendredi = 5;
 	
 	//echo "jour = ".date("w");
-	if (date("w", $faketime) == $lundi) {// si on est lundi, on affiche les conférences de la semaine
+	if (date("w", $faketime) == $lundi) {// si on est lundi, on affiche les conferences de la semaine
 		$url = 'https://www.googleapis.com/calendar/v3/calendars/'.$agendaID.'/events?key='.$serverKey.'&orderBy=startTime&singleEvents=true&timeMin='.$today.'&timeMax=' . $seven_day_from_today."T00%3A00%3A00%2B00%3A00";
 		$labelTitle = $message['forthef'.$lang]." ".$message['weekof'.$lang]." ".$titleLabelDay;
 		
-	} else if (date("w", $faketime) == $vendredi) {// si on est vendredi, on affiche les conférences du week-end
+	} else if (date("w", $faketime) == $vendredi) {// si on est vendredi, on affiche les conferences du week-end
 		$url = 'https://www.googleapis.com/calendar/v3/calendars/'.$agendaID.'/events?key='.$serverKey.'&orderBy=startTime&singleEvents=true&timeMin='.$today.'&timeMax=' . $three_day_from_today."T00%3A00%3A00%2B00%3A00";
 		$labelTitle = $message['forthis'.$lang]." ".$message['friday'.$lang]." ".$titleLabelDay." ".$message['andthisweekend'.$lang];
 
-	} else {// sinon on affiche juste les conférences du jour en cours
+	} else {// sinon on affiche juste les conferences du jour en cours
 		$url = 'https://www.googleapis.com/calendar/v3/calendars/'.$agendaID.'/events?key='.$serverKey.'&orderBy=startTime&singleEvents=true&timeMin='.$today.'&timeMax=' . $one_day_from_today."T00%3A00%3A00%2B00%3A00";
 		$labelTitle = $message['forthis'.$lang]." ".$titleLabelDay;
 	}
@@ -163,7 +161,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 		<category>Lifestyle</category> 
 		<description><?php echo sizeof($obj['items'])." ".$message['events'.$lang]." ".$labelTitle; ?></description> 
 		<language><?php echo ($lang=="")?"en-us":substr($lang,1,5); ?></language> 
-		<lastBuildDate><?php echo $todayFormatted; ?></lastBuildDate> 
+		<lastBuildDate><?php echo $todayFormattedRSS; ?></lastBuildDate> 
 		<atom:link href='<?php echo $baseUrl; ?>/rss' rel='self' type='application/rss+xml' />
 				
 
@@ -183,7 +181,7 @@ foreach ($obj['items'] as $event) {
 	
 	$eventStartTime = strtotime($event['start']['dateTime']);
 	$eventEndTime = strtotime($event['end']['dateTime']);
-	$dateRSSFormatted = date(DATE_RSS, strtotime($event['updated']));
+	$eventStartTimeRSSFormatted = date(DATE_RSS, strtotime($event['start']['dateTime']));
 	
 	$dayLabel = $messageDay[date("N", $eventStartTime).$lang];
 	$dayNumber = date("j", $eventStartTime);
@@ -229,15 +227,17 @@ foreach ($obj['items'] as $event) {
 ?>
 
 <item> 
-		<title>[<?php echo $fullLabelDay; ?>] <?php echo utf8_decode($event['summary']);?></title>		
+		<title>[<?php echo $fullLabelDay; ?>] <?php echo htmlspecialchars($event['summary'], ENT_QUOTES, 'UTF-8');?></title>		
 		<link><?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?></link> 
 		<guid><?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?></guid> 
-		<pubDate><?php echo $dateRSSFormatted; ?></pubDate>
-		<description><?php echo htmlspecialchars($event['description'], ENT_QUOTES, 'UTF-8')
-							."<br/><a href='http://maps.google.com/maps?q=".utf8_decode($event['location'])."'>"
-								.utf8_decode($event['location'])
-							."</a><br/>\n"
-							.$fullLabelDay." > ".$fullLabelEndDay;?></description> 
+		<pubDate><?php echo $eventStartTimeRSSFormatted; ?></pubDate>
+		<description>
+			<?php echo htmlspecialchars($event['description'], ENT_QUOTES, 'UTF-8');?> &lt;br/&gt; &lt;br/&gt;
+			&lt;a href=&quot;http://maps.google.com/maps?q=<? echo urlencode(htmlspecialchars($event['location'], ENT_QUOTES, 'UTF-8'));?>&quot;&gt;
+				<? echo htmlspecialchars($event['location'], ENT_QUOTES, 'UTF-8');?>
+			&lt;/a>&lt;br/&gt;
+			<?php echo $fullLabelDay." > ".$fullLabelEndDay;?>
+		</description> 
 		<enclosure url="<?php echo $img;?>" type="image/jpeg" />
 	</item>
 

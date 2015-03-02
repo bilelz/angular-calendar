@@ -7,6 +7,10 @@ define(['angular','moment', 'app'], function (angular, app) {
 	        return (dateString == undefined)?undefined:moment(dateString, formatIn).fromNow();
 	        /*2013-04-26T17:00:00.000+02:00*/
 	    };
+	  }).filter('formatdate4gcalendar', function() {
+	    return function(dateString) {
+	        return (dateString == undefined)?undefined:moment(dateString, 'YYYY-MM-DDTHH:mm:ss.SSSZ').format('YYYYMMDDTHHmmss')+"Z";
+	    };
 	  }).filter('momentcalendar', function() {
 	    return function(dateString, formatIn) {
 	    	

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "POC  angular.js",
   "main": "index.js",
-  "lang" : "en-us",
+  "lang" : "fr-fr",
   "agendaID" : "u825pd9kqiahvdqljsk29rass4@group.calendar.google.com",
   "agendaID-isl" : "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
   "dependencies": {

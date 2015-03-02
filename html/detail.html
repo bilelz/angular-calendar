@@ -39,7 +39,7 @@
 
 				<title>{{entry.summary}}</title>
 				
-				<link itemprop="url" href="{{entry.summary | text2AlphaNum}}/{{entry.id.$t | getId}}" />
+				<link itemprop="url" href="{{entry.summary | text2AlphaNum}}/{{entry.id}}" />
 				<!--<div class="eventTitle">
 					<span class="calendarframe">
 						<span class="dayLabel">{{entry.start.dateTime | date:'EEEE'}}</span>
@@ -89,9 +89,22 @@
 					<a class="btn btn-default shareBtn" href="mailto:?subject=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&amp;body=[{{entry.start.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
 
 				</p>
-
-				<a href="http://maps.google.com/maps?q={{entry.location}}" target="_blank" class="">
-					<img src="http://maps.google.com/maps/api/staticmap?center={{entry.location}}&zoom=3&size=400x200&maptype=roadmap&sensor=false&language=&markers={{entry.location}}&scale=2&key=AIzaSyBk8ZqXadQlSHZlqlKu4OR5MfveoA-hatQ"/> 
+				<!--
+				https://www.google.com/calendar/render?action=TEMPLATE
+				&text=Spring+Meetup+%238+-+soir%C3%A9e+JHipster
+				&dates=20150303T183000Z/20150303T213000Z
+				&details=For+details,+link+here:+https://www.eventbrite.fr/e/billets-spring-meetup-8-soiree-jhipster-15755539242
+				&location=SOAT+-+89+Quai+Panhard+et+Levassor+-+75013+Paris+-+France&pli=1&sf=true&output=xml#g
+				
+				https://www.google.com/calendar/render?eid=dHVmdmZ2ZzJtajMyZjgzOGFsMHVjYzRmMGcgdTgyNXBkOWtxaWFodmRxbGpzazI5cmFzczRAZw
+				&sf=true&output=xml#g
+				
+				https://www.google.com/calendar/event?action=TEMPLATE
+				&tmeid=dHVmdmZ2ZzJtajMyZjgzOGFsMHVjYzRmMGcgdTgyNXBkOWtxaWFodmRxbGpzazI5cmFzczRAZw
+				&tmsrc=u825pd9kqiahvdqljsk29rass4@group.calendar.google.com&catt=false&pprop=HowCreated:DUPLICATE&hl=fr&scp=ONE
+-->
+				<a href="http://maps.google.com/maps?q={{entry.location | encode}}" target="_blank" class="">
+					<img src="http://maps.google.com/maps/api/staticmap?center={{entry.location | encode}}&zoom=3&size=400x200&maptype=roadmap&sensor=false&language=&markers={{entry.location | encode}}&scale=2&key=AIzaSyBk8ZqXadQlSHZlqlKu4OR5MfveoA-hatQ"/> 
 						<span itemprop="location" itemscope itemtype="http://schema.org/Place">
 							<span class="maplink"  itemprop="name"> 
 								<i class="fa fa-map-marker"></i> {{entry.location}} 
@@ -101,9 +114,12 @@
 
 				<br/>
 				<p>
+					<a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{entry.summary | encode}}&dates={{entry.start.dateTime | formatdate4gcalendar}}/{{entry.end.dateTime | formatdate4gcalendar}}&details={{entry | getUrlEncode}}&location={{entry.location | encode}}" class="btn btn-default" target="_blank"><i class="fa fa-plus"></i> Add to your Google Calendar</a>
+				</p>
+				<p>				
 					<a href="{{entry.htmlLink}}" target="_blank" class="btn btn-default btn-transparent"><i class=" fa fa-calendar"></i> View in Google calendar</a>
-					&nbsp;
-					<a href="a" class="btn btn-default"><i class="fa fa-plus"></i> Add an event</a>
+					
+					
 				</p>
 
 			</div>
