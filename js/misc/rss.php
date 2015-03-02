@@ -44,6 +44,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 	
 	
 	$message=array(	"this"=>"This",			"this_fr-fr"=>"Ce",
+					"last"=>"Last",			"this_fr-fr"=>"Dernier",
 					"today"=>"Today",		"today_fr-fr"=>"Aujourd'hui",	
 					"tomorrow"=>"Tomorrow",	"tomorrow_fr-fr"=>"Demain",
 					"week"=>"week",			"week_fr-fr"=>"semaine",
@@ -104,13 +105,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
 	
 	$todayFormatted = date(DATE_RSS, $faketime);
 	
-	if (isset($_GET['fakedate'])) {
-		$fakedate = $_GET['fakedate'];
-		$faketime = mktime(0, 0, 0, substr($fakedate, 5, 7), substr($fakedate, 8, 2), substr($fakedate, 0, 4)); //$fakedate, example =  2014-12-31
 	
-	} else {
-		$today = date('Y-m-d');
-	}
 	
 	
 	$lundi = 1;
@@ -217,8 +212,12 @@ foreach ($obj['items'] as $event) {
 		
 	$diffDay = ($eventStartTime-$faketime)/(3600*24);
 	
-	if($diffDay<7){
+	if($diffDay<7 && $diffDay>=0){
 		$fullLabelDay = $message['this'.$lang]." $dayLabel $hour:$minute";
+	}
+	
+	if($diffDay<7 && $diffDay<0){
+		$fullLabelDay = $message['last'.$lang]." $dayLabel $hour:$minute";
 	}
 	if ($yearMonthDay == $yearMonthDayFakeDate) {
 		$fullLabelDay = $message['today'.$lang]." $hour:$minute";
