@@ -7,6 +7,20 @@ define(['angular','moment', 'app'], function (angular, app) {
 	        return (dateString == undefined)?undefined:moment(dateString, formatIn).fromNow();
 	        /*2013-04-26T17:00:00.000+02:00*/
 	    };
+	  }).filter('diffDate', function() {
+	    return function(entry) {
+	    	if(entry == undefined){
+	    		return undefined;
+	    	}else{
+	    		console.log(entry);
+	    		console.log(moment(entry.end.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'));
+	    		console.log(moment(entry.start.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'));
+	    		console.log(moment(entry.end.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ').diff(moment(entry.start.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'), 'hours'));
+	    		moment(entry.end.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ').diff(moment(entry.start.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'), 'hours');
+	    	}
+	        
+	        /*2013-04-26T17:00:00.000+02:00*/
+	    };
 	  }).filter('formatdate4gcalendar', function() {
 	    return function(dateString) {
 	        return (dateString == undefined)?undefined:moment(dateString, 'YYYY-MM-DDTHH:mm:ss.SSSZ').format('YYYYMMDDTHHmmss')+"Z";

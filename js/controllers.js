@@ -181,9 +181,9 @@ initSearch();
 		      var date = moment(e.date+e.hour, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
 		      var dateend = moment(e.dateend+e.hourend, "YYYY-MM-DDHH:mm").format("YYYYMMDDTHHmmss");
 		      
-		      var urladd = "js/misc/add.php?title="+escape(e.title)+"&date="+date+"&dateend="+dateend+"&adress="+escape(e.adress)
-		      					+"&description="+escape(e.description)+"&mail="+e.mail+"&mailcc="+e.mailcc;
-		      
+		      var urladd = "js/misc/add.php?title="+encodeURIComponent(e.title)+"&date="+date+"&dateend="+dateend+"&adress="+encodeURIComponent(e.adress)
+		      					+"&description="+encodeURIComponent(e.description)+"&mail="+e.mail+"&mailcc="+e.mailcc;
+		     
 		      caldevServices.add(urladd)
 		      				.then(function(data) {
 		      					scrollTop();
@@ -200,7 +200,34 @@ initSearch();
 						      	$scope.mailResponseTxt = data.response;
 						      }
 							});	
-		      
+				
+				
+				var dataForm = {title: e.title,
+								date: date,
+								dateend: dateend,
+								adress : e.adress,
+								description : e.description,
+								mail: e.mail,
+								mailcc : e.mailcc
+								};
+				/*
+				caldevServices.addPost("js/misc/addPost.php", dataForm)
+		      				.then(function(data) {
+		      					scrollTop();
+		      					
+						      if(data.status == "OK"){
+						      	$scope.mailSend = true;
+						      	$scope.mailSendError = false;
+						      	$scope.mailResponseTxt = data.response;
+						      	window.scrollTo(0,0);
+						      	sendAnimation($timeout, viewSlideIndex);
+						      }else{
+						      	$scope.mailSendError = true;
+						      	$scope.mailSend = false;
+						      	$scope.mailResponseTxt = data.response;
+						      }
+							});	
+		      */
 		      
 		    } else {
 		      console.log("NO valid");	

@@ -35,6 +35,22 @@ define(['angular', 'app'], function (angular, app) {
 			    alert("error http get!");
 			  });
 		};
+		
+		
+		this.addPost = function(url, dataForm) {
+
+			return $http({
+				url : url,
+				method : "POST",
+       			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				data : dataForm
+			}).then(function(result) {
+				return result.data;
+			}, function(data, status, headers, config) {
+				alert("error http get!");
+			});
+		}; 
+
 	});
 	
 	app.service('Page', function($rootScope){

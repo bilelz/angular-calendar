@@ -114,7 +114,20 @@
 
 				<br/>
 				<p>
-					<a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{entry.summary | encode}}&dates={{entry.start.dateTime | formatdate4gcalendar}}/{{entry.end.dateTime | formatdate4gcalendar}}&details={{entry | getUrlEncode}}&location={{entry.location | encode}}" class="btn btn-default" target="_blank"><i class="fa fa-plus"></i> Add to your Google Calendar</a>
+					<a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{entry.summary | encode}}&dates={{entry.start.dateTime | formatdate4gcalendar}}/{{entry.end.dateTime | formatdate4gcalendar}}&details={{entry | getUrlEncode}}&location={{entry.location | encode}}" class="btn btn-default" target="_blank">
+						<i class="fa fa-plus"></i> Add to your Google Calendar</a>
+				</p>
+				
+				<p>
+					<a href="https://calendar.yahoo.com/?v=60&view=d&type=20&title={{entry.summary | encode}}&ST={{entry.start.dateTime | formatdate4gcalendar}}&ET={{entry.end.dateTime | formatdate4gcalendar}}&desc={{entry | getUrlEncode}}&in_loc={{entry.location | encode}}" class="btn btn-default" target="_blank">
+						<i class="fa fa-plus"></i> Add to your  Yahoo! Calendar
+					</a>
+				</p>
+				
+				<p>
+					<a href="/js/misc/download.php?&title={{entry.summary | encode}}&date={{entry.start.dateTime | formatdate4gcalendar}}&dateend={{entry.end.dateTime | formatdate4gcalendar}}&description={{entry | getUrlEncode}}&adress={{entry.location | encode}}&urlWebsite={{entry | getUrlEncode}}&filename={{entry.summary | text2AlphaNum}}" class="btn btn-default" target="_self">
+						<i class="fa fa-plus"></i> Add to your calendar (.ics)
+					</a>
 				</p>
 				<p>				
 					<a href="{{entry.htmlLink}}" target="_blank" class="btn btn-default btn-transparent"><i class=" fa fa-calendar"></i> View in Google calendar</a>

@@ -8,6 +8,8 @@
   	<link rel="icon" type="image/png" href="img/caldevio.png" />
   	<link rel="icon" sizes="196x196" href="img/caldevio.png">
   	<link rel="apple-touch-icon" sizes="128x128" href="img/caldevio.png">
+  	<link rel='alternate' type='application/rss+xml' title='RSS' href='/rss'>
+
   	
   	<!-- build:css css/build.14.css  -->
 	<link rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
@@ -55,19 +57,21 @@
 		
 	<div id="footer">
       <div class="container">
-        <p class="text-muted credit">
-        	Angular POC by <a href="http://bilelz.fr" target="_blank">&nbsp;Bilelz&nbsp;</a>
-			<a href="https://plus.google.com/+BilelZeghad?rel=author" target="_blank">&nbsp;<i class=" fa fa-google-plus "></i>&nbsp;</a>
-        	<a href="https://twitter.com/bilelz" target="_blank">&nbsp;<i class="fa fa-twitter"></i>&nbsp;</a>
+        <p class="text-muted credit" itemscope itemtype="http://schema.org/Organization">
+        	Angular POC by <a href="http://bilelz.fr" target="_blank" itemprop="url">&nbsp;Bilelz&nbsp;</a>
+			<a href="https://plus.google.com/+BilelZeghad?rel=author" target="_blank" itemprop="sameAs">&nbsp;<i class=" fa fa-google-plus "></i>&nbsp;</a>
+        	<a href="https://twitter.com/bilelz" target="_blank" itemprop="sameAs">&nbsp;<i class="fa fa-twitter"></i>&nbsp;</a>
         	<a href="https://twitter.com/bilelz" class="twitter-follow-button" data-show-count="false">Follow @bilelz</a>&nbsp;&nbsp;&nbsp;
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        	<a href="https://github.com/bilelz/angular-calendar" target="_blank">&nbsp;<i class=" fa fa-github"></i>&nbsp;</a>
+        	<a href="https://github.com/bilelz/angular-calendar" target="_blank" itemprop="sameAs">&nbsp;<i class=" fa fa-github"></i>&nbsp;</a>
+        	
+        	<a href="/rss" title="RSS" target="_self">&nbsp;<i class=" fa fa-rss"></i>&nbsp;</a>
         	<!--<a href="javascript:scrollTop();" id="top" title="Go to the top of the page" > <i class="fa fa-arrow-up fa-2x"></i> </a>-->
         </p>
       </div>
     </div>
     <div id="loader" class="loader"></div>
-	<!-- build:js js/build.41.js -->
+	<!-- build:js js/build.42.js -->
     <script src="js/libs/requirejs/require.js" data-main="js/main"></script>
     <!-- /build -->
     <script>
