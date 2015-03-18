@@ -130,7 +130,21 @@ module.exports = function(grunt) {
 		      {expand: true, src: ['**', '!build/*.zip'], cwd: 'build/'}, // includes files in path and its subdirs
 		    ]
 		  }
-		}
+		},
+		cacheBust: {
+		    options: {
+		      encoding: 'utf8',
+		      algorithm: 'md5',
+		      length: 32,
+		      deleteOriginals: true,
+		      ignorePatterns: []
+		    },
+		    assets: {
+		      files: [{
+		        src: ['build/index.html']
+		      }]
+		    }
+		  }
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
@@ -147,11 +161,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-ftp-deploy');
+    grunt.loadNpmTasks('grunt-cache-bust');
 
 
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['clean', 'cssmin','processhtml', 'htmlmin', 'copy', 'requirejs', 'uglify', 'imagemin', 'compress']);
+    grunt.registerTask('default', ['clean', 'cssmin','processhtml', 'htmlmin', 'copy', 'requirejs', 'uglify','cacheBust', 'imagemin', 'compress']);
 
 };
