@@ -74,33 +74,7 @@ define(['angular','app'], function(angular, app)
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 												});		
-											
-			/* parallax effect */									
-			window.onscroll = function() { 
-				var doc = document.documentElement;
-				var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-				var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-				var windowHeight = document.documentElement.clientHeight || window.innerHeight;
-			
-				var windowBottom = windowTop + windowHeight;
-	
-				var el = document.getElementById("bigPicture");
-				var imgBottom = getPosition(el).top+windowHeight;
-				
-				if(windowHeight>windowTop){
-					el.style.backgroundPosition = "center "+ (0.5*(imgBottom - windowBottom))+"px";
-					
-					var percent = (windowHeight-windowTop)/windowHeight;
-					;
-					document.getElementById("bigTitleContent").style.webkitTransform = "scale("+percent+")";
-					document.getElementById("bigTitleContent").style.MozTransform = "scale("+percent+")";
-					document.getElementById("bigTitleContent").style.transform = "scale("+percent+")";
-					document.getElementById("bigTitleContent").style.opacity = percent;
-				}
-				
-				
-			 };
-			
+						
 			
 		}]
 		

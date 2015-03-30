@@ -43,8 +43,8 @@ img{
 }
 
 .page{
-	//position: relative;
 	z-index: 2;
+	padding-top: 53px;
 }
 
 /* Set the fixed height of the footer here */
@@ -483,7 +483,12 @@ display: none;
 
 @media (min-width: 992px){
 
-	.listBlock:first-child, .listBlock:nth-child(8), .listBlock:nth-child(9){
+	.listBlock:first-child{
+		width: 1120px;
+		height: 300px;
+	}
+	
+	 .listBlock:nth-child(6), .listBlock:nth-child(7), .listBlock:nth-child(8){
 		width: 550px;
 	}
 	

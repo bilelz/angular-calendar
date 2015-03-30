@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteRule ^(.*)\.([a-f0-9]{4})+\.(css|js)$ $1.$2 [L] # Strip out the version number (md5)
+RewriteRule ^(.*)\.[a-f0-9]{4}+\.(css|js)$ $1.$2 [L] # Strip out the version number (md5)
 
 
 
@@ -8,6 +8,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_METHOD} !OPTIONS
 RewriteRule ^rss$ /js/misc/rss.php [L]
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_METHOD} !OPTIONS
+RewriteRule ^atom$ /js/misc/atom.php [L]
 
 
 RewriteBase /

@@ -1,6 +1,8 @@
-<?php header("Content-Type: text/xml; charset=UTF-8"); echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";?>
+<?php header("Content-Type: text/xml; charset=UTF-8");
+echo '<?xml version="1.0" encoding="utf-8"?>';
+?>
 
-<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
 <?php
 	$clientKey = "AIzaSyA3dweFJyhbf-mJ3mxXqFCFnKRNb9idvJ8";
@@ -101,7 +103,7 @@
 	$titleYear = date("Y", $faketime);
 	$titleLabelDay = $titleDay." ".$titleDayNumber." ".$titleMonth." ".$titleYear;
 	
-	$todayFormattedRSS = date(DATE_RSS, $faketime);
+	$todayFormattedRSS = gmdate('Y-m-d\TH:i:s\Z', $faketime);
 	
 	
 	
@@ -154,16 +156,19 @@
 	
 ?>
 
-	<channel> 
 		<title><?php echo $obj['summary']; ?></title> 
-		<copyright>CopyLeft</copyright> 
-		<link><?php echo $obj['description']; ?></link>
-		<category>Lifestyle</category> 
-		<description><?php echo sizeof($obj['items'])." ".$message['events'.$lang]." ".$labelTitle; ?></description> 
-		<language><?php echo ($lang=="")?"en-us":substr($lang,1,5); ?></language> 
-		<lastBuildDate><?php echo $todayFormattedRSS; ?></lastBuildDate> 
-		<atom:link href='<?php echo $baseUrl; ?>/rss' rel='self' type='application/rss+xml' />
-				
+		<link href="<?php echo $obj['description']; ?>/" rel="alternate" type="text/html"/>
+		<link href="<?php echo $obj['description']; ?>/atom" rel="self" type="application/atom+xml"/>
+		
+		<id><?php echo $obj['description']; ?></id>
+		<updated><?php echo $todayFormattedRSS; ?></updated>
+		<category term="LifeStyle"/>
+		<subtitle><?php echo sizeof($obj['items'])." ".$message['events'.$lang]." ".$labelTitle; ?></subtitle>
+		
+		<author>
+			<name><?php echo $obj['description']; ?></name>
+			<uri><?php echo $obj['description']; ?></uri>
+    	</author>
 
 <?php
 
@@ -181,7 +186,8 @@ foreach ($obj['items'] as $event) {
 	
 	$eventStartTime = strtotime($event['start']['dateTime']);
 	$eventEndTime = strtotime($event['end']['dateTime']);
-	$eventStartTimeRSSFormatted = date(DATE_RSS, strtotime($event['start']['dateTime']));
+	$eventStartTimeRSSFormatted = gmdate('Y-m-d\TH:i:s\Z', strtotime($event['start']['dateTime']));
+	$eventUpdateTimeRSSFormatted = gmdate('Y-m-d\TH:i:s\Z', strtotime($event['updated']));
 	
 	$dayLabel = $messageDay[date("N", $eventStartTime).$lang];
 	$dayNumber = date("j", $eventStartTime);
@@ -223,25 +229,36 @@ foreach ($obj['items'] as $event) {
 	if ($yearMonthDay == $yearMonthDayTomorrow) {
 		$fullLabelDay = $message['tomorrow'.$lang]." $hour:$minute";
 	}
+	
+	$backN = array("\n", "\r");
+	$backR = "<br/>";
+	
+	$content = str_replace($backN, $backR, $event['description']);
 
 ?>
 
-<item> 
+<entry> 
 		<title>[<?php echo $fullLabelDay; ?>] <?php echo htmlspecialchars($event['summary'], ENT_QUOTES, 'UTF-8');?></title>		
-		<link><?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?></link> 
-		<guid><?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?></guid> 
-		<pubDate><?php echo $eventStartTimeRSSFormatted; ?></pubDate>
-		<description>
-			<?php echo htmlspecialchars($event['description'], ENT_QUOTES, 'UTF-8');?> &lt;br/&gt; &lt;br/&gt;
+		<link href="<?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?>"/> 
+		<id><?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?></id> 
+		<published><?php echo $eventStartTimeRSSFormatted; ?></published>
+		<updated><?php echo $eventUpdateTimeRSSFormatted; ?></updated>
+		<content type="html">
+			<?php echo htmlspecialchars($content, ENT_QUOTES, 'UTF-8');?> &lt;br/&gt; &lt;br/&gt;
 			&lt;a href=&quot;http://maps.google.com/maps?q=<? echo urlencode(htmlspecialchars($event['location'], ENT_QUOTES, 'UTF-8'));?>&quot;&gt;
 				<? echo htmlspecialchars($event['location'], ENT_QUOTES, 'UTF-8');?>
 			&lt;/a>&lt;br/&gt;
 			<?php echo $fullLabelDay." > ".$fullLabelEndDay;?>
-		</description> 
-		<enclosure url="<?php echo $img;?>" type="image/jpeg" />
-	</item>
+		</content> 
+		
+		<link rel="enclosure"
+          type="image/jpeg"
+          title="<?php echo htmlspecialchars($event['summary'], ENT_QUOTES, 'UTF-8');?>"
+          href="<?php echo $img;?>"
+          length="1234" />	
+		
+	</entry>
 
 <?php } ?>
 
-</channel> 
-</rss>
+</feed>

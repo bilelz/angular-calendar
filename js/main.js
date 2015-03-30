@@ -52,7 +52,12 @@ require( [
 
 	angular.element().ready(function(app) {
 		angular.bootstrap(document, ['caldev']);
-		window.onscroll = function() { lazyLoadImage(); };
+
+		window.onscroll = function() {
+			backgroundNavbar();
+			lazyLoadImage();
+			detailPageTitleEffect();
+		}; 
 		
 		window.onresize = function(event) {
     		document.getElementById("bigTitle").style.height = window.innerHeight + "px";

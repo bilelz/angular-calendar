@@ -21,11 +21,18 @@ padding-bottom: 10px;
 
 
 .custom-header{
-	position: relative;
-	z-index: 1000;
-	padding-top: 10px;
-	border: 1px solid transparent;
-	padding-bottom: 10px;
+	  position: fixed;
+	  z-index: 1000;
+	  padding-top: 10px;
+	  border: 1px solid transparent;
+	  padding-bottom: 10px;
+	  width: 100%;
+	  background: rgba(0, 0, 0, 0);
+	  transition: .3s;
+}
+
+.navScrolled .custom-header{
+	  background: rgba(0, 0, 0, .7);
 }
 
 .custom-header .container{

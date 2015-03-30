@@ -173,3 +173,33 @@
 	padding: 5px 10px;
 	color: white;
 }
+
+/*
+ * go fullscreen
+ */
+.goFS{
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100%;
+  z-index: 2;
+	
+}
+
+.goFS .listBigTitle {
+    position: absolute;
+  bottom: 400px;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  height: auto;
+  background: red;
+}
+
+.goFS [data-img].imgLoaded {
+-webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+	
+}
