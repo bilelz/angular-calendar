@@ -28,11 +28,19 @@ padding-bottom: 10px;
 	  padding-bottom: 10px;
 	  width: 100%;
 	  background: rgba(0, 0, 0, 0);
-	  transition: .3s;
+	  transition: .6s;
+	  -webkit-transform: translate3d(0, 0, 0);
+	  transform: translate3d(0, 0, 0);
 }
 
 .navScrolled .custom-header{
-	  background: rgba(0, 0, 0, .7);
+	  background: #544B9E;
+	  box-shadow: 0 0 1em white;
+}
+
+.navScrolled.downscroll .custom-header{
+	-webkit-transform: translateY(-54px);
+	transform: translateY(-54px);
 }
 
 .custom-header .container{
@@ -131,4 +139,8 @@ background: white;
 
 .gsib_a {
 	padding:0 !important;
+}
+
+#searchModal{
+	padding-top: 53px;
 }

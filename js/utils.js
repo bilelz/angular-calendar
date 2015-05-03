@@ -14,72 +14,119 @@ function getPosition(element) {
 }
 
 function lazyLoadImage() {
-	var doc = document.documentElement;
-	var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-	var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-	var windowHeight = document.documentElement.clientHeight || window.innerHeight;
-
-	var windowBottom = windowTop + windowHeight;
-
-	var divImg = document.querySelectorAll("[data-img]");
-	var nodes = Array.prototype.slice.call(divImg, 0);
-
-	nodes.forEach(function(el) {
-		var elTmp = el;
-		if (windowBottom > getPosition(el).top && !el.classList.contains('imgLoading') && !el.classList.contains('imgLoaded')) {
-
-			var imgTmp = document.createElement("img");
-
-			imgTmp.addEventListener('load', function() {
-				elTmp.style.backgroundImage = "url('" + elTmp.getAttribute("data-img") + "')";
-				elTmp.classList.add("imgLoaded");
-			}, false);
-
-			imgTmp.src = elTmp.getAttribute("data-img");
-			elTmp.classList.add("imgLoading");
-
-		}
-
-	});
+	
+	if(document.querySelectorAll("[data-img].imgNotLoading").length > 0){
+		var doc = document.documentElement;
+		var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+		var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+		var windowHeight = document.documentElement.clientHeight || window.innerHeight;
+	
+		var windowBottom = windowTop + windowHeight;
+	
+		var divImg = document.querySelectorAll("[data-img].imgNotLoading");
+		var nodes = Array.prototype.slice.call(divImg, 0);
+	
+		nodes.forEach(function(el) {
+			var elTmp = el;
+			if (windowBottom > getPosition(el).top) {
+	
+				var imgTmp = document.createElement("img");
+	
+				imgTmp.addEventListener('load', function() {
+					elTmp.style.backgroundImage = "url('" + elTmp.getAttribute("data-img") + "')";
+					elTmp.classList.add("imgLoaded");
+					removeClass(elTmp,"imgLoading");
+				}, false);
+	
+				imgTmp.src = elTmp.getAttribute("data-img");
+				elTmp.classList.add("imgLoading");
+				removeClass(elTmp,"imgNotLoading");
+			}
+	
+		});
+	}
 }
 
 
 function detailPageTitleEffect() {
-	var doc = document.documentElement;
-	var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
-	var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-	var windowHeight = document.documentElement.clientHeight || window.innerHeight;
-
-	var windowBottom = windowTop + windowHeight;
-
+	
 	var el = document.getElementById("bigPicture");
-	var imgBottom = getPosition(el).top + windowHeight;
+	
+	if(el != undefined){
+		var doc = document.documentElement;
+		var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+		var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+		var windowHeight = document.documentElement.clientHeight || window.innerHeight;
+	
+		var windowBottom = windowTop + windowHeight;
+	
+		
+		var imgBottom = getPosition(el).top + windowHeight;
+	
+		if (windowHeight > windowTop) {
+			el.style.backgroundPosition = "center " + (0.5 * (imgBottom - windowBottom)) + "px";
+	
+			/*var percent = (windowHeight - windowTop) / windowHeight;
+			
+			document.getElementById("bigTitleContent").style.webkitTransform = "scale(" + percent + ")";
+			document.getElementById("bigTitleContent").style.MozTransform = "scale(" + percent + ")";
+			document.getElementById("bigTitleContent").style.transform = "scale(" + percent + ")";
+			document.getElementById("bigTitleContent").style.opacity = percent;*/
+		}
+	}
+}
 
-	if (windowHeight > windowTop && el != undefined) {
-		el.style.backgroundPosition = "center " + (0.5 * (imgBottom - windowBottom)) + "px";
-
-		var percent = (windowHeight - windowTop) / windowHeight;
-		;
-		document.getElementById("bigTitleContent").style.webkitTransform = "scale(" + percent + ")";
-		document.getElementById("bigTitleContent").style.MozTransform = "scale(" + percent + ")";
-		document.getElementById("bigTitleContent").style.transform = "scale(" + percent + ")";
-		document.getElementById("bigTitleContent").style.opacity = percent;
+function resizeBgAnimation(){
+	/* reload bgAnimation after resize window  with the good width */
+	if(document.querySelector("#bigTitleContent h1") != undefined){
+		document.querySelector("#bigTitleContent h1").style.webkitAnimationPlayState = "paused";
+		document.querySelector("#bigTitleContent h1").style.animationPlayState = "paused";
+		
+		document.querySelector("#bigTitleContent h1").style.webkitAnimationName = "";
+		document.querySelector("#bigTitleContent h1").style.animationName = "";
+		var timestamp = (new Date()).getTime();
+		
+		document.querySelector("#css-inline").innerHTML = "@-webkit-keyframes animBgResize"+timestamp+" {"
+														+ "from { background-position-x: 0;}"
+														+ "to { background-position-x: "+window.innerWidth+"px }} \n"
+														+ "@keyframes animBgResize"+timestamp+" {"
+														+ "from { background-position-x: 0;}"
+														+ "to { background-position-x: "+window.innerWidth+"px }}";
+		
+		document.querySelector("#bigTitleContent h1").style.webkitAnimationName = "animBgResize"+timestamp;
+		document.querySelector("#bigTitleContent h1").style.animationName = "animBgResize"+timestamp;
+		document.querySelector("#bigTitleContent h1").style.webkitAnimationPlayState = "running";
+		document.querySelector("#bigTitleContent h1").style.animationPlayState = "running";
 	}
 }
 
 
 
+var lastScrollTop = 0;
 
-function backgroundNavbar(){
+function animNavbar(){
 	var doc = document.documentElement;
 	var windowLeft = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
 	var windowTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
 	
-	if(windowTop > 100){
+	
+	if(windowTop > 50){
 		addClass(document.querySelector("body"), "navScrolled");
 	}else{
 		removeClass(document.querySelector("body"), "navScrolled");
 	}
+
+	if (windowTop > lastScrollTop) {
+		console.log("downscroll code");
+		removeClass(document.querySelector("body"), "upscroll");
+		addClass(document.querySelector("body"), "downscroll");
+	} else {
+		console.log("upscroll code");
+		removeClass(document.querySelector("body"), "downscroll");
+		addClass(document.querySelector("body"), "upscroll");
+	}
+   
+   lastScrollTop = windowTop;
 
 }
 

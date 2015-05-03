@@ -30,6 +30,12 @@
 	vertical-align: top;
 }
 
+.twitter-btn img{
+  border-radius: 48px;
+  height: 48px;
+  width: 48px;
+}
+
 .eventTitle{
 	display: block;
 	white-space: nowrap !important;
@@ -51,7 +57,7 @@
 	background-size: cover;
 	background-position: top center;
 	background-repeat: repeat-y;
-	background-attachment: scroll;
+	background-attachment: fixed;
 }
 
 #bigPicture img{
@@ -74,6 +80,8 @@
 	width: 100%;
 	height: 100%;
 }
+
+
 
 #bigPicture + .container{
 	margin-top: 400px;
@@ -105,14 +113,45 @@
 	color: white;
 }
 
-#bigTitle h1{
+#bigTitleContent h1{
 	color: white;
-    text-shadow: 0 1px 1px black;
     width: 100%;
     text-align: center;
     padding: 0px 50px 0;
     font-size: 78px;
 	line-height: 82px;
+	
+	background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 1) 100%);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	-webkit-animation: animBg 3s infinite linear;
+}
+
+
+#bigTitle h1{
+  	background: linear-gradient(left, rgba(255, 255, 255, 1) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 1) 100%);
+  	background-clip: text;
+  	text-fill-color: transparent;
+	animation: animBg 3s infinite linear;
+}
+
+
+@-webkit-keyframes animBg {
+	from {
+		background-position-x: 0;
+	}
+	to {
+		background-position-x: 1em;
+	}
+}
+
+@keyframes animBg {
+	from {
+		background-position-x: 0;
+	}
+	to {
+		background-position-x: 1em;
+	}
 }
 
 

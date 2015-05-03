@@ -97,7 +97,7 @@ define(['angular','moment', 'app'], function (angular, app) {
   	return function(entry){
   		return (entry == undefined)?undefined:encodeURIComponent(entry);
   	};
-  }).filter('getTwitterName', ['$sce', function($sce){
+  }).filter('getTwitterNameAndButton', ['$sce', function($sce){
   	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
   	return function(entry){
   		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
@@ -105,7 +105,31 @@ define(['angular','moment', 'app'], function (angular, app) {
   			entry.match(/[@]+[A-Za-z0-9-_]+/g).forEach(function(username) {
 			    twitterResult += '<a href="https://twitter.com/'+username.slice(1) + '"'
   								+' class="btn btn-default twitter-btn" target="_blank">'
-  								+'<i class="fa fa-twitter"></i>'+username+'</a>&nbsp;';
+  								+'<img src="https://twitter.com/'+username.slice(1) + '/profile_image?size=normal" alt="'+username.slice(1) + '"/>'
+  								+'&nbsp;'+username+'</a>&nbsp;';
+			});
+  			return $sce.trustAsHtml(twitterResult);
+  		}
+  	};
+  }]).filter('getTwitterListName', ['$sce', function($sce){
+  	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
+  	return function(entry){
+  		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
+  			var twitterResult = "";
+  			entry.match(/[@]+[A-Za-z0-9-_]+/g).forEach(function(username) {
+			    twitterResult += '<img class="twitter-img" src="https://twitter.com/'+username.slice(1) + '/profile_image?size=normal" alt="'+username.slice(1) + '"/>'
+  								+'&nbsp;'+username+'&nbsp;';
+			});
+  			return $sce.trustAsHtml(twitterResult);
+  		}
+  	};
+  }]).filter('getTwitterListImage', ['$sce', function($sce){
+  	/*http://www.simonwhatley.co.uk/examples/twitter/prototype/ */
+  	return function(entry){
+  		if(entry != undefined && entry.match(/[@]+[A-Za-z0-9-_]+/g) != null){
+  			var twitterResult = "";
+  			entry.match(/[@]+[A-Za-z0-9-_]+/g).forEach(function(username) {
+			    twitterResult += '<img class="twitter-img" src="https://twitter.com/'+username.slice(1) + '/profile_image?size=normal" alt="'+username.slice(1) + '"/>';
 			});
   			return $sce.trustAsHtml(twitterResult);
   		}

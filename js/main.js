@@ -1,6 +1,7 @@
 
 require.config({
     baseUrl: 'js',
+    waitSeconds: 60,
     paths: {
         
         jquery: 'libs/jquery/dist/jquery.min',
@@ -54,13 +55,17 @@ require( [
 		angular.bootstrap(document, ['caldev']);
 
 		window.onscroll = function() {
-			backgroundNavbar();
+			animNavbar();
 			lazyLoadImage();
-			detailPageTitleEffect();
+			/*detailPageTitleEffect();*/
 		}; 
 		
 		window.onresize = function(event) {
-    		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
+			if(document.getElementById("bigTitle") != undefined){
+				document.getElementById("bigTitle").style.height = window.innerHeight + "px";
+			}
+			
+			resizeBgAnimation();
 		};
 		
       	/*document.getElementById("top").onclick = scrollTop();

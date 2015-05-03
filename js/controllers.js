@@ -26,7 +26,7 @@ define(['angular','app'], function(angular, app)
 			} else if (viewSlideIndex.getViewIndex() == "calendar") {
 				$scope.uidirection = 'right';
 			} else {
-				$scope.uidirection = 'zoom';
+				//$scope.uidirection = 'zoom';
 			}
 			document.querySelector('[ng-view]').className = "page scroll ng-scope " +$scope.uidirection;
 			viewSlideIndex.setViewIndex("list");
@@ -49,6 +49,7 @@ define(['angular','app'], function(angular, app)
 		$scope.pageClass = 'page-detail';
 		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
 		initSearch();
+		
 			if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'right';
 			} else if (viewSlideIndex.getViewIndex() == "add") {
@@ -60,6 +61,7 @@ define(['angular','app'], function(angular, app)
 			} else {
 				$scope.uidirection = 'zoom';
 			}
+			
 		document.querySelector('[ng-view]').className = "page scroll ng-scope " +$scope.uidirection;
 		viewSlideIndex.setViewIndex("detail");
 		
@@ -73,6 +75,7 @@ define(['angular','app'], function(angular, app)
 													Page.setTitle(data.summary + " - CalDev.io");
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
+													resizeBgAnimation();
 												});		
 						
 			
@@ -84,7 +87,7 @@ define(['angular','app'], function(angular, app)
 	app.controller('AddController', ['$scope','$routeParams', '$location', '$http', 'caldevServices' ,'Page','viewSlideIndex', '$timeout',
 		function ($scope, $http, $routeParams, $location, caldevServices, Page, viewSlideIndex, $timeout){
 
-initSearch();
+		initSearch();
 
 		if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'left';

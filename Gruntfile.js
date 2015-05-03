@@ -24,10 +24,14 @@ module.exports = function(grunt) {
 		    }
 	   },
 		cssmin: {
-		  add_banner: {
-		    options: {
-		      banner: '/* My minified css file */'
-		    },
+			options: {
+			    advanced: false, 
+			    noAdvanced : false
+			  },
+		  	add_banner: {
+			    options: {
+			      banner: '/* My minified css file */'
+			    },
 		    files: {
 		      'build/css/build.css': [	'js/libs/bootstrap/dist/css/bootstrap.min.css', 
 		      							'js/libs/font-awesome/css/font-awesome.min.css', 

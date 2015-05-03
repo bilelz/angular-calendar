@@ -20,11 +20,18 @@
 				 {{entry.start.dateTime | date:'MMMM'}} - 
 				 {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
 			</span>
-			<h1  itemprop="name">{{entry.summary  | getTitleWithoutTwitterName}}</h1>
-			<span ng-bind-html="entry.summary | getTwitterName"></span>
+			<h1  itemprop="name">
+				{{entry.summary  | getTitleWithoutTwitterName}}
+				
+				</h1>
+			
+			
+		<span ng-bind-html="entry.summary | getTwitterNameAndButton"></span>
+		
+		
+					
 					
 				
-			</span>
 			
 			<br/>
 			<i class="fa fa-angle-down fa-2x bounceInDown" id="downinfo"></i>
