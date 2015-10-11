@@ -15,9 +15,9 @@
 	
 		<div id="bigTitleContent">
 			<span class="calendarframe">
-				<span class="dayLabel">{{entry.start.dateTime | date:'EEEE'}} 
-				{{entry.start.dateTime | date:'d'}} 
-				 {{entry.start.dateTime | date:'MMMM'}} - 
+				<span class="dayLabel">
+					{{entry.start.dateTime  | formatDate:'dddd Do MMMM'}} - 
+					  
 				 {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</span>
 			</span>
 			<h1  itemprop="name">
@@ -65,8 +65,12 @@
 
 						<meta itemprop="startDate" content="{{entry.start.dateTime | date:'yyyy-MM-dd'}}">
 						<meta itemprop="endDate" content="{{entry.end.dateTime | date:'yyyy-MM-dd'}}">
-						<span title="{{entry.start.dateTime}}"> <i class="fa fa-calendar"></i> {{entry.start.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}
-						<strong>{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}</strong> <i class="fa fa-chevron-right"></i> {{entry.end.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} </span>
+						<span title="{{entry.start.dateTime}}"> 
+							<i class="fa fa-calendar"></i> 
+							{{entry.start.dateTime  | formatDate:'dddd Do MMMM YYYY HH:mm'}}
+						
+							<i class="fa fa-chevron-right"></i> {{entry.end.dateTime  | formatDate:'dddd Do MMMM YYYY HH:mm'}} 
+						</span>
 					</div>
 					<div class="panel-body">
 						<p>
@@ -82,18 +86,33 @@
 
 				<p >
 				
-				<span class="shareLabel">Share</span>
+				<span class="shareLabel">{{lang.share}}</span>
 &nbsp;
-					<a class="btn btn-default shareBtn" href="https://twitter.com/intent/tweet?text=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary | encode}}%20%23caldevio&url={{entry | getUrlEncode}}" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
-					&nbsp;
-					<a class="btn btn-primary shareBtn" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary | encode}}%20%23caldevio&amp;p[summary]={{entry.summary}}%0D%0A%0D%0A'{{entry | getUrlEncode}}'&amp;p[url]={{entry | getUrlEncode}}&amp;p[images][0]={{entry.description | getImage}}"
-					onclick="window.open(this.href,'sharer','toolbar=0,status=0,width=560,height=350'); return false;"   target="_blank"> <i class="fa fa-facebook fa fa-2x"></i> </a>
-&nbsp;
-					<a href="https://plus.google.com/share?url={{entry | getUrlEncode}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-danger shareBtn" target="_blank"> <i class=" fa fa-google-plus fa fa-2x"></i> </a>
-&nbsp;
-					<a class="btn btn-default shareBtn" href="http://www.linkedin.com/shareArticle?mini=true&url={{entry | getUrlEncode}}&title={{entry.summary}}&summary=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x"></i> </a>
-&nbsp;
-					<a class="btn btn-default shareBtn" href="mailto:?subject=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&amp;body=[{{entry.start.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
+					<span ng-show="package.shareItem.twitter">
+						<a  class="btn btn-default shareBtn" 
+							href="https://twitter.com/intent/tweet?text=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary | encode}}%20%23caldevio&url={{entry | getUrlEncode}}" target="_blank"> <i class=" fa fa-twitter  fa fa-2x"></i> </a>
+						&nbsp;
+					</span>
+					
+					<span ng-show="package.shareItem.facebook">
+						<a  class="btn btn-primary shareBtn" 
+							href="http://www.facebook.com/sharer/sharer.php?u={{entry | getUrlEncode}}"
+							   target="_blank"> <i class="fa fa-facebook fa fa-2x"></i> </a>
+							&nbsp;
+					</span>
+					
+					<span ng-show="package.shareItem.gplus">
+						<a  href="https://plus.google.com/share?url={{entry | getUrlEncode}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-danger shareBtn" target="_blank"> <i class=" fa fa-google-plus fa fa-2x"></i> </a>
+						&nbsp;
+					</span>
+					
+					
+					<span ng-show="package.shareItem.linkedin">
+						<a  class="btn btn-default shareBtn" href="http://www.linkedin.com/shareArticle?mini=true&url={{entry | getUrlEncode}}&title={{entry.summary}}&summary=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&source=http://bilelz.fr" target="_blank"> <i class="fa fa-linkedin-square  fa fa-2x"></i> </a>
+						&nbsp;
+					</span>
+					
+					<a  ng-show="package.shareItem.mail" class="btn btn-default shareBtn" href="mailto:?subject=[{{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%20%23caldevio&amp;body=[{{entry.start.dateTime  | momentcalendar:'YYYY-MM-DDTHH:mm:ss.SSSZ'}} {{entry.start.dateTime  | momentfromnow:'YYYY-MM-DDTHH:mm:ss.SSSZ'}}] {{entry.summary}}%0D%0A%0D%0A{{entry | getUrl}}"> <i class="fa fa-envelope fa fa-2x"> </i> </a>
 
 				</p>
 				<!--
@@ -122,22 +141,24 @@
 				<br/>
 				<p>
 					<a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{entry.summary | encode}}&dates={{entry.start.dateTime | formatdate4gcalendar}}/{{entry.end.dateTime | formatdate4gcalendar}}&details={{entry | getUrlEncode}}&location={{entry.location | encode}}" class="btn btn-default" target="_blank">
-						<i class="fa fa-plus"></i> Add to your Google Calendar</a>
+						<i class="fa fa-plus"></i> {{lang.addtoyour}} Google Calendar</a>
 				</p>
 				
 				<p>
 					<a href="https://calendar.yahoo.com/?v=60&view=d&type=20&title={{entry.summary | encode}}&ST={{entry.start.dateTime | formatdate4gcalendar}}&ET={{entry.end.dateTime | formatdate4gcalendar}}&desc={{entry | getUrlEncode}}&in_loc={{entry.location | encode}}" class="btn btn-default" target="_blank">
-						<i class="fa fa-plus"></i> Add to your  Yahoo! Calendar
+						<i class="fa fa-plus"></i> {{lang.addtoyour}}  Yahoo! Calendar
 					</a>
 				</p>
 				
 				<p>
 					<a href="/js/misc/download.php?&title={{entry.summary | encode}}&date={{entry.start.dateTime | formatdate4gcalendar}}&dateend={{entry.end.dateTime | formatdate4gcalendar}}&description={{entry | getUrlEncode}}&adress={{entry.location | encode}}&urlWebsite={{entry | getUrlEncode}}&filename={{entry.summary | text2AlphaNum}}" class="btn btn-default" target="_self">
-						<i class="fa fa-plus"></i> Add to your calendar (.ics)
+						<i class="fa fa-plus"></i> {{lang.addtoyour}} calendar (.ics)
 					</a>
 				</p>
 				<p>				
-					<a href="{{entry.htmlLink}}" target="_blank" class="btn btn-default btn-transparent"><i class=" fa fa-calendar"></i> View in Google calendar</a>
+					<a href="{{entry.htmlLink}}" target="_blank" class="btn btn-default btn-transparent">
+						<i class=" fa fa-calendar"></i> {{lang.viewin}} Google calendar
+					</a>
 					
 					
 				</p>

@@ -1,16 +1,9 @@
-define(['angular','app'], function(angular, app)
+define(['angular','app', 'moment'], function(angular, app, moment)
 {
-	var agendaID = '1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com';
-	agendaID = "u825pd9kqiahvdqljsk29rass4@group.calendar.google.com";
-	
-	var clientKey = 'AIzaSyA3dweFJyhbf-mJ3mxXqFCFnKRNb9idvJ8';
-	
-	
-	
 	
     app.controller(
-        'ListController', ['$scope', '$location', '$http', 'caldevServices' , 'Page', '$timeout','viewSlideIndex',
-        function($scope, $location, $http, caldevServices, Page, $timeout, viewSlideIndex) {
+        'ListController', ['$scope', '$location', '$http', '$sce', 'caldevServices' , 'Page', '$timeout','viewSlideIndex', 'package','lang',
+        function($scope, $location, $http, $sce, caldevServices, Page, $timeout, viewSlideIndex, package, lang) {
             removeClass(document.getElementById("nav-a"), "active");
 			removeClass(document.getElementById("nav-c"), "active");
 			showLoader();
@@ -32,23 +25,38 @@ define(['angular','app'], function(angular, app)
 			viewSlideIndex.setViewIndex("list");
 			
 
-			Page.setTitle("CalDev.io - Agenda 4 developers & others...");
-			caldevServices.list(agendaID).then(function(data) {
-													$scope.calendar = data;
-													setTimeout(lazyLoadImage, 10);
-													hideLoader();
-												});
+			lang.getWords().then(function(data) {
+				$scope.lang = data;
+				Page.setTitle(data.pagetitle);
+			});
+			
+			
 												
 			initSearch();
+			
+
+			
+			package.get().then(function(data) {
+	
+				caldevServices.list(data.agendaID, data.clientKey).then(function(data) {
+					$scope.calendar = data;
+					setTimeout(lazyLoadImage, 10);
+					hideLoader();
+				});
+	
+				$scope.package = data;
+				$scope.mailFormUrl = $sce.trustAsResourceUrl(data.mailchimp.urlForm);
+			});
 			
         }]
     );
     
-    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page','viewSlideIndex',
-    	function($scope,$location, $routeParams, $http, caldevServices, Page, viewSlideIndex) {
+    app.controller('DetailController', ['$scope', '$location','$routeParams', '$http', 'caldevServices' ,'Page','viewSlideIndex', 'package','lang',
+    	function($scope,$location, $routeParams, $http, caldevServices, Page, viewSlideIndex, package, lang) {
 		$scope.pageClass = 'page-detail';
 		document.getElementById("bigTitle").style.height = window.innerHeight + "px";
 		initSearch();
+		
 		
 			if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'right';
@@ -69,25 +77,31 @@ define(['angular','app'], function(angular, app)
 			removeClass(document.getElementById("nav-c"), "active");
 			showLoader();
 			scrollTop();
+			getLangWords(lang, $scope);
 			
-			caldevServices.get(agendaID, $routeParams.eventId).then(function(data) {
+			package.get().then(function(data) {
+				$scope.package = data;
+				caldevServices.get($routeParams.eventId, data.agendaID, data.clientKey).then(function(data) {
 													$scope.entry = data;
-													Page.setTitle(data.summary + " - CalDev.io");
+													Page.setTitle(data.summary);
 													setTimeout(lazyLoadImage, 10);
 													hideLoader();
 													resizeBgAnimation();
 												});		
-						
+			});			
+			
+			
 			
 		}]
 		
 		 
 	);
 
-	app.controller('AddController', ['$scope','$routeParams', '$location', '$http', 'caldevServices' ,'Page','viewSlideIndex', '$timeout',
-		function ($scope, $http, $routeParams, $location, caldevServices, Page, viewSlideIndex, $timeout){
+	app.controller('AddController', ['$scope','$routeParams', '$location', '$http', 'caldevServices' ,'Page','viewSlideIndex', '$timeout', 'lang',
+			function ($scope, $http, $routeParams, $location, caldevServices, Page, viewSlideIndex, $timeout, lang){
 
 		initSearch();
+		getLangWords(lang, $scope);
 
 		if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'left';
@@ -108,7 +122,7 @@ define(['angular','app'], function(angular, app)
 		addClass(document.getElementById("nav-a"), "active");
 		removeClass(document.getElementById("nav-c"), "active");
 		
-		Page.setTitle("Submit an event - CalDev.io");
+		Page.setTitle("Submit an event");
 	
 			
 		$scope.mailSend = false;
@@ -299,10 +313,12 @@ define(['angular','app'], function(angular, app)
 		}]
 	);
 
-	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page','viewSlideIndex',
-		function ($scope,$location, $routeParams, $http, $sce, Page, viewSlideIndex){
+	app.controller('CalendarController', ['$scope', '$location', '$routeParams', '$http', '$sce' ,'Page','viewSlideIndex','package','lang',
+		function ($scope,$location, $routeParams, $http, $sce, Page, viewSlideIndex, package, lang){
 			scrollTop();
 			initSearch();
+			getLangWords(lang, $scope);
+			
 			if (viewSlideIndex.getViewIndex() == "detail") {
 				$scope.uidirection = 'left';
 			} else if (viewSlideIndex.getViewIndex() == "add") {
@@ -319,11 +335,20 @@ define(['angular','app'], function(angular, app)
 			removeClass(document.getElementById("nav-a"), "active");
 			addClass(document.getElementById("nav-c"), "active");
 			
-			$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
-							+"&src="+agendaID+"&color=%232F6309&ctz=Europe%2FParis");
+			package.get().then(function(data) {
+				$scope.agendaUrl = $sce.trustAsResourceUrl("https://www.google.com/calendar/embed?showNav=0&height=600&wkst=1&bgcolor=%23FFFFFF"
+							+"&src="+data.agendaID+"&color=%232F6309&ctz=Europe%2FParis");
+			});
 		}]
 	);
 	
 		
     
 });
+
+function getLangWords(lang, $scope) {
+	lang.getWords().then(function(data) {
+		$scope.lang = data;
+	});
+}
+

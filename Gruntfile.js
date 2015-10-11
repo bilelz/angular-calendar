@@ -84,6 +84,7 @@ module.exports = function(grunt) {
 		    files: [
 		      // includes files within path
 		      {expand: true, flatten: true, src: ['package.json'], dest: 'build/', filter: 'isFile'},
+		      {expand: true, flatten: true, src: ['js/lang/*'], dest: 'build/js/lang/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/font-awesome/fonts/*'], dest: 'build/fonts/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/async.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},
 		      {expand: true, flatten: true, src: ['js/libs/requirejs-plugins/src/goog.js'], dest: 'build/js/libs/requirejs-plugins/src/', filter: 'isFile'},

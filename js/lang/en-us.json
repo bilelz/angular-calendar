@@ -1,0 +1,24 @@
+{
+	"website":{
+		"title" : "Caldev.io"
+	},
+	"followus": "FOLLOW US",
+	"stayTuned": "Stay tuned with our newsletter",
+	"subscribe" : "SUBSCRIBE",
+	"yourmail" : "Your mail...",
+	"addtoyour" : "Add yo your",
+	"share" : "Share",
+	"viewin" : "View in",
+	"add":{
+		"title" : "Title",
+		"submitevent" : "Submit an event",
+		"hour" : "Hour",
+		"dateend" : "End Date",
+		"adress" : "Adress",
+		"completeall" : "Complete all fields please.",
+		"send" : "Send",
+		"thankyou" : "Thank u! We'll validate (or not) your proposition asap",
+		"backform" : "Back to the form",
+		"required" : "required!"
+	}
+}

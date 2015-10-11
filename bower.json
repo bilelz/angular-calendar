@@ -9,7 +9,8 @@
     "momentjs": "latest",
     "requirejs": "latest",
     "requirejs-plugins": "~1.0.2",
-    "jquery-ui": "~1.10.4"
+    "jquery-ui": "~1.10.4",
+    "moment": "~2.10.3"
   },
   "license": "MIT",
   "private": true

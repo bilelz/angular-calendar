@@ -1,10 +1,15 @@
-define(['angular','moment', 'app'], function (angular, app) {
+define(['angular','moment', 'momentfr', 'app'], function (angular, moment, momentfr, app) {
 	'use strict';
 
 	angular.module('calendarFilters', [])
-		.filter('momentfromnow', function() {
+	.filter('momentfromnow', function() {
 	    return function(dateString, formatIn) {
 	        return (dateString == undefined)?undefined:moment(dateString, formatIn).fromNow();
+	        /*2013-04-26T17:00:00.000+02:00*/
+	    };
+	  }).filter('formatDate', function() {
+	    return function(dateString, formatOut) {
+	        return (dateString == undefined)?undefined:moment(dateString).format(formatOut);
 	        /*2013-04-26T17:00:00.000+02:00*/
 	    };
 	  }).filter('diffDate', function() {
@@ -12,10 +17,6 @@ define(['angular','moment', 'app'], function (angular, app) {
 	    	if(entry == undefined){
 	    		return undefined;
 	    	}else{
-	    		console.log(entry);
-	    		console.log(moment(entry.end.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'));
-	    		console.log(moment(entry.start.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'));
-	    		console.log(moment(entry.end.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ').diff(moment(entry.start.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'), 'hours'));
 	    		moment(entry.end.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ').diff(moment(entry.start.dateTime, 'YYYY-MM-DDTHH:mm:ss.SSSZ'), 'hours');
 	    	}
 	        
@@ -28,16 +29,6 @@ define(['angular','moment', 'app'], function (angular, app) {
 	  }).filter('momentcalendar', function() {
 	    return function(dateString, formatIn) {
 	    	
-    	moment.lang('en', {
-		    calendar : {
-		        lastDay : '[Yesterday at] LT',
-		        sameDay : '[Today at] LT',
-		        nextDay : '[Tomorrow at] LT',
-		        lastWeek : '[last] dddd [at] LT',
-		        nextWeek : 'dddd [at] LT',
-		        sameElse : 'L [at] LT'
-		    }
-		});
         return (dateString == undefined)?undefined:moment(dateString, formatIn).calendar();
     };
   }).filter('getId', function() {

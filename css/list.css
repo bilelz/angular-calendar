@@ -1,0 +1,288 @@
+
+.listBlock{
+	background-size: cover; 
+	width: 265px;
+	height:250px; 
+	display: inline-block; 
+	vertical-align : top;
+	position: relative;
+	margin: 10px;
+	text-decoration: none;
+	background: rgba(0, 0, 0, 0.5);
+	color: black;
+	transition: .3s;
+	overflow: hidden;
+	  text-align: left;
+	
+}
+
+.listBlock:hover, .listBlock:focus, .listBlock:active{
+	color : black;
+}
+
+
+
+.listBlock div.thankyouBG {
+	background-color: #c644fc;
+	background-image: -webkit-linear-gradient(#c644fc, #5856d6);
+	background-image: linear-gradient(#c644fc, #5856d6) !important;
+	transform: scale(1);
+	opacity: 1;
+}
+
+.thankyou .iconthankyou{
+	font-size: 3em;
+	display: block;
+	text-align: center;
+	margin: 0.25em;
+}
+
+
+.thankyoubutton {
+	margin-top: 0;
+	width: 100%;
+	display: block;
+	text-align: center;
+	z-index: 5;
+	position: relative;
+}
+
+
+
+
+.thankyoubutton a{
+	color: white;
+	text-align: center;
+	border: 1px solid white;
+	text-shadow: none;
+}
+
+.thankyoubutton a:hover{
+	background: white;
+	color: #5856d6;
+}
+
+.listBlock .imgBg{
+	height: 195px;
+	width: 100%;
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+	transition: .5s;
+	-webkit-transform:scale(0.8);
+	-moz-transform:scale(0.8);
+	transform:scale(0.8);
+	opacity:0;
+}
+
+[data-img]{
+	transition: .5s;
+	-webkit-transform:scale(0.8);
+	-moz-transform:scale(0.8);
+	transform:scale(0.8);
+	opacity:0;
+}
+
+.listBlock:hover div, .listBlock:focus div{
+	transition: .3s;
+}
+
+.listBlock div.imgLoaded, [data-img].imgLoaded{
+	-webkit-transform:scale(1);
+	-moz-transform:scale(1);
+	transform:scale(1);
+	opacity:1;
+}
+.list-group{	
+	border-bottom: 1px solid #dddddd;
+	box-shadow: 0px 0px 0px #AAA;
+	color: black;
+}
+.list-group .list-group-item a{
+	background-color: rgba(255,255,255,.8);
+	color: #444;
+	text-shadow: 0px 1px 0px #fff;
+	padding: 5px 10px;
+	display: block;
+	text-decoration: none;
+	transition: .3s;
+}
+
+
+.list-group .list-group-item a:hover, .list-group .list-group-item a:active, .list-group .list-group-item a:focus{
+	background-color: rgba(255,255,255,0);
+	transition: .1s;
+}
+
+.list-group .list-group-item{
+	padding: 0;
+	margin-bottom: 10px;
+	background: white top center no-repeat;
+	transition: .3s ease-out;
+}
+
+.list-group .list-group-item:hover{
+	background: white center center no-repeat;
+	transition: .6s ease-out;
+}
+
+.list-group-item-heading{
+	font-weight: bold;	
+}
+
+.list-group-item p{
+	margin-bottom: 0;
+}
+
+
+.calendarframe{
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	padding: 5px;
+	background: rgba(0, 0, 0, 0.33);
+	color: white;
+}
+
+.listBlock .calendarframe{
+	
+	
+}
+
+.dayLabel{
+
+display: block;
+clear: both;
+}
+
+.dayNumber{
+font-size: 20px;
+    font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+    margin-top: 0px;
+}
+
+.monthLabel{
+	display: block;
+text-align: center;
+}
+
+.listTitle{
+  font-size: 24px;
+  padding: 0 5px;
+  position: absolute;
+  background-color: transparent;
+  display: block;
+  bottom: 55px;
+  width: 100%;
+  
+  color: white;
+  width: 100%;
+  text-shadow: 0 1px 1px black;
+  background-image: -webkit-linear-gradient(bottom,rgba(0, 0, 0, 0.25) 0,rgba(0,0,0,.25) 50%,rgba(0,0,0,0) 100%);
+  background-image: -moz-linear-gradient(bottom,rgba(0, 0, 0, 0.25) 0,rgba(0,0,0,.25) 50%,rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(bottom,rgba(0, 0, 0, 0.25) 0,rgba(0,0,0,.25) 50%,rgba(0,0,0,0) 100%);
+}
+
+
+.listAvatar img{
+	border-radius: 64px;
+	  height: 24px;
+}
+
+.listInfo{
+	display: inline-block;
+}
+
+.listDate{
+  display: inline-block;
+}
+
+.listDatePlace{
+	  white-space: nowrap !important;
+	    padding: 5px;
+	    background-color: white;
+	    color: #555;
+}
+
+.listDatePlace:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 27px;
+  width: 32px;
+  content: '';
+  background-color: rgba(255, 255, 255, 0.15);
+  background-image: -webkit-linear-gradient(left,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 1) 75%);
+  background-image: -moz-linear-gradient(left,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 1) 75%);
+  background-image: linear-gradient(left,rgba(255, 255, 255, 0) 0,rgba(255, 255, 255, 1) 75%);
+}
+
+.dayMoment{
+	  display: block;
+}
+
+
+
+.listWhere{
+  display: inline-block;
+  //opacity: .5;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+    line-height: 25px;
+}
+
+.listWhere i {
+	  width: 12px;
+  text-align: center;
+}
+
+.listLocation{
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  vertical-align: top;
+}
+
+
+.divDate{
+  display: inline-block;
+  width: 42px;
+  text-transform: uppercase;
+  line-height: 13px;
+  text-align: center;
+  vertical-align: top;
+  border: 1px solid #aaa;
+  margin-right: 5px;
+  color: #555;
+  padding: 0px;
+}
+
+.divDate span{
+	display: block;
+	  white-space: nowrap !important;
+}
+
+
+.day{
+	font-size: 10px;
+    background-color: red;
+    margin-bottom: 3px;
+    color: white;
+    font-weight: bold;
+}
+
+.month{
+	font-size: 12px;
+    margin-top: 2px;
+}
+
+
+.socialNewsTitle{
+  color: white;
+  font-size: 1.5em;
+  width: 100%;
+  padding: 15px;
+}
+
+

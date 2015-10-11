@@ -117,107 +117,12 @@ blockquote{
 }
 
 
-.listBlock{
-	background-size: cover; 
-	width: 265px;
-	height:250px; 
-	display: inline-block; 
-	vertical-align : top;
-	position: relative;
-	margin: 10px;
-	text-decoration: none;
-	background: rgba(0, 0, 0, 0.5);
-	transition: .3s;
-	overflow: hidden;
-	
-}
-
-
-
-.listBlock div.thankyouBG {
-	background-color: #c644fc;
-	background-image: -webkit-linear-gradient(#c644fc, #5856d6);
-	background-image: linear-gradient(#c644fc, #5856d6) !important;
-	transform: scale(1);
-	opacity: 1;
-}
-
-.thankyou .iconthankyou{
-	font-size: 3em;
-	display: block;
-	text-align: center;
-	margin: 0.25em;
-}
-
-
-.thankyoubutton {
-	margin-top: 0;
-	width: 100%;
-	display: block;
-	text-align: center;
-	z-index: 5;
-	position: relative;
-}
-
-
-
-
-.thankyoubutton a{
-	color: white;
-	text-align: center;
-	border: 1px solid white;
-	text-shadow: none;
-}
-
-.thankyoubutton a:hover{
-	background: white;
-	color: #5856d6;
-}
-
-.listBlock div{
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-size: cover;
-	background-position: top center;
-	background-repeat: no-repeat;
-	transition: .5s;
-	-webkit-transform:scale(0.8);
-	-moz-transform:scale(0.8);
-	transform:scale(0.8);
-	opacity:0;
-}
-
-[data-img]{
-	transition: .5s;
-	-webkit-transform:scale(0.8);
-	-moz-transform:scale(0.8);
-	transform:scale(0.8);
-	opacity:0;
-}
-
-.listBlock:hover div, .listBlock:focus div{
-	transition: .3s;
-}
-
-.listBlock div.imgLoaded, [data-img].imgLoaded{
-	-webkit-transform:scale(1.2);
-	-moz-transform:scale(1.2);
-	transform:scale(1.2);
-	opacity:1;
-}
-
+/*
 .listBlock .listBigTitle{
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	/*background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.05) 80%, rgba(0, 0, 0, 0.35) 100%);
-	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.05) 80%, rgba(0, 0, 0, 0.35) 100%);
-	background-image: -ms-linear-gradient(top, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.05) 80%, rgba(0, 0, 0, 0.35) 100%);
-	background-image: linear-gradient(top, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.05) 80%, rgba(0, 0, 0, 0.35) 100%);
-	*/
+	
 	color: white;
 	margin: 0;
 	font-weight: normal;
@@ -276,47 +181,8 @@ box-shadow: .5em 0 1em white, 0 .5em 1em white, -.5em 0 1em white, 0 -.5em 1em w
 .listBlock .listTitle, .listBlock .listWhere, .listBlock .listDate span{
 	  background: rgba(0, 0, 0, 0.63);
 }
+*/
 
-.list-group{	
-	border-bottom: 1px solid #dddddd;
-	box-shadow: 0px 0px 0px #AAA;
-	color: black;
-}
-.list-group .list-group-item a{
-	background-color: rgba(255,255,255,.8);
-	color: #444;
-	text-shadow: 0px 1px 0px #fff;
-	padding: 5px 10px;
-	display: block;
-	text-decoration: none;
-	transition: .3s;
-}
-
-
-.list-group .list-group-item a:hover, .list-group .list-group-item a:active, .list-group .list-group-item a:focus{
-	background-color: rgba(255,255,255,0);
-	transition: .1s;
-}
-
-.list-group .list-group-item{
-	padding: 0;
-	margin-bottom: 10px;
-	background: white top center no-repeat;
-	transition: .3s ease-out;
-}
-
-.list-group .list-group-item:hover{
-	background: white center center no-repeat;
-	transition: .6s ease-out;
-}
-
-.list-group-item-heading{
-	font-weight: bold;	
-}
-
-.list-group-item p{
-	margin-bottom: 0;
-}
 
 .title{
 	color: white;
@@ -391,40 +257,6 @@ box-shadow: .5em 0 1em white, 0 .5em 1em white, -.5em 0 1em white, 0 -.5em 1em w
 
 
 
-
-.calendarframe{
-	text-align: center;
-	display: inline-block;
-	position: relative;
-	padding: 5px;
-	background: rgba(0, 0, 0, 0.33);
-	color: white;
-}
-
-.listBlock .calendarframe{
-	
-	
-}
-
-.dayLabel{
-
-display: block;
-clear: both;
-}
-
-.dayNumber{
-display: block;
-font-size: 3em;
-line-height: 1em;
-
-font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
-}
-
-.monthLabel{
-	display: block;
-text-align: center;
-}
-
 .loader {
   	width: 150px;
 height: 150px;
@@ -488,6 +320,10 @@ display: none;
 		height: 300px;
 	}
 	
+	.listBlock:first-child .imgBg {
+  		height: 245px;
+ 	}
+	
 	 .listBlock:nth-child(6), .listBlock:nth-child(7), .listBlock:nth-child(8){
 		width: 550px;
 	}
@@ -528,4 +364,105 @@ display: none;
   		margin-right: 0;
 		
 	}
+}
+
+#newsletter{
+	background: rgba(0, 0, 0, 0.6);
+	  width: 265px;
+  height: 250px;
+}
+
+
+#mc-embedded-subscribe {
+	font-style: italic;
+	font-weight: bold;
+	color: #f9b248;
+	border: 1px solid #f9b248;
+	background: none;
+}
+
+
+#mc-embedded-subscribe:hover, #mc-embedded-subscribe:focus, #mc-embedded-subscribe:active {
+	background: #f9b248;
+	color: black;
+}
+
+#followus {
+	position: absolute;
+	top: 50px;
+	opacity: 1;
+	z-index: 5;
+	left: 0;
+	width: 100%;
+	padding: 0 15px;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	color: white;
+	text-align: center;
+}
+
+#followus a, #followus a:hover, #followus a:focus{
+	color : white;
+}
+
+#followus a.socialBtn{
+	display: inline-block;
+	border-radius: 10em;
+  background: #5BC8ED;
+  color: #fff;
+  height: 64px;
+  width: 64px;
+  font-size: 48px;
+  line-height: 48px;
+    margin: 0 auto;
+      margin-right: 10px;
+}
+
+#followus a.socialBtn:hover,#followus a.socialBtn:active, #followus a.socialBtn:focus {
+  background: #fff;
+  color: #5BC8ED;
+}
+
+.twitterGrp{
+	  display: inline-block;
+  vertical-align: top;
+  width: 64px;
+    margin-right: 10px;
+}
+
+#followus a.facebook{
+  background: #46629E;
+  color: #fff;
+}
+#followus a.facebook:hover,#followus a.facebook:active, #followus a.facebook:focus {
+  background: #fff;
+  color: #46629E;
+}
+
+#followus a.rss{
+	background: #FF6600;
+}
+
+#followus a.rss:hover,#followus a.rss:active, #followus a.rss:focus {
+  background: #fff;
+  color: #FF6600;
+}
+
+
+
+#followus a.gplus {
+  background: #C84F3A;
+}
+
+#followus a.gplus:hover {
+  color: #C84F3A;
+}
+
+
+#followus a.github {
+  background: #aaa;
+}
+
+#followus a.github:hover {
+  color: #aaa;
 }

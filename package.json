@@ -1,11 +1,32 @@
 {
   "name": "angular-calendar",
+  "homepage": "http://caldev.io",
+  "pagetitle" : "CalDev.io - Agenda 4 developers & others...",
   "version": "0.0.1",
   "description": "POC  angular.js",
   "main": "index.js",
-  "lang": "fr-fr",
+  "lang": "en-us",
   "agendaID": "u825pd9kqiahvdqljsk29rass4@group.calendar.google.com",
   "agendaID-isl": "1fion5g1t61ltvj1pd0dv6vqek@group.calendar.google.com",
+  "clientKey" : "AIzaSyA3dweFJyhbf-mJ3mxXqFCFnKRNb9idvJ8",
+  "social" : {
+	  	"twitter" : "bilelz",
+	  	"gplus" : "https://plus.google.com/+BilelZeghad?rel=author",
+	  	"github" : "https://github.com/bilelz/angular-calendar",
+	  	"facebook" : "",
+	  	"showShareFlyAnimation" : "false"
+	  },
+	"mailchimp" : {
+		"urlForm" : "http://bilelz.us3.list-manage.com/subscribe/post?u=0999373eb4f1031b81746d085&amp;id=cea44b788c",
+		"key" : "b_0999373eb4f1031b81746d085_cea44b788c"
+	},
+	"shareItem":{
+		"facebook" : "true",
+		"twitter" : "true",
+		"gplus" : "true",
+		"mail" :"true",
+		"linkedin" : "true"
+	},
   "dependencies": {
     "grunt": "~0.4.2"
   },
@@ -35,6 +56,5 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/bilelz/angular-calendar/issues"
-  },
-  "homepage": "http://caldev.io"
+  }
 }

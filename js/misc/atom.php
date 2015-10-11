@@ -157,17 +157,18 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 
 		<title><?php echo $obj['summary']; ?></title> 
-		<link href="<?php echo $obj['description']; ?>/" rel="alternate" type="text/html"/>
-		<link href="<?php echo $obj['description']; ?>/atom" rel="self" type="application/atom+xml"/>
+		<link href="<?php echo $baseUrl; ?>/" rel="alternate" type="text/html"/>
+		<link href="<?php echo $baseUrl; ?>/atom" rel="self" type="application/atom+xml"/>
 		
-		<id><?php echo $obj['description']; ?></id>
+		<id><?php echo $baseUrl; ?></id>
 		<updated><?php echo $todayFormattedRSS; ?></updated>
 		<category term="LifeStyle"/>
 		<subtitle><?php echo sizeof($obj['items'])." ".$message['events'.$lang]." ".$labelTitle; ?></subtitle>
+		<description><?php echo sizeof($obj['items'])." ".$message['events'.$lang]." ".$labelTitle; ?></description>
 		
 		<author>
-			<name><?php echo $obj['description']; ?></name>
-			<uri><?php echo $obj['description']; ?></uri>
+			<name><?php echo $baseUrl; ?></name>
+			<uri><?php echo $baseUrl; ?></uri>
     	</author>
 
 <?php
@@ -239,7 +240,7 @@ foreach ($obj['items'] as $event) {
 
 <entry> 
 		<title>[<?php echo $fullLabelDay; ?>] <?php echo htmlspecialchars($event['summary'], ENT_QUOTES, 'UTF-8');?></title>		
-		<link href="<?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?>"/> 
+		<link href="<?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?>"  rel='alternate' type='text/html'/> 
 		<id><?php echo $baseUrl.'/'.text2AlphaNum($event['summary']).'/'.$event['id']; ?></id> 
 		<published><?php echo $eventStartTimeRSSFormatted; ?></published>
 		<updated><?php echo $eventUpdateTimeRSSFormatted; ?></updated>

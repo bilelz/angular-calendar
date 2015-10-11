@@ -1,0 +1,26 @@
+{
+	"website":{
+		"title" : "Caldev.io"
+	},
+	"followus": "SUIVEZ NOUS",
+	"stayTuned": "Restez informé avec notre newsletter",
+	"subscribe" : "S'ABONNER",
+	"yourmail" : "Votre mail...",
+	"addtoyour" : "Ajouter à votre",
+	"share" : "Partager"   ,
+	"viewin" : "Voir dans",
+	"add":{
+		"title" : "Titre de l'événement",
+		"submitevent" : "Soumettre un événement",
+		"hour" : "Heure",
+		"dateend" : "Date de fin",
+		"adress" : "Adresse",
+		"completeall" : "Complétez tous les champs svp.",
+		"send" : "Envoyer",
+		"thankyou" : "Merci! Nous validerons (ou pas) votre proposition au plus vite",
+		"backform" : "Revenir au formulaire",
+		"required" : "obligatoire"
+	}
+	
+	
+}

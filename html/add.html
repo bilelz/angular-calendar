@@ -4,7 +4,7 @@
 	
 	<div class="col-md-12">	
 
-	<h1 class="title">Submit an event</h1>
+	<h1 class="title">{{lang.add.submitevent}}</h1>
 
 	<div class="alert alert-success" ng-show="mailSend">
 		<i class="fa fa-smile-o fa-2x"></i>
@@ -22,10 +22,10 @@
   		<input type="text" class="form-control"  name="title" id="title" ng-model="event.title"  required ng-minlength="5" ng-maxlength="100"
       		ng-blur="myFormNg.title.blured=true"  ng-class="{notempty: myFormNg.title.required}">
 	      <label for="title">
-	      		Title
+	      		{{lang.add.title}}
 	      		<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.title.$valid"></i> -->
 	      		<i class="fa fa-check" ng-show="myFormNg.title.$valid"></i>
-	      		<span class="label label-danger" ng-show="myFormNg.title.$error.required && myFormNg.title.blured">Required!</span>
+	      		<span class="label label-danger" ng-show="myFormNg.title.$error.required && myFormNg.title.blured">{{lang.add.required}}</span>
 		    	<span class="label label-warning" ng-show="myFormNg.title.$error.minlength && myFormNg.title.$dirty" >
 		      		too short  (5 letters minimum). 
 		      	</span>
@@ -53,7 +53,7 @@
 		 			style="width:85px !important; display: inline-block" 
 		 			ng-options="obj.value as obj.label for obj in hours">
 			</select>
-		      <label for="hour"  >  Hour 
+		      <label for="hour"  >  {{lang.add.hour}} 
 		    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i> -->
 		    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
 		    </label>
@@ -62,7 +62,7 @@
   	
 	  	<div class="  float end">
 	  		<input type="date" id="dateend"   name="dateend" ng-model="event.dateend" placeholder="JJ/MM/AAAA" required="required" class="form-control date"/> <!--
-		       --><label for="dateend"  ><i class="fa fa-calendar-o"></i> Date de fin
+		       --><label for="dateend"  ><i class="fa fa-calendar-o"></i> {{lang.add.dateend}}
 		    	<i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i>
 		    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
 		    </label><!--	    
@@ -73,7 +73,7 @@
 					
 				</select>
 				
-			      <label for="hourend"  >Hour 
+			      <label for="hourend"  >{{lang.add.hour}} 
 			    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!(myFormNg.date.$valid && myFormNg.dateend.$valid && myFormNg.hour.$valid && myFormNg.hourend.$valid)"></i> -->
 			    	<i class="fa fa-check" ng-show="(myFormNg.date.$valid && myFormNg.dateend.$valid)"></i>	    		
 			    </label>
@@ -87,7 +87,7 @@
       <label for="adress" ><i class="fa fa-globe"></i> Adress 
 	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.adress.$valid"></i> -->
 	    	<i class="fa fa-check" ng-show="myFormNg.adress.$valid"></i>    	
-	    	<span class="label label-danger" ng-show="myFormNg.adress.$error.required && myFormNg.adress.blured">Required!</span>
+	    	<span class="label label-danger" ng-show="myFormNg.adress.$error.required && myFormNg.adress.blured">{{lang.add.required}}</span>
     	</label>
       
       
@@ -110,7 +110,7 @@
 	       	<label for="description"  >Description 
 	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.description.$valid"></i> -->
 	    	<i class="fa fa-check"  ng-show="myFormNg.description.$valid"></i>
-	    	<span class="label label-danger" ng-show="myFormNg.description.$error.required && myFormNg.description.blured">Required!</span>
+	    	<span class="label label-danger" ng-show="myFormNg.description.$error.required && myFormNg.description.blured">{{lang.add.required}}</span>
 	    	<span class="label label-warning" ng-show="myFormNg.description.$error.minlength && myFormNg.description.$dirty" >
 	      		description is too short  (10 letters minimum).
 	      	</span>
@@ -140,7 +140,7 @@
 	      <label for="mail">Mail 
 	    	<!-- <i class="fa fa-asterisk formStatus" ng-show="!myFormNg.mail.$valid"></i> -->
 	    	<i class="fa fa-check"  ng-show="myFormNg.mail.$valid"></i>
-	    	<span class="label label-danger" ng-show="myFormNg.mail.$error.required && myFormNg.mail.blured">Required!</span>
+	    	<span class="label label-danger" ng-show="myFormNg.mail.$error.required && myFormNg.mail.blured">{{lang.add.required}}</span>
 	      	<span class="label label-warning" data-ng-show="myFormNg.mail.$invalid && myFormNg.mail.$dirty">Invalid email!</span>
 	    </label>
 	    
@@ -149,8 +149,8 @@
   	<div class="col-lg-12 ">
       	<button type="submit" class="btn btn-primary" ng-disabled="!myFormNg.$valid" ng-class="{'btn-primary':myFormNg.$valid}">
 	      	
-	      	<span class="error text" ng-show="!myFormNg.$valid"><i class="fa fa-paper-plane-o"></i>&nbsp;Complete all fields please.</span>
-	      	<span class="text" ng-show="myFormNg.$valid"><i class="fa fa-paper-plane"></i>&nbsp;Send</span>
+	      	<span class="error text" ng-show="!myFormNg.$valid"><i class="fa fa-paper-plane-o"></i>&nbsp;{{lang.add.completeall}}</span>
+	      	<span class="text" ng-show="myFormNg.$valid"><i class="fa fa-paper-plane"></i>&nbsp;{{lang.add.s}}</span>
 	      	<div id="add-progress"> </div>
 
 	  	</button>

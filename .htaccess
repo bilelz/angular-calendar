@@ -1,3 +1,4 @@
+SetEnv PHP_VER 5_4
 RewriteEngine On
 RewriteRule ^(.*)\.[a-f0-9]{4}+\.(css|js)$ $1.$2 [L] # Strip out the version number (md5)
 

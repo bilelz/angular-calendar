@@ -12,7 +12,8 @@ require.config({
         angular : 'libs/angular/angular',
         angularroute : 'libs/angular-route/angular-route',
         angularresource: "libs/angular-resource/angular-resource",
-        moment : 'libs/momentjs/moment',
+        moment : 'libs/moment/moment',
+        momentfr : 'libs/moment/locale/fr',
         angularanimate : 'libs/angular-animate/angular-animate',
         uibootstrap: 'libs/angular-bootstrap/ui-bootstrap.min'
     },
@@ -24,7 +25,8 @@ require.config({
     'angularanimate': ['angular'],   
     'uibootstrap': ['angular'],   
     'jqueryui': { deps:['jquery']},
-    'bootstrap': { deps:['jquery']}
+    'bootstrap': { deps:['jquery']}, 
+    'momentfr': { deps:['moment']}
   },
 	priority: [
 		"angular"
@@ -46,9 +48,10 @@ require( [
 	'controllers',
 	'utils',
 	'bootstrap',
+	'moment',
 	
 	'routes'
-], function(angular, app, routes, controllers) {
+], function(angular, app, routes, moment, controllers) {
 	'use strict';
 
 	angular.element().ready(function(app) {
